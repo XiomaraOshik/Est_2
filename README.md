@@ -4,7 +4,7 @@
   - Yarim Kamila Gamarra Dávila (20195573)
 
 
-Tema: 
-VD: (Variable dependiente csv)
-Justificación
-3 variables por integrante, con breve justificación de una o dos líneas
+- Tema: 
+- VD: (Variable dependiente csv)
+- Justificación
+- 3 variables por integrante, con breve justificación de una o dos líneas
