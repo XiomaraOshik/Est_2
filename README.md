@@ -46,7 +46,7 @@
 
    - Variable 2: Gasto público en la educación
       - Base de datos: Banco Mundial 2018-19 (BM_18-19) (XVI2_Gasteduc.csv) - Abrir por drive
-      - Justificación: El alcance de un alto índice de calidad de educación es la meta de cualquier Estado moderno. En tal sentido, para lograr el desarrollo del mismo, es necesario el aumento del presupuesto para los avances esperados. Precisamente, es el aumento del gasto público en la educación, el que determina un rol importante, en la medida que este permite la implementación del enfoque de género. Es así como, se considera que con un aumento del gasto público que permita el alcance nacional del enfoque de género, es que se logra que las mujeres cuenten con mayores probabilidades de pertenecer a puestos directivos. Esto debido a que mediante la transmisión de una educación que rompa los estereotipos de género, ela favorabilidad hacia el empoderamiento femenino en este ámbito cuenta con mayor aprobación y apoyo por parte de la sociedad. 
+      - Justificación: El alcance de un alto índice de calidad de educación es la meta de cualquier Estado moderno. En tal sentido, para lograr el desarrollo del mismo, es necesario el aumento del presupuesto para los avances esperados. Precisamente, es el aumento del gasto público en la educación, el que determina un rol importante, en la medida que este permite la implementación del enfoque de género. Es así como, se considera que con un aumento del gasto público que permita el alcance nacional del enfoque de género, es que se logra que las mujeres cuenten con mayores probabilidades de pertenecer a puestos directivos. Esto debido a que mediante la transmisión de una educación que rompa los estereotipos de género, la favorabilidad hacia el empoderamiento femenino en este ámbito cuenta con mayor aprobación y apoyo por parte de la sociedad. 
 
    - Variable 3: Porcentaje de empleo vulnerable femenino
       - Base de datos: Banco Mundial 2018-19 (BM_18-19) (XVI3_PBI.csv) - Abrir por drive
@@ -55,13 +55,13 @@
  - Kamila Gamarra
  
    - Variable 1: Porcentaje de población por debajo de la línea de pobreza
-      - Base de datos: 
+      - Base de datos: Index Mundi 2020 (In_mun_20) (KVI1_Pobreza.csv)
       - Justificación: Consideramos que esta variable es relevante ya que la pobreza afecta en mayor magnitud a las mujeres que a los varones. Así mismo, un mayor nivel de pobreza presente en un país implica mayor cantidad de ciudadanos sin acceso a oportunidades de desarrollo, lo que podría ayudar a explicar la falta de mujeres preparadas para poder consolidarse en puestos directivos.
 
    - Variable 2: Porcentaje de la población activa mujeres
-      - Base de datos: 
+      - Base de datos: Banco Mundial 2018-19 (BM_18-19) (KVI2_ActivaM.csv) - Abrir por drive
       - Justificación: Consideramos necesario poder ver qué porcentaje de las ciudadanas mujeres se encuentran dentro de la población activa ya que, como sabemos, un gran porcentaje de mujeres se dedica a labores domésticas y de cuidado que no son remuneradas y se considera parte de la población no activa. En este sentido, se puede evaluar si el porcentaje de mujeres dentro de la población activa, es decir la oferta femenina, en comparación con la masculina, tiene efectos en la magnitud de su presencia en cargos directivos.
 
    - Variable 3: Proporción de niñas con respecto a niños en educación primaria y secundaria
-      - Base de datos: 
+      - Base de datos: Banco Mundial 2018-19 (BM_18-19) (KVI3_Prim_Sec.csv) - Abrir por drive
       - Justificación: Al no encontrar una data que muestre el porcentaje de mujeres que tienen acceso a educación superior, hemos considerado pertinente poder incluir el acceso y permanencia de niñas en educación primaria y secundaria. Esto debido a que actualmente, la brecha entre varones y mujeres que tienen hasta grado secundario de educación sigue siendo bastante alta. De esta forma, se puede determinar que el porcentaje de acceso de mujeres a educación primaria y secundaria repercute en el nivel de su la formación que es necesaria para poder ocupar cargos directivos.
