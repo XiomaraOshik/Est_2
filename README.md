@@ -5,6 +5,6 @@
 
 # Trabajo
 - Tema: Participación femenina en cargos de poder
-- Variable dependiente: Proporción de mujeres en puestos directivos (Prop_mujeres_puestos_directivos_VD.csv)
+- Variable dependiente: Proporción de mujeres en puestos directivos (Nombre de la data: Prop_mujeres_puestos_directivos_VD.csv)
 - Justificación
 - 3 variables por integrante, con breve justificación de una o dos líneas
