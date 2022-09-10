@@ -4,7 +4,7 @@
   - Yarim Kamila Gamarra Dávila (20195573)
 
 # Trabajo
-- Tema: 
-- VD: (Variable dependiente csv)
+- Tema: Participación femenina en cargos de poder
+- Variable dependiente: Proporción de mujeres en puestos directivos (Prop_mujeres_puestos_directivos_VD.csv)
 - Justificación
 - 3 variables por integrante, con breve justificación de una o dos líneas
