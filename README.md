@@ -8,4 +8,7 @@
 - Tema: Participación femenina en cargos de poder
 - Variable dependiente: Proporción de mujeres en puestos directivos (Nombre de la data: Prop_mujeres_puestos_directivos_VD.csv)
     - Justificación
-- 3 variables por integrante, con breve justificación de una o dos líneas
+- Responsable: Pepito Sanchez
+  - Variable 1: Satisfacción con la democracia
+  - Base de datos: LAPOP 2018 (Lapop_18) (Poner el nombre del archivo)
+  - Justificación:.....
