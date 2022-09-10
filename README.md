@@ -27,8 +27,8 @@
  - María Fernanda Carrillo
 
    - Variable 1: Índice de empoderamiento político femenino
-      - Base de datos: 
-      - Justificación: Esta medida parte de la medición del ingreso económico relativo a la mujer, participación en puestos de alta paga con poder económico y la plausibilidad de acceder a una posición parlamentaria en conjunto; precisamente se relaciona en tanto toma a la economía como una variable que tener en cuenta para determinar cuán loable es el tener un puesto privilegiado en base a otras circunstancias de índole económica.
+      - Base de datos: World Economic Forum 2021 (WEF_21) (MFVI1_Empoderamiento.csv)
+      - Justificación: Esta se relaciona más concretamente con la participación política de la mujer en tanto considera y analiza la economía e independencia que tenga con cuán probable o viable es para ella el poder acceder a un puesto de alto cargo. Es decir, acorde al perfil promedio de una mujer de cualquier país se determina cuánto es que su economía ha determinado o aún determina el hecho de poder acceder a puestos ejecutivos dentro de su sociedad.
 
    - Variable 2: Índice de inequidad de género
       - Base de datos: 
