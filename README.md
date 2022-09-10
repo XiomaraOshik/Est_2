@@ -36,21 +36,22 @@
 
    - Variable 3: Porcentaje de empresas con participación femenina en su titularidad
       - Base de datos: United Nations Development Programme 2021 (UNDP_21) (MFVI3_Titularidad.csv)
-      - Justificación: En esta variable se mide de forma tangible la presencia de las mujeres en las posiciones directivas, ya que, al ser dueñas de una compañía, se sobreentiende que juegan un papel importante, y de una manera u otra ejercen liderazgo sobre estos. Además, sirve para poder ver de manera más clara la diferencia y lo escasa que es la participación de la mujer en este ámbito en algunos países. De esta manera, al tener un mayor porcentaje de empresas con participación femenina en su titularidad se conduce a que las oportunidades femeninas para acceder a puestos directivos sea mayor que en empresas con directivos únicamente masculinos. 
+      - Justificación: En esta variable se mide de forma tangible la presencia de las mujeres en las posiciones directivas, ya que, al ser dueñas de una compañía, se sobreentiende que juegan un papel importante, y de una manera u otra ejercen liderazgo sobre estos. Además, sirve para poder ver de manera más clara la diferencia y lo escasa que es la participación de la mujer en este ámbito en algunos países. De esta manera, al tener un mayor porcentaje de empresas con participación femenina en su titularidad se conduce a que las oportunidades femeninas para acceder a puestos directivos sean mayores que en empresas con directivos únicamente masculinos.
       
- - Xiomara Oshikawa
+- Xiomara Oshikawa
 
    - Variable 1: Proporción de escaños ocupados por mujeres en los parlamentos nacionales
       - Base de datos: Banco Mundial 2018-19 (BM_18-19) (XVI1_Parlamentos.csv) - Abrir por drive
-      - Justificación: Tradicionalmente los puestos políticos han sido ocupados por políticos del género masculino, lo cual, frente a los distintos intentos de movilizaciones han supuesto un gran obstaculo en la medida de su rechazo por el aumento de la participación y cuota femenina. De este modo, se ha podido asociar que en principio, la estancia de un número significativo de escaños ocupados por mujeres dentro de un parlamento, genera que la aceptación en puestos directivos aumente su índice de aceptación de participación femenina.
+      - Justificación: Tradicionalmente los puestos políticos han sido ocupados por políticos del género masculino, lo cual, frente a los distintos intentos de movilizaciones han supuesto un gran obstáculo en la medida de su rechazo por el aumento de la participación y cuota femenina. De este modo, se ha podido asociar que, en principio, la estancia de un número significativo de escaños ocupados por mujeres dentro de un parlamento, genera que la aceptación en puestos directivos aumente su índice de aceptación de participación femenina.
 
    - Variable 2: Gasto público en la educación
       - Base de datos: Banco Mundial 2018-19 (BM_18-19) (XVI2_Gasteduc.csv) - Abrir por drive
       - Justificación: El alcance de un alto índice de calidad de educación es la meta de cualquier Estado moderno. En tal sentido, para lograr el desarrollo del mismo, es necesario el aumento del presupuesto para los avances esperados. Precisamente, es el aumento del gasto público en la educación, el que determina un rol importante, en la medida que este permite la implementación del enfoque de género. Es así como, se considera que con un aumento del gasto público que permita el alcance nacional del enfoque de género, es que se logra que las mujeres cuenten con mayores probabilidades de pertenecer a puestos directivos. Esto debido a que mediante la transmisión de una educación que rompa los estereotipos de género, la favorabilidad hacia el empoderamiento femenino en este ámbito cuenta con mayor aprobación y apoyo por parte de la sociedad. 
 
    - Variable 3: Porcentaje de empleo vulnerable femenino
-      - Base de datos: Banco Mundial 2018-19 (BM_18-19) (XVI3_PBI.csv) - Abrir por drive
-      - Justificación: 
+      - Base de datos: Banco Mundial 2018-19 (BM_18-19) (XVI3_Vulnerable.csv) - Abrir por drive
+      - Justificación:
+
 
  - Kamila Gamarra
  
