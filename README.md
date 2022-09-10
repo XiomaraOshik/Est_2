@@ -31,13 +31,13 @@
       - Justificación: Esta se relaciona más concretamente con la participación política de la mujer en tanto considera y analiza la economía e independencia que tenga con cuán probable o viable es para ella el poder acceder a un puesto de alto cargo. Es decir, acorde al perfil promedio de una mujer de cualquier país se determina cuánto es que su economía ha determinado o aún determina el hecho de poder acceder a puestos ejecutivos dentro de su sociedad.
 
    - Variable 2: Índice de inequidad de género
-      - Base de datos: 
-      - Justificación: Este toma en cuenta aspectos no solo económicos, sino que también toma en cuenta la salud y posición relativa de la mujer dentro de la sociedad, por lo que es sumamente útil en tanto nos da una mirada incluso más general respecto a situación de las mujeres en las sociedades en la que es medido este índice.
+      - Base de datos: United Nations Development Programme 2016-20 (UNDP_16-20) (MFVI2_Inequidad.csv)
+      - Justificación: La inequidad tangible en la sociedad explica la desventaja que tiene la mujer para acceder a esos escaños de poder, ya que históricamente la mujer ha sido marginada, dejada de lado y no tomada en cuenta para poder ocupar posiciones de poder. En este sentido, es importante tomar en cuenta la desigualdad estructural para explicar la falta de figuras femeninas en posiciones de poder con paridad al número de hombres. Por lo tanto, si dentro de una sociedad existe un mayor índice equidad de género, se incentivará a la población femenina a ocupar puestos de poder, siendo una de sus manifestaciones la presencia de un número mayor de mujeres en puestos directivos. 
 
    - Variable 3: Porcentaje de empresas con participación femenina en su titularidad
-      - Base de datos: 
-      - Justificación: En esta variable lo que se mide es, respecto a la totalidad de las empresas en cada país, cuántas de estas tienen participación de alguna mujer dentro de su titularidad y/o propiedad; algo fácilmente relacionable con el ámbito directivo, en tanto es obvio el hecho de que por tener a dicha empresa en su posesión (parcial o total) ha de ejercer algún grado de directiva dentro de este y por tanto es un buen punto de partida para evaluar nuestra variable dependiente.
-
+      - Base de datos: United Nations Development Programme 2021 (UNDP_21) (MFVI3_Titularidad.csv)
+      - Justificación: En esta variable se mide de forma tangible la presencia de las mujeres en las posiciones directivas, ya que, al ser dueñas de una compañía, se sobreentiende que juegan un papel importante, y de una manera u otra ejercen liderazgo sobre estos. Además, sirve para poder ver de manera más clara la diferencia y lo escasa que es la participación de la mujer en este ámbito en algunos países. De esta manera, al tener un mayor porcentaje de empresas con participación femenina en su titularidad se conduce a que las oportunidades femeninas para acceder a puestos directivos sea mayor que en empresas con directivos únicamente masculinos. 
+      
  - Xiomara Oshikawa
 
    - Variable 1: Proporción de escaños ocupados por mujeres en los parlamentos nacionales
