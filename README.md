@@ -50,8 +50,7 @@
 
    - Variable 3: Porcentaje de empleo vulnerable femenino
       - Base de datos: Banco Mundial 2018-19 (BM_18-19) (XVI3_Vulnerable.csv) - Abrir por drive
-      - Justificación:
-
+      - Justificación: El empleo vulnerable se encuentra caracterizado por ingresos inadecuados, baja productividad y condiciones de trabajo difíciles, los cuales dificultan significativamente las motivaciones de los trabajares, ya sea de género masculino o femenino de trabajar o ingresar al mercado laboral. Hoy en día, con el impulso de brindar oportunidades igualitarias a las mujeres, la disminución de estas situaciones desventajosas resultan elementales para que se incentive a la población femenina activa a desarrollarse e impulsarse para encontrar puesto directivos con buenas condiciones de trabajo. En tal sentido, se ha identificado que a un porcentaje menor de empleo vulnerable femenino, se logra obtener un crecimiento en el índice de mujeres con acceso a cargos directivos. 
 
  - Kamila Gamarra
  
