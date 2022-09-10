@@ -15,13 +15,13 @@
     - Base de datos: Banco Mundial 2018-19 (BM_18-19) (LVI1_PBI.csv)
     - Justificación: El PBI per cápita es un indicador económico que nos permite estimar la riqueza de un país. Creemos conveniente establecer una potencial correspondencia entre este y la incidencia de mujeres en cargos ejecutivos. Esto puesto que en un país opulento el presupuesto destinado a la educación es superior, lo cual puede permitir que haya menos prejuicios contra las mujeres y estas puedan velar por su bienestar económico con independencia.
 
-  - Variable 2: 
+  - Variable 2: El índice de libertad humana
     - Base de datos: World Population Review 2019 (WPR_19) (LVI2_Libertad.csv)
     - Justificación: El índice de libertad humana mide la concurrencia de un conglomerado de categorías afines a esta temática como la libertad de asociación, de expresión, de identidad, tolerancia a las preferencias diversas, etc. Se optó por este dado que una sociedad liberal muestra más apertura respecto a la participación de sectores que anteriormente permanecieron marginados, como las mujeres. Asimismo, permite que las demandas de movimientos que apoyen esta incursión sean consideradas.
 
-  - Variable 3: 
-    - Base de datos: 
-    - Justificación: 
+  - Variable 3: El porcentaje de mujeres alfabetizadas de 15 años en adelante
+    - Base de datos: Banco Mundial 2018-19 (BM_18-19) (LVI3_Literacy.csv)
+    - Justificación: Sostenemos que el porcentaje de mujeres alfabetizadas de 15 años en adelante contribuye a nuestro proyecto. Esto porque, al usar dicha edad de manera referencial, nos aproximarnos a la cantidad de mujeres que potencialmente accedieron a educación especializada, sea técnica o superior.
     
  - María Fernanda Carrillo
 
@@ -39,16 +39,16 @@
 
  - Xiomara Oshikawa
 
-   - Variable 1: 
-      - Base de datos: 
+   - Variable 1: Proporción de escaños ocupados por mujeres en los parlamentos nacionales
+      - Base de datos: Banco Mundial 2018-19 (BM_18-19) (XVI1_Parlamentos.csv)
+      - Justificación: Tradicionalmente los puestos políticos han sido ocupados por políticos del género masculino, lo cual, frente a los distintos intentos de movilizaciones han supuesto un gran obstaculo en la medida de su rechazo por el aumento de la participación política femenina. De este modo, se ha podido asociar que en principio, la estancia de un número significativo de escaños ocupados por mujeres dentro de un parlamento, genera que la aceptación en puestos directivos aumente su índice de aceptación de participación femenina.
+
+   - Variable 2: Gasto público en la educación
+      - Base de datos: Banco Mundial 2018-19 (BM_18-19) (XVI2_PBI.csv)
       - Justificación: 
 
-   - Variable 2: 
-      - Base de datos: 
-      - Justificación: 
-
-   - Variable 3: 
-      - Base de datos: 
+   - Variable 3: Porcentaje de empleo vulnerable femenino
+      - Base de datos: Banco Mundial 2018-19 (BM_18-19) (XVI3_PBI.csv)
       - Justificación: 
 
  - Kamila Gamarra
