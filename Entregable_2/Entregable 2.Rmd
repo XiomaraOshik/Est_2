@@ -1,0 +1,454 @@
+---
+title: "Entregable 2"
+author: "Xiomara_Oshik"
+date: "2022-10-06"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#VARIABLE DEPENDIENTE
+
+```{r}
+gitLink="https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_1/Prop_mujeres_puestos_directivos_VD.csv"
+vardep=rio::import(gitLink)
+```
+
+```{r}
+library(dplyr)
+select(vardep, V1, V2, V64)
+```
+
+```{r}
+dependiente <- select(vardep, V1, V2, V64)
+head(dependiente,10)
+```
+
+```{r}
+dependiente = dependiente[-c(1),]
+```
+
+```{r}
+colnames(dependiente) = c("pais","codigo","puestosdirec2019")
+```
+
+--------------------------------------------------------------
+#VARIABLES INDEPENDIENTES
+
+# Kamila Gamarra 
+
+#VARIABLE 1: Porcentaje de población por debajo de la línea de pobreza
+
+```{r}
+gitLink="https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_1/Kamila/KVI1_Pobreza.csv"
+var1=rio::import(gitLink)
+```
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+select(var1, V1, V2, V60)
+```
+
+```{r}
+datos1 <- select(var1, V1, V2, V60)
+head(datos1,10)
+```
+
+```{r}
+datos1 = datos1[-c(1),]
+```
+
+```{r}
+colnames(datos1) = c("pais","codigo","%inciPobreza2015")
+```
+
+#Variable 2: Porcentaje de la población activa mujeres
+
+```{r}
+gitLink="https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_1/Kamila/KVI2_ActivaM.csv"
+var2=rio::import(gitLink)
+```
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+select(var2, V1, V2, V60)
+```
+
+```{r}
+datos2 <- select(var2, V1, V2, V60)
+head(datos2,10)
+```
+
+```{r}
+datos2 = datos2[-c(1),]
+```
+
+```{r}
+colnames(datos2) = c("pais","codigo","%mujeresAct2015")
+```
+
+#Variable 3: Proporción de niñas con respecto a niños en educación primaria y secundaria
+
+```{r}
+gitLink="https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_1/Kamila/KVI3_Prim_Sec.csv"
+var3=rio::import(gitLink)
+```
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+select(var3, V1, V2, V60)
+```
+
+```{r}
+datos3 <- select(var3, V1, V2, V60)
+head(datos3,10)
+```
+
+```{r}
+datos3 = datos3[-c(1),]
+```
+
+```{r}
+colnames(datos3) = c("pais","codigo","proporEduca2015")
+```
+
+#Juntando las 3 bases
+
+```{r}
+datos1$pais=NULL
+```
+
+```{r}
+kami=merge(datos2,datos1,all=TRUE)
+str(kami)
+```
+
+```{r}
+datos3$pais=NULL
+```
+
+```{r}
+kafinal=merge(kami,datos3,all=TRUE)
+str(kafinal)
+```
+
+# Xiomara Oshikawa 
+
+```{r}
+library(rio)
+
+Parlamentos="https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_1/Xiomara/XVI1_Parlamentos.csv"
+XParlamentos=import(Parlamentos)
+```
+
+```{r}
+Gasteduc="https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_1/Xiomara/XVI2_Gasteduc.csv"
+XGasteduc=import(Gasteduc)
+```
+
+```{r}
+Vulnerable="https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_1/Xiomara/XVI3_Vulnerable.csv"
+XVulnerable=import(Vulnerable)
+```
+
+#Variable 1: Proporción de escaños ocupados por mujeres en los parlamentos nacionales
+
+```{r}
+library(dplyr)
+select(XParlamentos, V1, V2, V60)
+```
+
+```{r}
+XParlamentos <- select(XParlamentos, V1, V2, V60)
+head(XParlamentos,10)
+```
+```{r}
+XParlamentos = XParlamentos[-c(1:4),]
+```
+
+```{r}
+colnames(XParlamentos) = c("pais","codigo","%parlamentos2015")
+```
+
+#Variable 2: Gasto público en la educación
+
+```{r}
+select(XGasteduc, V1, V2, V60)
+```
+
+```{r}
+XGasteduc <- select(XGasteduc, V1, V2, V60)
+head(XGasteduc,10)
+```
+
+```{r}
+XGasteduc = XGasteduc[-c(1:4),]
+```
+
+```{r}
+colnames(XGasteduc) = c("pais","codigo","%gasteduc2015")
+```
+
+#Variable 3: Porcentaje de empleo vulnerable femenino
+
+```{r}
+select(XVulnerable, V1, V2, V60)
+```
+
+```{r}
+XVulnerable <- select(XVulnerable, V1, V2, V60)
+head(XVulnerable,10)
+```
+
+```{r}
+XVulnerable = XVulnerable[-c(1:4),]
+```
+
+```{r}
+colnames(XVulnerable) = c("pais","codigo","%vulnerable2015")
+```
+
+#Unión de las bases
+
+```{r}
+XGasteduc$pais=NULL
+```
+
+```{r}
+data=merge(XParlamentos,XGasteduc,all=TRUE)
+str(data)
+```
+
+```{r}
+XVulnerable$pais=NULL
+```
+
+```{r}
+Xio_data=merge(data,XVulnerable,all=TRUE)
+str(Xio_data)
+```
+
+#María Fernanda Carrillo
+
+#Variable 1: Índice de empoderamiento político femenino
+
+```{r}
+WomenPower=("https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_1/Maria%20Fernanda/MFVI1_Empoderamiento.csv")
+WomenPower=import(WomenPower)
+```
+
+```{r}
+GenderIneq=("https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_1/Maria%20Fernanda/MFVI2_Inequidad.csv")
+GenderIneq=import(GenderIneq)
+
+GenderIneq = GenderIneq[-c(1:6,73,123,168,201:267),]
+GenderIneq = GenderIneq[,c(2:3)]
+colnames(GenderIneq) = c("Country","Gender Inequality Index")
+```
+
+```{r}
+FemalePart=("https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_1/Maria%20Fernanda/MFVI3_Titularidad.csv")
+FemalePart=import(FemalePart)
+
+FemalePart = FemalePart[-c(1:7),]
+FemalePart = FemalePart[,c(1:2)]
+colnames(FemalePart) = c("Country","Percent of firms with female participation in ownership")
+```
+
+```{r}
+Unif = ("https://gist.githubusercontent.com/brenes/1095110/raw/c8f208b03485ba28f97c500ab7271e8bce43b9c6/paises.csv")
+Unif =import(Unif)
+Unif = Unif[,c(2,5)]
+colnames(Unif) = c("Country","ISO3")
+```
+
+```{r}
+form=merge(Unif,FemalePart,all=TRUE)
+str(form)
+
+form=merge(form,GenderIneq,all=TRUE)
+str(form)
+
+form=merge(form,WomenPower,all=TRUE)
+str(form)
+```
+
+```{r}
+colnames(form) = c("pais","codigo","participacion2015","inequidad2015","empoderamiento2015")
+```
+
+#Luciana Rojas
+
+#Primera variable:
+
+```{r}
+gitLink1="https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_1/Lucero/LVI1_PBI.csv"
+Lu.var1=rio::import(gitLink1)
+```
+
+```{r}
+data1 = select(Lu.var1, V2, V44)
+```
+
+```{r}
+colnames(data1) = c("codigo","Pbi2015")
+```
+
+```{r}
+data1=data1[-c(1:4),]
+
+unif=("https://gist.githubusercontent.com/brenes/1095110/raw/c8f208b03485ba28f97c500ab7271e8bce43b9c6/paises.csv")
+unif=import(unif)
+unif=unif[,c(2,5)]
+colnames(unif)=c("pais","codigo")
+
+data1=merge(unif,data1,all=TRUE)
+str(data1)
+```
+
+#Tercera variable:
+
+```{r}
+gitLink3= "https://raw.githubusercontent.com/luciana1091/tareita/main/yeii.csv"
+Lu.var3=rio::import(gitLink3)
+```
+
+```{r}
+data3 = select(Lu.var3, V1,V7)
+```
+
+```{r}
+colnames(data3) = c("pais","alfabetizacion2015")
+data3=data3[-c(1:4,219:330),]
+```
+
+```{r}
+data3=merge(unif,data3,all=TRUE)
+str(data3)
+```
+
+#Variable 2:
+```{r}
+gitLink2= "https://raw.githubusercontent.com/luciana1091/clase1/main/var2.csv"
+Lu.var2=rio::import(gitLink2)
+```
+
+```{r}
+data2 = select(Lu.var2, V2, V44)
+```
+
+```{r}
+colnames(data2) = c("codigo","Prop2015")
+```
+
+```{r}
+data2=data2[-c(1),]
+data2=merge(unif,data2,all=TRUE)
+str(data2)
+```
+
+```{r}
+data1$Pais=NULL
+
+lu=merge(data1,data2,all=TRUE)
+```
+
+```{r}
+data1$Pais=NULL
+```
+
+```{r}
+lu=merge(data2,data1,all=TRUE)
+```
+
+```{r}
+data3$Pais=NULL
+```
+
+```{r}
+lufinal=merge(lu,data3,all=TRUE)
+```
+
+-------------------------------------------------------
+#Data final (grupal - independientes)
+
+```{r}
+Xio_data$pais=NULL
+```
+
+```{r}
+Borrador1=merge(kafinal,Xio_data,all=TRUE)
+str(Borrador1)
+```
+
+```{r}
+form$pais=NULL
+```
+
+```{r}
+Borrador2=merge(Borrador1,form,all=TRUE)
+str(Borrador2)
+```
+
+```{r}
+lufinal$pais=NULL
+```
+
+```{r}
+independientes=merge(Borrador2,lufinal,all=TRUE)
+str(independientes)
+```
+
+------------------------------------
+#Unión base de datos independientes con la dependiente
+
+```{r}
+independientes$pais=NULL
+```
+ 
+```{r}
+Data_limpia=merge(dependiente,independientes,all=TRUE)
+str(Data_limpia)
+```
+
+---------------------------------------------------------------
+#Limpieza de NA's
+
+```{r}
+Data_limpia = Data_limpia[complete.cases(Data_limpia),]
+```
+
+-------------------------------------------------------------
+#Exportación de la data
+
+```{r}
+library(rio)
+export(Data_limpia, "data.csv")
+```
+
+```{r}
+save(Data_limpia,file="data.Rda")
+```
+
+
+
+
+
+
+
+
+
+
+
+
