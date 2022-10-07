@@ -1,6 +1,6 @@
 ;;;;SDG3.1;SDG3.7;SDG5.5;SDG4.4;;;
 ;;Gender Inequality Index;;Maternal mortality ratio;Adolescent birth rate;Share of seats in parliament;Population with at least some secondary education;;Labour force participation rate ;
-;;Value;Rank;(deaths per 100.000 live births);(births per 1.000 women ages 15–19);(% held by women);(% ages 25 and older);;(% ages 15 and older);
+;;Value;Rank;(deaths per 100.000 live births);(births per 1.000 women ages 15â€“19);(% held by women);(% ages 25 and older);;(% ages 15 and older);
 HDI rank;Country;;;;;;Female;Male;Female;Male
 ;;2021;2021;2017;2021;2021;2021;2021;2021;2021
 ;VERY HIGH HUMAN DEVELOPMENT;;;;;;;;;
@@ -51,7 +51,7 @@ HDI rank;Country;;;;;;Female;Male;Female;Male
 45;Slovakia;0.180;45;5;26.3;22.7;98.9;99.2;54.7;66.4
 46;Hungary;0.221;55;12;22.1;13.1;97.6;98.8;52.1;67.2
 47;Argentina;0.287;69;39;39.1;44.4;71.0;71.4;50.0;71.6
-48;Türkiye;0.272;65;17;16.9;17.3;56.3;75.9;31.8;69.4
+48;TÃ¼rkiye;0.272;65;17;16.9;17.3;56.3;75.9;31.8;69.4
 49;Montenegro;0.119;32;6;10.4;24.7;92.3;99.2;47.8;62.0
 50;Kuwait;0.305;74;12;5.6;1.5;60.9;55.2;47.4;83.8
 51;Brunei Darussalam;0.259;61;31;10.0;9.1;70.4;71.2;54.1;72.3
@@ -164,7 +164,7 @@ HDI rank;Country;;;;;;Female;Male;Female;Male
 156;Comoros;..;..;273;58.2;16.7;..;..;32.1;54.5
 156;Papua New Guinea;0.725;169;145;55.3;0.0;10.8;15.5;46.3;48.1
 158;Mauritania;0.632;161;766;78.0;20.3;14.5;21.9;27.4;62.2
-159;Côte d'Ivoire;0.613;155;617;105.0;15.6;23.9;32.2;45.9;64.9
+159;CÃ´te d'Ivoire;0.613;155;617;105.0;15.6;23.9;32.2;45.9;64.9
 ;LOW HUMAN DEVELOPMENT;;;;;;;;;
 160;Tanzania (United Republic of);0.560;146;524;123.7;36.9;13.0;19.1;79.5;87.1
 161;Pakistan;0.534;135;140;42.3;19.9;22.1;28.7;20.7;78.1
@@ -205,27 +205,27 @@ HDI rank;Country;;;;;;Female;Male;Female;Male
 ;Somalia;..;..;829;118.0;24.6;..;..;20.9;47.0
 ;;;;;;;;;;
 ;Human development groups;;;;;;;;;
-;Very high human development;0.155;—;15;14.1;29.1;87.0;89.4;52.6;68.4
-;High human development;0.329;—;62;28.0;25.8;72.7;78.0;53.6;73.5
-;Medium human development;0.494;—;175;38.1;21.8;44.0;54.2;28.8;71.3
-;Low human development;0.577;—;499;89.5;24.3;22.8;34.1;49.3;73.2
+;Very high human development;0.155;â€”;15;14.1;29.1;87.0;89.4;52.6;68.4
+;High human development;0.329;â€”;62;28.0;25.8;72.7;78.0;53.6;73.5
+;Medium human development;0.494;â€”;175;38.1;21.8;44.0;54.2;28.8;71.3
+;Low human development;0.577;â€”;499;89.5;24.3;22.8;34.1;49.3;73.2
 ;;;;;;;;;;
-;Developing countries;0.487;—;247;46.5;23.9;56.9;64.7;44.4;72.8
+;Developing countries;0.487;â€”;247;46.5;23.9;56.9;64.7;44.4;72.8
 ;;;;;;;;;;
 ;Regions;;;;;;;;;
-;Arab States;0.536;—;150;45.3;18.3;53.8;60.4;19.3;69.5
-;East Asia and the Pacific;0.337;—;82;21.6;20.9;71.4;78.2;59.7;75.2
-;Europe and Central Asia;0.227;—;20;20.1;26.1;83.4;89.7;42.9;67.0
-;Latin America and the Caribbean;0.381;—;75;53.4;33.2;63.2;63.2;48.6;72.7
-;South Asia;0.508;—;153;28.9;17.6;42.2;52.8;21.6;71.6
-;Sub-Saharan Africa;0.569;—;536;100.9;25.7;31.1;44.3;62.1;72.3
+;Arab States;0.536;â€”;150;45.3;18.3;53.8;60.4;19.3;69.5
+;East Asia and the Pacific;0.337;â€”;82;21.6;20.9;71.4;78.2;59.7;75.2
+;Europe and Central Asia;0.227;â€”;20;20.1;26.1;83.4;89.7;42.9;67.0
+;Latin America and the Caribbean;0.381;â€”;75;53.4;33.2;63.2;63.2;48.6;72.7
+;South Asia;0.508;â€”;153;28.9;17.6;42.2;52.8;21.6;71.6
+;Sub-Saharan Africa;0.569;â€”;536;100.9;25.7;31.1;44.3;62.1;72.3
 ;;;;;;;;;;
-;Least developed countries;0.562;—;417;93.7;24.7;27.5;38.7;54.6;75.8
-;Small island developing states;0.461;—;212;50.9;26.7;62.1;65.7;50.4;68.7
+;Least developed countries;0.562;â€”;417;93.7;24.7;27.5;38.7;54.6;75.8
+;Small island developing states;0.461;â€”;212;50.9;26.7;62.1;65.7;50.4;68.7
 ;;;;;;;;;;
-;Organisation for Economic Co-operation and Development;0.185;—;18;19.2;32.4;86.7;89.1;51.8;67.8
+;Organisation for Economic Co-operation and Development;0.185;â€”;18;19.2;32.4;86.7;89.1;51.8;67.8
 ;;;;;;;;;;
-;World;0.465;—;225;42.5;25.9;64.2;70.3;46.2;71.7
+;World;0.465;â€”;225;42.5;25.9;64.2;70.3;46.2;71.7
 ;;;;;;;;;;
 ;Notes;;;;;;;;;
 ;a. Estimates modelled by the International Labour Organization.;;;;;;;;;
@@ -233,7 +233,7 @@ HDI rank;Country;;;;;;Female;Male;Female;Male
 ;c. Updated by HDRO based on data from UNESCO Institute for Statistics (2022).;;;;;;;;;
 ;d. Updated by HDRO based on data from Barro and Lee (2018) and UNESCO Institute for Statistics (2022).;;;;;;;;;
 ;e. Updated by HDRO based on data from OECD (2022) and UNESCO Institute for Statistics (2022).;;;;;;;;;
-;f. HDRO estimate based on data from Robert Barro and Jong-Wha Lee. ICF Macro Demographic and Health Surveys. the Organisation for Economic Co-operation and Development. United Nations Children’s Fund (UNICEF) Multiple Indicator Cluster Surveys and the United Nations Educational. Scientific and Cultural Organization Institute for Statistics.;;;;;;;;;
+;f. HDRO estimate based on data from Robert Barro and Jong-Wha Lee. ICF Macro Demographic and Health Surveys. the Organisation for Economic Co-operation and Development. United Nations Childrenâ€™s Fund (UNICEF) Multiple Indicator Cluster Surveys and the United Nations Educational. Scientific and Cultural Organization Institute for Statistics.;;;;;;;;;
 ;g. In calculating the Gender Inequality Index. a value of 0.1 percent was used.;;;;;;;;;
 ;h. Updated by HDRO based on data from UNESCO Institute for Statistics (2022) and UNICEF Multiple Indicator Cluster Surveys for various years.;;;;;;;;;
 ;i. Updated by HDRO using projections from Barro and Lee (2018).;;;;;;;;;
@@ -252,13 +252,13 @@ HDI rank;Country;;;;;;Female;Male;Female;Male
 ;Definitions;;;;;;;;;
 ;Gender Inequality Index: A composite measure reflecting inequality in achievement between women and men in three dimensions: reproductive health. empowerment and the labour market. See Technical note 4 at http://hdr.undp.org/sites/default/files/hdr2022_technical_notes.pdf for details on how the Gender Inequality Index is calculated.;;;;;;;;;
 ;Maternal mortality ratio: Number of deaths due to pregnancy-related causes per 100.000 live births.;;;;;;;;;
-;Adolescent birth rate: Number of births to women ages 15–19 per 1.000 women ages 15–19.;;;;;;;;;
+;Adolescent birth rate: Number of births to women ages 15â€“19 per 1.000 women ages 15â€“19.;;;;;;;;;
 ;Share of seats in parliament: Proportion of seats held by women in the national parliament expressed as a percentage of total seats. For countries with a bicameral legislative system. the share of seats is calculated based on both houses.;;;;;;;;;
 ;Population with at least some secondary education: Percentage of the population ages 25 and older that has reached (but not necessarily completed) a secondary level of education.;;;;;;;;;
 ;Labour force participation rate: Proportion of the working-age population (ages 15 and older) that engages in the labour market. either by working or actively looking for work. expressed as a percentage of the working-age population.;;;;;;;;;
 ;;;;;;;;;;
 ;Main data sources;;;;;;;;;
-;Column 1: HDRO calculations based on data in columns 3–9.;;;;;;;;;
+;Column 1: HDRO calculations based on data in columns 3â€“9.;;;;;;;;;
 ;Column 2: Calculated based on data in column 1.;;;;;;;;;
 ;Column 3: WHO. UNICEF. UNFPA. World Bank Group and United Nations Population Division (2019).;;;;;;;;;
 ;Column 4: UNDESA (2022a).;;;;;;;;;
