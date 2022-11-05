@@ -62,6 +62,22 @@ str(data)
 datatable(data, filter = "top")
 ```
 
+<<<<<<< HEAD
+=======
+# Base de datos unificada
+
+
+```{r echo=FALSE}
+data = "[https://github.com/santiagomv29/PRACTICAS_ESTA2/raw/main/base_dataunificada.csv](https://github.com/XiomaraOshik/Est_2/blob/main/Entregable_2/data.csv)"
+library(rio)
+data = import(data)
+library(magrittr)
+BDU%>%
+rmarkdown::paged_table()
+```
+
+
+>>>>>>> 837b39ebf4abf4d7f7100a6c10b384168367940b
 
 ### 2. CORRELACIONES:
 
