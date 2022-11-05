@@ -107,9 +107,27 @@ modelo4 <- lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015 + Poblacion_Act_Muj
 summary(modelo4)
 ```
 
+```{r include=FALSE}
+colnames(data)[15] = "parlamentos2020"
+```
+```{r echo=FALSE}
+equatiomatic::extract_eq(modelo4, use_coefs = TRUE)
+```
+
+```{r echo=FALSE}
+model5=list('parlamentos2020'=data)
+modelsummary(modelo5, title = "OLS",
+             stars = TRUE,
+             output = "kableExtra")
+```
+
 
 Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05. También se aprecia que la variable agregada: PBI_2015 tiene efecto estadísticamente significativo. Así, si nuestra variable independiente aumenta en una unidad, la dependiente también lo hará en 0.0002. Esto es una cantidad poco representativa tomando en cuenta a los valores obtenidos en regresiones anteriores. Por otro lado, nuestro modelo es confiable al 20%. Por último, observamos que la inserción de esta nueva variable independiente afecta a sus predecesoras (Por_Vulnerable_Femenino_2015, Población_Act_Mujeres2015 y Gasto_Public_Educacion_2015), aunque no supone algún cambio abrupto respecto a sus valores en la regresión anterior.
 
 
 En resumen, el último modelo, que incluye las 4 variables independientes, es el mejor modelo con un 20% de confiabilidad. En este sentido, las 4 variables son significativas para poder analizar las variaciones que existen en cada país acerca del porcentaje de las mujeres en los escaños de los parlamentos. 
+
+
+
+
 
