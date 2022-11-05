@@ -76,6 +76,8 @@ summary(modelo1)
 
 Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05. También se comprueba que nuestra variable "Por_Vulnerable_Femenino 2015" tiene impacto estadísticamente significativo en la variable dependiente (dep). Esto quiere decir que mientras nuestra independiente aumenta en una unidad, la dependiente disminuirá en 0.08. Esta afirmación es válida al 6% considerando nuestro R cuadrado múltiple.
 
+
+
 #### MODELO 2: Efecto de las variables población vulnerable femenina y Población activa mujeres
 
 ```{r echo=FALSE}
@@ -84,6 +86,7 @@ summary(modelo2)
 ```
 
 Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05. También se aprecia que la variable agregada: Población_Act_Mujeres2015 tiene efecto estadísticamente significativo. Así, si nuestra variable independiente aumenta en una unidad, la dependiente también lo hará en 0.4. Por otro lado, nuestro modelo es confiable al 14%. Por último, observamos que la inserción de esta nueva variable independiente afecta positivamente a su predecesora (Por_Vulnerable_Femenino_2015) ya que aumenta en 0.01 respecto a su valor en la regresión anterior.
+
 
 
 #### MODELO 3: Efecto de las variables población vulnerable femenina, Población activa mujeres y gasto público en educación
@@ -95,6 +98,8 @@ summary(modelo3)
 
 Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05. También se aprecia que la variable agregada: Gasto_Public_Educacion_2015 tiene efecto estadísticamente significativo. Así, si nuestra variable independiente aumenta en una unidad, la dependiente también lo hará en 0.4. Por otro lado, nuestro modelo es confiable al 17%. Por último, observamos que la inserción de esta nueva variable independiente afecta a sus predecesoras (Por_Vulnerable_Femenino_2015 y Población_Act_Mujeres2015), aunque no supone algún cambio abrupto respecto a sus valores en la regresión anterior.
 
+
+
 #### MODELO 4: Efecto de las variables población vulnerable femenina, población activa mujeres, gasto público en educación y PBI 
 
 ```{r echo=FALSE}
@@ -104,6 +109,7 @@ summary(modelo4)
 
 
 Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05. También se aprecia que la variable agregada: PBI_2015 tiene efecto estadísticamente significativo. Así, si nuestra variable independiente aumenta en una unidad, la dependiente también lo hará en 0.0002. Esto es una cantidad poco representativa tomando en cuenta a los valores obtenidos en regresiones anteriores. Por otro lado, nuestro modelo es confiable al 20%. Por último, observamos que la inserción de esta nueva variable independiente afecta a sus predecesoras (Por_Vulnerable_Femenino_2015, Población_Act_Mujeres2015 y Gasto_Public_Educacion_2015), aunque no supone algún cambio abrupto respecto a sus valores en la regresión anterior.
+
 
 En resumen, el último modelo, que incluye las 4 variables independientes, es el mejor modelo con un 20% de confiabilidad. En este sentido, las 4 variables son significativas para poder analizar las variaciones que existen en cada país acerca del porcentaje de las mujeres en los escaños de los parlamentos. 
 
