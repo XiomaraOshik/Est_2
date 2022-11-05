@@ -109,6 +109,7 @@ summary(modelo4)
 
 ```{r include=FALSE}
 colnames(data)[15] = "parlamentos2020"
+
 ```
 ```{r echo=FALSE}
 equatiomatic::extract_eq(modelo4, use_coefs = TRUE)
