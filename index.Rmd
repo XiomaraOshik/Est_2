@@ -68,11 +68,11 @@ datatable(data, filter = "top")
 
 
 ```{r echo=FALSE}
-data = "[https://github.com/santiagomv29/PRACTICAS_ESTA2/raw/main/base_dataunificada.csv](https://github.com/XiomaraOshik/Est_2/blob/main/Entregable_2/data.csv)"
+data = "https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_2/data.csv"
 library(rio)
 data = import(data)
 library(magrittr)
-BDU%>%
+data%>%
 rmarkdown::paged_table()
 ```
 
@@ -121,6 +121,18 @@ modelo2 <- lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015 + Poblacion_Act_Muj
 summary(modelo2)
 ```
 
+```{r}
+equatiomatic::extract_eq(modelo2, use_coefs = TRUE)
+```
+
+```{r}
+model2=list('parlamentos2020'=data)
+modelsummary(modelo2, title = "Regresión 2",
+             stars = TRUE,
+             output = "kableExtra")
+```
+
+
 Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05. También se aprecia que la variable agregada: Población_Act_Mujeres2015 tiene efecto estadísticamente significativo. Así, si nuestra variable independiente aumenta en una unidad, la dependiente también lo hará en 0.4. Por otro lado, nuestro modelo es confiable al 14%. Por último, observamos que la inserción de esta nueva variable independiente afecta positivamente a su predecesora (Por_Vulnerable_Femenino_2015) ya que aumenta en 0.01 respecto a su valor en la regresión anterior.
 
 
@@ -131,6 +143,18 @@ Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05.
 modelo3 <- lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015 + Poblacion_Act_Mujeres2015 + Gasto_public_educacion_2015, data=data)
 summary(modelo3)
 ```
+
+```{r}
+equatiomatic::extract_eq(modelo3, use_coefs = TRUE)
+```
+
+```{r}
+model3=list('parlamentos2020'=data)
+modelsummary(modelo3, title = "Regresión 3",
+             stars = TRUE,
+             output = "kableExtra")
+```
+
 
 Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05. También se aprecia que la variable agregada: Gasto_Public_Educacion_2015 tiene efecto estadísticamente significativo. Así, si nuestra variable independiente aumenta en una unidad, la dependiente también lo hará en 0.4. Por otro lado, nuestro modelo es confiable al 17%. Por último, observamos que la inserción de esta nueva variable independiente afecta a sus predecesoras (Por_Vulnerable_Femenino_2015 y Población_Act_Mujeres2015), aunque no supone algún cambio abrupto respecto a sus valores en la regresión anterior.
 
@@ -143,20 +167,14 @@ modelo4 <- lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015 + Poblacion_Act_Muj
 summary(modelo4)
 ```
 
-```{r include=FALSE}
-colnames(data)[15] = "parlamentos2020"
-
-
-
-```
 
 ```{r echo=FALSE}
 equatiomatic::extract_eq(modelo4, use_coefs = TRUE)
 ```
 
 ```{r echo=FALSE}
-modelo4=list('parlamentos2020'=data)
-modelsummary(modelo4, title = "OLS",
+model4=list('parlamentos2020'=data)
+modelsummary(modelo3, title = "Regresión 4",
              stars = TRUE,
              output = "kableExtra")
 ```
