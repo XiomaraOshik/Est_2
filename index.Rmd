@@ -1,5 +1,5 @@
 ---
-title: "Regresiones"
+title: "Proporción de escaños en el parlamento político ocupado por mujeres 2020 - Análisis de los resultados"
 author: "Xiomara_Oshik"
 date: "2022-10-07"
 output: html_document
