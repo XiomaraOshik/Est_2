@@ -119,11 +119,11 @@ Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05.
 modelo2 <- lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015 + Poblacion_Act_Mujeres2015, data=data)
 ```
 
-```{r}
+```{r echo=FALSE}
 equatiomatic::extract_eq(modelo2, use_coefs = TRUE)
 ```
 
-```{r}
+```{r echo=FALSE}
 model2=list('parlamentos2020'=data)
 modelsummary(modelo2, title = "Regresión 2",
              stars = TRUE,
@@ -141,11 +141,11 @@ Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05.
 modelo3 <- lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015 + Poblacion_Act_Mujeres2015 + Gasto_public_educacion_2015, data=data)
 ```
 
-```{r}
+```{r echo=FALSE}
 equatiomatic::extract_eq(modelo3, use_coefs = TRUE)
 ```
 
-```{r}
+```{r echo=FALSE}
 model3=list('parlamentos2020'=data)
 modelsummary(modelo3, title = "Regresión 3",
              stars = TRUE,
