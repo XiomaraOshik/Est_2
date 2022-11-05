@@ -115,8 +115,8 @@ equatiomatic::extract_eq(modelo4, use_coefs = TRUE)
 ```
 
 ```{r echo=FALSE}
-model5=list('parlamentos2020'=data)
-modelsummary(modelo5, title = "OLS",
+modelo4=list('parlamentos2020'=data)
+modelsummary(modelo4, title = "OLS",
              stars = TRUE,
              output = "kableExtra")
 ```
