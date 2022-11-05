@@ -95,7 +95,6 @@ cor.test(data$parlamentos2020, data$PBI_2015)
 ```{r echo=FALSE}
 modelo1 <- lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015, data=data)
 anova(modelo1)
-summary(modelo1)
 ```
 
 ```{r echo=FALSE}
@@ -118,7 +117,6 @@ Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05.
 
 ```{r echo=FALSE}
 modelo2 <- lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015 + Poblacion_Act_Mujeres2015, data=data)
-summary(modelo2)
 ```
 
 ```{r}
@@ -141,7 +139,6 @@ Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05.
 
 ```{r echo=FALSE}
 modelo3 <- lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015 + Poblacion_Act_Mujeres2015 + Gasto_public_educacion_2015, data=data)
-summary(modelo3)
 ```
 
 ```{r}
@@ -164,7 +161,6 @@ Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05.
 
 ```{r echo=FALSE}
 modelo4 <- lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015 + Poblacion_Act_Mujeres2015 + Gasto_public_educacion_2015 + PBI_2015, data=data)
-summary(modelo4)
 ```
 
 
