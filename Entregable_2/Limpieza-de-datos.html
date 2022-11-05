@@ -11,9 +11,9 @@
 
 <meta name="author" content="Xiomara_Oshik" />
 
-<meta name="date" content="2022-10-06" />
+<meta name="date" content="2022-10-29" />
 
-<title>Entregable 2</title>
+<title>Corrección - Entregable 2</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -363,16 +363,19 @@ pre code {
 
 
 
-<h1 class="title toc-ignore">Entregable 2</h1>
+<h1 class="title toc-ignore">Corrección - Entregable 2</h1>
 <h4 class="author">Xiomara_Oshik</h4>
-<h4 class="date">2022-10-06</h4>
+<h4 class="date">2022-10-29</h4>
 
 </div>
 
 
-<p>#VARIABLE DEPENDIENTE</p>
-<pre class="r"><code>gitLink=&quot;https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Prop_mujeres_puestos_directivos_VD.csv&quot;
-vardep=rio::import(gitLink)</code></pre>
+<p>#VARIABLE DEPENDIENTE: Proporción de escaños ocupados por mujeres en
+los parlamentos nacionales</p>
+<pre class="r"><code>library(rio)
+
+Parlamentos=&quot;https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_1/Xiomara/XVI1_Parlamentos.csv&quot;
+Dependiente=import(Parlamentos)</code></pre>
 <pre class="r"><code>library(dplyr)</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;dplyr&#39;</code></pre>
@@ -382,622 +385,2302 @@ vardep=rio::import(gitLink)</code></pre>
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code>select(vardep, V1, V2, V64, V65)</code></pre>
-<pre><code>##                                                       V1           V2    V64
-## 1                                           Country Name Country Code 2019.0
-## 2                                                  Aruba          ABW     NA
-## 3                            Africa Eastern and Southern          AFE     NA
-## 4                                            Afghanistan          AFG     NA
-## 5                             Africa Western and Central          AFW     NA
-## 6                                                 Angola          AGO     NA
-## 7                                                Albania          ALB   41.3
-## 8                                                Andorra          AND     NA
-## 9                                             Arab World          ARB     NA
-## 10                                  United Arab Emirates          ARE     NA
-## 11                                             Argentina          ARG   33.1
-## 12                                               Armenia          ARM     NA
-## 13                                        American Samoa          ASM     NA
-## 14                                   Antigua and Barbuda          ATG     NA
-## 15                                             Australia          AUS   34.6
-## 16                                               Austria          AUT   32.0
-## 17                                            Azerbaijan          AZE     NA
-## 18                                               Burundi          BDI     NA
-## 19                                               Belgium          BEL   31.9
-## 20                                                 Benin          BEN     NA
-## 21                                          Burkina Faso          BFA     NA
-## 22                                            Bangladesh          BGD     NA
-## 23                                              Bulgaria          BGR   39.2
-## 24                                               Bahrain          BHR     NA
-## 25                                          Bahamas, The          BHS     NA
-## 26                                Bosnia and Herzegovina          BIH   25.4
-## 27                                               Belarus          BLR   45.8
-## 28                                                Belize          BLZ     NA
-## 29                                               Bermuda          BMU     NA
-## 30                                               Bolivia          BOL   28.2
-## 31                                                Brazil          BRA   37.5
-## 32                                              Barbados          BRB   47.7
-## 33                                     Brunei Darussalam          BRN   32.3
-## 34                                                Bhutan          BTN     NA
-## 35                                              Botswana          BWA   57.8
-## 36                              Central African Republic          CAF     NA
-## 37                                                Canada          CAN     NA
-## 38                        Central Europe and the Baltics          CEB     NA
-## 39                                           Switzerland          CHE   32.5
-## 40                                       Channel Islands          CHI     NA
-## 41                                                 Chile          CHL     NA
-## 42                                                 China          CHN     NA
-## 43                                         Cote d&#39;Ivoire          CIV     NA
-## 44                                              Cameroon          CMR     NA
-## 45                                      Congo, Dem. Rep.          COD     NA
-## 46                                           Congo, Rep.          COG     NA
-## 47                                              Colombia          COL   31.0
-## 48                                               Comoros          COM     NA
-## 49                                            Cabo Verde          CPV     NA
-## 50                                            Costa Rica          CRI   42.8
-## 51                                Caribbean small states          CSS     NA
-## 52                                                  Cuba          CUB     NA
-## 53                                               Curacao          CUW     NA
-## 54                                        Cayman Islands          CYM     NA
-## 55                                                Cyprus          CYP   23.7
-## 56                                        Czech Republic          CZE   26.6
-## 57                                               Germany          DEU   28.6
-## 58                                              Djibouti          DJI     NA
-## 59                                              Dominica          DMA     NA
-## 60                                               Denmark          DNK   26.6
-## 61                                    Dominican Republic          DOM   50.6
-## 62                                               Algeria          DZA     NA
-## 63           East Asia &amp; Pacific (excluding high income)          EAP     NA
-## 64                            Early-demographic dividend          EAR     NA
-## 65                                   East Asia &amp; Pacific          EAS     NA
-## 66         Europe &amp; Central Asia (excluding high income)          ECA     NA
-## 67                                 Europe &amp; Central Asia          ECS     NA
-## 68                                               Ecuador          ECU   37.3
-## 69                                      Egypt, Arab Rep.          EGY    7.1
-## 70                                             Euro area          EMU     NA
-## 71                                               Eritrea          ERI     NA
-## 72                                                 Spain          ESP   33.7
-## 73                                               Estonia          EST   35.5
-## 74                                              Ethiopia          ETH     NA
-## 75                                        European Union          EUU     NA
-## 76              Fragile and conflict affected situations          FCS     NA
-## 77                                               Finland          FIN   36.8
-## 78                                                  Fiji          FJI     NA
-## 79                                                France          FRA   34.3
-## 80                                         Faroe Islands          FRO     NA
-## 81                                 Micronesia, Fed. Sts.          FSM     NA
-## 82                                                 Gabon          GAB     NA
-## 83                                        United Kingdom          GBR   34.9
-## 84                                               Georgia          GEO   36.7
-## 85                                                 Ghana          GHA     NA
-## 86                                             Gibraltar          GIB     NA
-## 87                                                Guinea          GIN     NA
-## 88                                           Gambia, The          GMB     NA
-## 89                                         Guinea-Bissau          GNB     NA
-## 90                                     Equatorial Guinea          GNQ     NA
-## 91                                                Greece          GRC   29.8
-## 92                                               Grenada          GRD     NA
-## 93                                             Greenland          GRL     NA
-## 94                                             Guatemala          GTM   39.4
-## 95                                                  Guam          GUM     NA
-## 96                                                Guyana          GUY   45.9
-## 97                                           High income          HIC     NA
-## 98                                  Hong Kong SAR, China          HKG     NA
-## 99                                              Honduras          HND   47.5
-## 100               Heavily indebted poor countries (HIPC)          HPC     NA
-## 101                                              Croatia          HRV   24.3
-## 102                                                Haiti          HTI     NA
-## 103                                              Hungary          HUN   35.9
-## 104                                            IBRD only          IBD     NA
-## 105                                     IDA &amp; IBRD total          IBT     NA
-## 106                                            IDA total          IDA     NA
-## 107                                            IDA blend          IDB     NA
-## 108                                            Indonesia          IDN     NA
-## 109                                             IDA only          IDX     NA
-## 110                                          Isle of Man          IMN     NA
-## 111                                                India          IND   14.8
-## 112                                       Not classified          INX     NA
-## 113                                              Ireland          IRL   30.4
-## 114                                   Iran, Islamic Rep.          IRN   19.8
-## 115                                                 Iraq          IRQ     NA
-## 116                                              Iceland          ISL   44.0
-## 117                                               Israel          ISR     NA
-## 118                                                Italy          ITA   23.3
-## 119                                              Jamaica          JAM     NA
-## 120                                               Jordan          JOR   62.0
-## 121                                                Japan          JPN     NA
-## 122                                           Kazakhstan          KAZ     NA
-## 123                                                Kenya          KEN   49.6
-## 124                                      Kyrgyz Republic          KGZ   40.9
-## 125                                             Cambodia          KHM   29.2
-## 126                                             Kiribati          KIR     NA
-## 127                                  St. Kitts and Nevis          KNA     NA
-## 128                                          Korea, Rep.          KOR     NA
-## 129                                               Kuwait          KWT     NA
-## 130    Latin America &amp; Caribbean (excluding high income)          LAC     NA
-## 131                                              Lao PDR          LAO     NA
-## 132                                              Lebanon          LBN   28.9
-## 133                                              Liberia          LBR     NA
-## 134                                                Libya          LBY     NA
-## 135                                            St. Lucia          LCA     NA
-## 136                            Latin America &amp; Caribbean          LCN     NA
-## 137         Least developed countries: UN classification          LDC     NA
-## 138                                           Low income          LIC     NA
-## 139                                        Liechtenstein          LIE     NA
-## 140                                            Sri Lanka          LKA   25.6
-## 141                                  Lower middle income          LMC     NA
-## 142                                  Low &amp; middle income          LMY     NA
-## 143                                              Lesotho          LSO   31.7
-## 144                            Late-demographic dividend          LTE     NA
-## 145                                            Lithuania          LTU   38.6
-## 146                                           Luxembourg          LUX   26.5
-## 147                                               Latvia          LVA   43.5
-## 148                                     Macao SAR, China          MAC     NA
-## 149                             St. Martin (French part)          MAF     NA
-## 150                                              Morocco          MAR     NA
-## 151                                               Monaco          MCO     NA
-## 152                                              Moldova          MDA     NA
-## 153                                           Madagascar          MDG     NA
-## 154                                             Maldives          MDV   77.4
-## 155                           Middle East &amp; North Africa          MEA     NA
-## 156                                               Mexico          MEX   35.6
-## 157                                     Marshall Islands          MHL     NA
-## 158                                        Middle income          MIC     NA
-## 159                                      North Macedonia          MKD   28.2
-## 160                                                 Mali          MLI     NA
-## 161                                                Malta          MLT   29.2
-## 162                                              Myanmar          MMR   34.1
-## 163   Middle East &amp; North Africa (excluding high income)          MNA     NA
-## 164                                           Montenegro          MNE   28.2
-## 165                                             Mongolia          MNG   43.0
-## 166                             Northern Mariana Islands          MNP     NA
-## 167                                           Mozambique          MOZ     NA
-## 168                                           Mauritania          MRT     NA
-## 169                                            Mauritius          MUS     NA
-## 170                                               Malawi          MWI     NA
-## 171                                             Malaysia          MYS     NA
-## 172                                        North America          NAC     NA
-## 173                                              Namibia          NAM     NA
-## 174                                        New Caledonia          NCL     NA
-## 175                                                Niger          NER     NA
-## 176                                              Nigeria          NGA   31.4
-## 177                                            Nicaragua          NIC     NA
-## 178                                          Netherlands          NLD   26.0
-## 179                                               Norway          NOR   32.7
-## 180                                                Nepal          NPL     NA
-## 181                                                Nauru          NRU     NA
-## 182                                          New Zealand          NZL     NA
-## 183                                         OECD members          OED     NA
-## 184                                                 Oman          OMN     NA
-## 185                                   Other small states          OSS     NA
-## 186                                             Pakistan          PAK    6.3
-## 187                                               Panama          PAN     NA
-## 188                                                 Peru          PER     NA
-## 189                                          Philippines          PHL   29.3
-## 190                                                Palau          PLW     NA
-## 191                                     Papua New Guinea          PNG     NA
-## 192                                               Poland          POL   41.2
-## 193                             Pre-demographic dividend          PRE     NA
-## 194                                          Puerto Rico          PRI     NA
-## 195                            Korea, Dem. People&#39;s Rep.          PRK     NA
-## 196                                             Portugal          PRT   37.0
-## 197                                             Paraguay          PRY     NA
-## 198                                   West Bank and Gaza          PSE   21.7
-## 199                          Pacific island small states          PSS     NA
-## 200                            Post-demographic dividend          PST     NA
-## 201                                     French Polynesia          PYF     NA
-## 202                                                Qatar          QAT     NA
-## 203                                              Romania          ROU   34.2
-## 204                                   Russian Federation          RUS   42.0
-## 205                                               Rwanda          RWA     NA
-## 206                                           South Asia          SAS     NA
-## 207                                         Saudi Arabia          SAU     NA
-## 208                                                Sudan          SDN     NA
-## 209                                              Senegal          SEN   21.0
-## 210                                            Singapore          SGP     NA
-## 211                                      Solomon Islands          SLB     NA
-## 212                                         Sierra Leone          SLE     NA
-## 213                                          El Salvador          SLV   43.1
-## 214                                           San Marino          SMR     NA
-## 215                                              Somalia          SOM   27.7
-## 216                                               Serbia          SRB   33.6
-## 217           Sub-Saharan Africa (excluding high income)          SSA     NA
-## 218                                          South Sudan          SSD     NA
-## 219                                   Sub-Saharan Africa          SSF     NA
-## 220                                         Small states          SST     NA
-## 221                                Sao Tome and Principe          STP     NA
-## 222                                             Suriname          SUR     NA
-## 223                                      Slovak Republic          SVK   33.3
-## 224                                             Slovenia          SVN   40.5
-## 225                                               Sweden          SWE   41.9
-## 226                                             Eswatini          SWZ     NA
-## 227                            Sint Maarten (Dutch part)          SXM     NA
-## 228                                           Seychelles          SYC   47.3
-## 229                                 Syrian Arab Republic          SYR     NA
-## 230                             Turks and Caicos Islands          TCA     NA
-## 231                                                 Chad          TCD     NA
-## 232           East Asia &amp; Pacific (IDA &amp; IBRD countries)          TEA     NA
-## 233         Europe &amp; Central Asia (IDA &amp; IBRD countries)          TEC     NA
-## 234                                                 Togo          TGO     NA
-## 235                                             Thailand          THA   31.0
-## 236                                           Tajikistan          TJK     NA
-## 237                                         Turkmenistan          TKM     NA
-## 238 Latin America &amp; the Caribbean (IDA &amp; IBRD countries)          TLA     NA
-## 239                                          Timor-Leste          TLS     NA
-## 240    Middle East &amp; North Africa (IDA &amp; IBRD countries)          TMN     NA
-## 241                                                Tonga          TON     NA
-## 242                              South Asia (IDA &amp; IBRD)          TSA     NA
-## 243            Sub-Saharan Africa (IDA &amp; IBRD countries)          TSS     NA
-## 244                                  Trinidad and Tobago          TTO     NA
-## 245                                              Tunisia          TUN     NA
-## 246                                              Turkiye          TUR   17.5
-## 247                                               Tuvalu          TUV     NA
-## 248                                             Tanzania          TZA     NA
-## 249                                               Uganda          UGA     NA
-## 250                                              Ukraine          UKR     NA
-## 251                                  Upper middle income          UMC     NA
-## 252                                              Uruguay          URY   36.5
-## 253                                        United States          USA   40.8
-## 254                                           Uzbekistan          UZB     NA
-## 255                       St. Vincent and the Grenadines          VCT     NA
-## 256                                        Venezuela, RB          VEN     NA
-## 257                               British Virgin Islands          VGB     NA
-## 258                                Virgin Islands (U.S.)          VIR     NA
-## 259                                              Vietnam          VNM     NA
-## 260                                              Vanuatu          VUT   22.6
-## 261                                                World          WLD     NA
-## 262                                                Samoa          WSM     NA
-## 263                                               Kosovo          XKX   14.3
-## 264                                          Yemen, Rep.          YEM     NA
-## 265                                         South Africa          ZAF   33.3
-## 266                                               Zambia          ZMB   30.0
-## 267                                             Zimbabwe          ZWE   28.1
-##        V65
-## 1   2020.0
-## 2       NA
-## 3       NA
-## 4      5.9
-## 5       NA
-## 6       NA
-## 7       NA
-## 8       NA
-## 9       NA
-## 10    17.7
-## 11    37.0
-## 12      NA
-## 13      NA
-## 14      NA
-## 15    34.2
-## 16    31.3
-## 17      NA
-## 18      NA
-## 19    34.6
-## 20      NA
-## 21      NA
-## 22      NA
-## 23    42.4
-## 24      NA
-## 25      NA
-## 26    24.9
-## 27    47.8
-## 28      NA
-## 29      NA
-## 30    30.9
-## 31    35.4
-## 32      NA
-## 33    37.4
-## 34      NA
-## 35    56.7
-## 36      NA
-## 37      NA
-## 38      NA
-## 39    31.9
-## 40      NA
-## 41      NA
-## 42      NA
-## 43      NA
-## 44      NA
-## 45      NA
-## 46      NA
-## 47    30.1
-## 48      NA
-## 49      NA
-## 50    62.1
-## 51      NA
-## 52      NA
-## 53      NA
-## 54      NA
-## 55    25.2
-## 56    27.4
-## 57    27.1
-## 58      NA
-## 59      NA
-## 60    28.0
-## 61    47.6
-## 62      NA
-## 63      NA
-## 64      NA
-## 65      NA
-## 66      NA
-## 67      NA
-## 68    39.4
-## 69      NA
-## 70      NA
-## 71      NA
-## 72    36.5
-## 73    35.9
-## 74      NA
-## 75      NA
-## 76      NA
-## 77    37.5
-## 78      NA
-## 79    34.9
-## 80      NA
-## 81      NA
-## 82      NA
-## 83      NA
-## 84    33.8
-## 85      NA
-## 86      NA
-## 87      NA
-## 88      NA
-## 89      NA
-## 90      NA
-## 91    27.6
-## 92      NA
-## 93      NA
-## 94      NA
-## 95      NA
-## 96      NA
-## 97      NA
-## 98      NA
-## 99    39.7
-## 100     NA
-## 101   29.1
-## 102     NA
-## 103   36.8
-## 104     NA
-## 105     NA
-## 106     NA
-## 107     NA
-## 108     NA
-## 109     NA
-## 110     NA
-## 111   17.7
-## 112     NA
-## 113   32.4
-## 114   18.7
-## 115     NA
-## 116   38.6
-## 117     NA
-## 118   23.0
-## 119     NA
-## 120   60.2
-## 121     NA
-## 122     NA
-## 123     NA
-## 124   42.5
-## 125     NA
-## 126     NA
-## 127     NA
-## 128     NA
-## 129     NA
-## 130     NA
-## 131     NA
-## 132     NA
-## 133     NA
-## 134     NA
-## 135     NA
-## 136     NA
-## 137     NA
-## 138     NA
-## 139     NA
-## 140     NA
-## 141     NA
-## 142     NA
-## 143     NA
-## 144     NA
-## 145   37.3
-## 146   28.2
-## 147   46.2
-## 148     NA
-## 149     NA
-## 150     NA
-## 151     NA
-## 152     NA
-## 153     NA
-## 154     NA
-## 155     NA
-## 156   38.5
-## 157     NA
-## 158     NA
-## 159   24.2
-## 160     NA
-## 161   26.4
-## 162   41.0
-## 163     NA
-## 164   25.3
-## 165   47.4
-## 166     NA
-## 167     NA
-## 168     NA
-## 169     NA
-## 170     NA
-## 171     NA
-## 172     NA
-## 173     NA
-## 174     NA
-## 175     NA
-## 176     NA
-## 177     NA
-## 178   24.8
-## 179   32.0
-## 180     NA
-## 181     NA
-## 182     NA
-## 183     NA
-## 184     NA
-## 185     NA
-## 186     NA
-## 187     NA
-## 188     NA
-## 189   35.4
-## 190     NA
-## 191     NA
-## 192   41.4
-## 193     NA
-## 194     NA
-## 195     NA
-## 196   35.7
-## 197     NA
-## 198   22.6
-## 199     NA
-## 200     NA
-## 201     NA
-## 202     NA
-## 203   35.1
-## 204   43.2
-## 205   34.4
-## 206     NA
-## 207     NA
-## 208     NA
-## 209     NA
-## 210     NA
-## 211     NA
-## 212     NA
-## 213   48.8
-## 214     NA
-## 215     NA
-## 216   32.6
-## 217     NA
-## 218     NA
-## 219     NA
-## 220     NA
-## 221     NA
-## 222     NA
-## 223   34.5
-## 224   40.6
-## 225   43.1
-## 226     NA
-## 227     NA
-## 228   40.0
-## 229     NA
-## 230     NA
-## 231     NA
-## 232     NA
-## 233     NA
-## 234     NA
-## 235   33.2
-## 236     NA
-## 237     NA
-## 238     NA
-## 239     NA
-## 240     NA
-## 241     NA
-## 242     NA
-## 243     NA
-## 244     NA
-## 245     NA
-## 246   19.3
-## 247     NA
-## 248   27.9
-## 249     NA
-## 250     NA
-## 251     NA
-## 252   39.9
-## 253   42.3
-## 254     NA
-## 255     NA
-## 256     NA
-## 257     NA
-## 258     NA
-## 259     NA
-## 260     NA
-## 261     NA
-## 262     NA
-## 263   17.4
-## 264     NA
-## 265   35.1
-## 266   39.6
-## 267     NA</code></pre>
-<pre class="r"><code>dependiente &lt;- select(vardep, V1, V2, V64, V65)
-head(dependiente,10)</code></pre>
-<pre><code>##                             V1           V2    V64    V65
-## 1                 Country Name Country Code 2019.0 2020.0
-## 2                        Aruba          ABW     NA     NA
-## 3  Africa Eastern and Southern          AFE     NA     NA
-## 4                  Afghanistan          AFG     NA    5.9
-## 5   Africa Western and Central          AFW     NA     NA
-## 6                       Angola          AGO     NA     NA
-## 7                      Albania          ALB   41.3     NA
-## 8                      Andorra          AND     NA     NA
-## 9                   Arab World          ARB     NA     NA
-## 10        United Arab Emirates          ARE     NA   17.7</code></pre>
-<pre class="r"><code>dependiente = dependiente[-c(1),]</code></pre>
-<pre class="r"><code>colnames(dependiente) = c(&quot;pais&quot;,&quot;codigo&quot;,&quot;puestosdirec2019&quot;,&quot;puestosdirec2020&quot;)</code></pre>
-<table style="width:78%;">
+<pre class="r"><code>select(Dependiente, V1, V2, V65)</code></pre>
+<pre><code>##                                                                     V1
+## 1                                                          Data Source
+## 2                                                    Last Updated Date
+## 3                                                                     
+## 4                                                         Country Name
+## 5                                                                Aruba
+## 6                                                                     
+## 7                                                          AfganistÃ¡n
+## 8                                                                     
+## 9                                                               Angola
+## 10                                                             Albania
+## 11                                                             Andorra
+## 12                                                     El mundo Ã¡rabe
+## 13                                             Emiratos Ã\201rabes Unidos
+## 14                                                           Argentina
+## 15                                                             Armenia
+## 16                                                     Samoa Americana
+## 17                                                   Antigua y Barbuda
+## 18                                                           Australia
+## 19                                                             Austria
+## 20                                                         AzerbaiyÃ¡n
+## 21                                                             Burundi
+## 22                                                            BÃ©lgica
+## 23                                                               Benin
+## 24                                                        Burkina Faso
+## 25                                                          Bangladesh
+## 26                                                            Bulgaria
+## 27                                                             Bahrein
+## 28                                                             Bahamas
+## 29                                                Bosnia y Herzegovina
+## 30                                                            BelarÃºs
+## 31                                                              Belice
+## 32                                                            Bermudas
+## 33                                                             Bolivia
+## 34                                                              Brasil
+## 35                                                            Barbados
+## 36                                                   Brunei Darussalam
+## 37                                                             BhutÃ¡n
+## 38                                                            Botswana
+## 39                                           RepÃºblica Centroafricana
+## 40                                                             CanadÃ¡
+## 41                                       Europa Central y del BÃ¡ltico
+## 42                                                               Suiza
+## 43                                                     Islas del Canal
+## 44                                                               Chile
+## 45                                                               China
+## 46                                                      CÃ´te d&#39;Ivoire
+## 47                                                            CamerÃºn
+## 48                                  Congo, RepÃºblica DemocrÃ¡tica del
+## 49                                               Congo, RepÃºblica del
+## 50                                                            Colombia
+## 51                                                             Comoras
+## 52                                                          Cabo Verde
+## 53                                                          Costa Rica
+## 54                                          Estados pequeos del Caribe
+## 55                                                                Cuba
+## 56                                                             Curacao
+## 57                                                       Islas CaimÃ¡n
+## 58                                                              Chipre
+## 59                                                    RepÃºblica Checa
+## 60                                                            Alemania
+## 61                                                            Djibouti
+## 62                                                            Dominica
+## 63                                                           Dinamarca
+## 64                                               RepÃºblica Dominicana
+## 65                                                             Argelia
+## 66              Asia oriental y el PacÃ­fico (excluido altos ingresos)
+## 67                                  inicial del dividendo demogrÃ¡fico
+## 68                                        Asia oriental y el PacÃ­fico
+## 69                     Europa y Asia central (excluido altos ingresos)
+## 70                                               Europa y Asia central
+## 71                                                             Ecuador
+## 72                                        Egipto, RepÃºblica Ã\201rabe de
+## 73                                                       Zona del Euro
+## 74                                                             Eritrea
+## 75                                                             EspaÃ±a
+## 76                                                             Estonia
+## 77                                                            EtiopÃ­a
+## 78                                                      UniÃ³n Europea
+## 79                      FrÃ¡giles y situaciones de conflicto afectados
+## 80                                                           Finlandia
+## 81                                                                Fiji
+## 82                                                             Francia
+## 83                                                         Islas Feroe
+## 84                                   Micronesia (Estados Federados de)
+## 85                                                              GabÃ³n
+## 86                                                         Reino Unido
+## 87                                                             Georgia
+## 88                                                               Ghana
+## 89                                                           Gibraltar
+## 90                                                              Guinea
+## 91                                                              Gambia
+## 92                                                       Guinea-Bissau
+## 93                                                   Guinea Ecuatorial
+## 94                                                              Grecia
+## 95                                                             Granada
+## 96                                                         Groenlandia
+## 97                                                           Guatemala
+## 98                                                                Guam
+## 99                                                              Guyana
+## 100                                                       Ingreso alto
+## 101                         Hong Kong, RegiÃ³n Administrativa Especial
+## 102                                                           Honduras
+## 103                               PaÃ­ses pobres muy endeudados (PPME)
+## 104                                                            Croacia
+## 105                                                             HaitÃ­
+## 106                                                           HungrÃ­a
+## 107                                                         SÃ³lo BIRF
+## 108                                                      BIRF y la AIF
+## 109                                                    total de la AIF
+## 110                                                   mezcla de la AIF
+## 111                                                          Indonesia
+## 112                                                          SÃ³lo AIF
+## 113                                                        Isla de Man
+## 114                                                              India
+## 115                                                     No clasificado
+## 116                                                            Irlanda
+## 117                                    IrÃ¡n, RepÃºblica IslÃ¡mica del
+## 118                                                               Iraq
+## 119                                                           Islandia
+## 120                                                             Israel
+## 121                                                             Italia
+## 122                                                            Jamaica
+## 123                                                           Jordania
+## 124                                                             JapÃ³n
+## 125                                                         KazajstÃ¡n
+## 126                                                              Kenya
+## 127                                                        KirguistÃ¡n
+## 128                                                            Camboya
+## 129                                                           Kiribati
+## 130                                                Saint Kitts y Nevis
+## 131                                               Corea, RepÃºblica de
+## 132                                                             Kuwait
+## 133              AmÃ©rica Latina y el Caribe (excluido altos ingresos)
+## 134                                RepÃºblica DemocrÃ¡tica Popular Lao
+## 135                                                            LÃ­bano
+## 136                                                            Liberia
+## 137                                                              Libia
+## 138                                                       Santa LucÃ­a
+## 139                                        AmÃ©rica Latina y el Caribe
+## 140 PaÃ­ses menos desarrollados: clasificaciÃ³n de las Naciones Unidas
+## 141                                            PaÃ­ses de ingreso bajo
+## 142                                                      Liechtenstein
+## 143                                                          Sri Lanka
+## 144                                    PaÃ­ses de ingreso mediano bajo
+## 145                                             Ingreso mediano y bajo
+## 146                                                            Lesotho
+## 147                                avanzada del dividendo demogrÃ¡fico
+## 148                                                           Lituania
+## 149                                                         Luxemburgo
+## 150                                                            Letonia
+## 151                    RegiÃ³n Administrativa Especial de Macao, China
+## 152                               Isla de San MartÃ­n (parte francesa)
+## 153                                                          Marruecos
+## 154                                                            MÃ³naco
+## 155                                              RepÃºblica de Moldova
+## 156                                                         Madagascar
+## 157                                                           Maldivas
+## 158                                   Oriente Medio y Norte de Ã\201frica
+## 159                                                            MÃ©xico
+## 160                                                     Islas Marshall
+## 161                                                    Ingreso mediano
+## 162                                                Macedonia del Norte
+## 163                                                              MalÃ­
+## 164                                                              Malta
+## 165                                                            Myanmar
+## 166         Oriente Medio y Norte de Ã\201frica (excluido altos ingresos)
+## 167                                                         Montenegro
+## 168                                                           Mongolia
+## 169                                                            Mariana
+## 170                                                         Mozambique
+## 171                                                         Mauritania
+## 172                                                           Mauricio
+## 173                                                             Malawi
+## 174                                                            Malasia
+## 175                                                 AmÃ©rica del Norte
+## 176                                                            Namibia
+## 177                                                    Nueva Caledonia
+## 178                                                             NÃ­ger
+## 179                                                            Nigeria
+## 180                                                          Nicaragua
+## 181                                                      PaÃ­ses Bajos
+## 182                                                            Noruega
+## 183                                                              Nepal
+## 184                                                              Nauru
+## 185                                                     Nueva Zelandia
+## 186                                                      Miembros OCDE
+## 187                                                              OmÃ¡n
+## 188                                              Otros Estados pequeos
+## 189                                                          PakistÃ¡n
+## 190                                                            PanamÃ¡
+## 191                                                              PerÃº
+## 192                                                          Filipinas
+## 193                                                              Palau
+## 194                                                 Papua Nueva Guinea
+## 195                                                            Polonia
+## 196                                   previa al dividendo demogrÃ¡fico
+## 197                                                        Puerto Rico
+## 198                          Corea, RepÃºblica Popular DemocrÃ¡tica de
+## 199                                                           Portugal
+## 200                                                           Paraguay
+## 201                                           Ribera Occidental y Gaza
+## 202                           Estados pequeos de las Islas del Pacfico
+## 203                                posterior al dividendo demogrÃ¡fico
+## 204                                                 Polinesia Francesa
+## 205                                                              Qatar
+## 206                                                            Rumania
+## 207                                               FederaciÃ³n de Rusia
+## 208                                                             Rwanda
+## 209                                                    Asia meridional
+## 210                                                     Arabia Saudita
+## 211                                                             SudÃ¡n
+## 212                                                            Senegal
+## 213                                                           Singapur
+## 214                                                     Islas SalomÃ³n
+## 215                                                       Sierra Leona
+## 216                                                        El Salvador
+## 217                                                         San Marino
+## 218                                                            Somalia
+## 219                                                             Serbia
+## 220                Ã\201frica al sur del Sahara (excluido altos ingresos)
+## 221                                                     SudÃ¡n del Sur
+## 222                                          Ã\201frica al sur del Sahara
+## 223                                                  PequeÃ±os Estados
+## 224                                            Santo TomÃ© y PrÃ­ncipe
+## 225                                                           Suriname
+## 226                                                RepÃºblica Eslovaca
+## 227                                                          Eslovenia
+## 228                                                             Suecia
+## 229                                                           Eswatini
+## 230                                          Sint Maarten (Dutch part)
+## 231                                                         Seychelles
+## 232                                            RepÃºblica Ã\201rabe Siria
+## 233                                              Islas Turcas y Caicos
+## 234                                                               Chad
+## 235                       Asia oriental y el PacÃ­fico (BIRF y la AIF)
+## 236                              Europa y Asia central (BIRF y la AIF)
+## 237                                                               Togo
+## 238                                                          Tailandia
+## 239                                                        TayikistÃ¡n
+## 240                                                      TurkmenistÃ¡n
+## 241                        AmÃ©rica Latina y el Caribe (BIRF y la AIF)
+## 242                                                        Timor-Leste
+## 243                   Oriente Medio y Norte de Ã\201frica (BIRF y la AIF)
+## 244                                                              Tonga
+## 245                                    Asia meridional (BIRF y la AIF)
+## 246                          Ã\201frica al sur del Sahara (BIRF y la AIF)
+## 247                                                  Trinidad y Tobago
+## 248                                                             TÃºnez
+## 249                                                           TurquÃ­a
+## 250                                                             Tuvalu
+## 251                                                          TanzanÃ­a
+## 252                                                             Uganda
+## 253                                                            Ucrania
+## 254                                               Ingreso mediano alto
+## 255                                                            Uruguay
+## 256                                                     Estados Unidos
+## 257                                                        UzbekistÃ¡n
+## 258                                       San Vicente y las Granadinas
+## 259                                                          Venezuela
+## 260                                        Islas VÃ­rgenes BritÃ¡nicas
+## 261                                           Islas VÃ­rgenes (EE.UU.)
+## 262                                                           Viet Nam
+## 263                                                            Vanuatu
+## 264                                                              Mundo
+## 265                                                              Samoa
+## 266                                                             Kosovo
+## 267                                                    Yemen, Rep. del
+## 268                                                         SudÃ¡frica
+## 269                                                             Zambia
+## 270                                                           Zimbabwe
+##                                     V2          V65
+## 1   Indicadores del desarrollo mundial           NA
+## 2                            20/7/2022           NA
+## 3                                                NA
+## 4                         Country Code 2020.0000000
+## 5                                  ABW           NA
+## 6                                  AFE   30.1284473
+## 7                                  AFG   27.0161290
+## 8                                  AFW   16.3452709
+## 9                                  AGO   30.0000000
+## 10                                 ALB   29.5081967
+## 11                                 AND   46.4285714
+## 12                                 ARB   19.5469585
+## 13                                 ARE   50.0000000
+## 14                                 ARG   40.8560311
+## 15                                 ARM   23.4848485
+## 16                                 ASM           NA
+## 17                                 ATG   11.1111111
+## 18                                 AUS   30.4635762
+## 19                                 AUT   39.3442623
+## 20                                 AZE   17.3553719
+## 21                                 BDI   38.2113821
+## 22                                 BEL   41.3333333
+## 23                                 BEN    7.2289157
+## 24                                 BFA    6.2992126
+## 25                                 BGD   20.9169054
+## 26                                 BGR   26.6666667
+## 27                                 BHR   15.0000000
+## 28                                 BHS   12.8205128
+## 29                                 BIH   26.1904762
+## 30                                 BLR   40.0000000
+## 31                                 BLZ    9.6774194
+## 32                                 BMU           NA
+## 33                                 BOL   46.1538461
+## 34                                 BRA   14.6198830
+## 35                                 BRB   20.0000000
+## 36                                 BRN    9.0909091
+## 37                                 BTN   14.8936170
+## 38                                 BWA   10.7692308
+## 39                                 CAF    8.5714286
+## 40                                 CAN   28.9940828
+## 41                                 CEB   24.9884313
+## 42                                 CHE   41.5000000
+## 43                                 CHI           NA
+## 44                                 CHL   22.5806452
+## 45                                 CHN   24.9411765
+## 46                                 CIV   11.3725490
+## 47                                 CMR   33.8888889
+## 48                                 COD   12.8000000
+## 49                                 COG   11.2582782
+## 50                                 COL   18.3431953
+## 51                                 COM   16.6666667
+## 52                                 CPV   25.0000000
+## 53                                 CRI   45.6140351
+## 54                                 CSS   25.5033557
+## 55                                 CUB   53.2231405
+## 56                                 CUW           NA
+## 57                                 CYM           NA
+## 58                                 CYP   19.6428571
+## 59                                 CZE   22.5000000
+## 60                                 DEU   31.1706629
+## 61                                 DJI   26.1538461
+## 62                                 DMA   34.3750000
+## 63                                 DNK   39.6648045
+## 64                                 DOM   27.8947368
+## 65                                 DZA   25.7575758
+## 66                                 EAP   21.5078564
+## 67                                 EAR   24.4509129
+## 68                                 EAS   21.3300493
+## 69                                 ECA   23.7249284
+## 70                                 ECS   30.2941446
+## 71                                 ECU   39.4160584
+## 72                                 EGY   27.4111675
+## 73                                 EMU   33.8555858
+## 74                                 ERI           NA
+## 75                                 ESP   44.0000000
+## 76                                 EST   28.7128713
+## 77                                 ETH   38.7568556
+## 78                                 EUU   32.4066964
+## 79                                 FCS   20.7117764
+## 80                                 FIN   46.0000000
+## 81                                 FJI   19.6078431
+## 82                                 FRA   39.5147314
+## 83                                 FRO           NA
+## 84                                 FSM    0.0000000
+## 85                                 GAB   14.7887324
+## 86                                 GBR   33.8461539
+## 87                                 GEO   20.6666667
+## 88                                 GHA   13.0909091
+## 89                                 GIB           NA
+## 90                                 GIN   16.6666667
+## 91                                 GMB    8.6206897
+## 92                                 GNB   13.7254902
+## 93                                 GNQ   21.0000000
+## 94                                 GRC   21.6666667
+## 95                                 GRD   46.6666667
+## 96                                 GRL           NA
+## 97                                 GTM   19.3750000
+## 98                                 GUM           NA
+## 99                                 GUY   35.7142857
+## 100                                HIC   30.0448431
+## 101                                HKG           NA
+## 102                                HND   21.0937500
+## 103                                HPC   25.2358126
+## 104                                HRV   31.1258278
+## 105                                HTI           NA
+## 106                                HUN   12.0603015
+## 107                                IBD   24.2715038
+## 108                                IBT   23.5006380
+## 109                                IDA   22.3161302
+## 110                                IDB   21.0694698
+## 111                                IDN   20.3478261
+## 112                                IDX   22.6214462
+## 113                                IMN           NA
+## 114                                IND   14.3646409
+## 115                                INX           NA
+## 116                                IRL   22.5000000
+## 117                                IRN    5.5944056
+## 118                                IRQ   26.4437690
+## 119                                ISL   38.0952381
+## 120                                ISR   27.5000000
+## 121                                ITA   35.7142857
+## 122                                JAM   28.5714286
+## 123                                JOR   11.5384615
+## 124                                JPN    9.8924731
+## 125                                KAZ   27.1028037
+## 126                                KEN   21.7765043
+## 127                                KGZ   16.5217391
+## 128                                KHM   20.0000000
+## 129                                KIR    8.8888889
+## 130                                KNA   25.0000000
+## 131                                KOR   19.0000000
+## 132                                KWT    6.3492063
+## 133                                LAC   34.7863006
+## 134                                LAO   27.5167785
+## 135                                LBN    4.6875000
+## 136                                LBR   12.3287671
+## 137                                LBY   15.9574468
+## 138                                LCA   16.6666667
+## 139                                LCN   32.7577938
+## 140                                LDC   24.3481645
+## 141                                LIC   22.3250337
+## 142                                LIE   12.0000000
+## 143                                LKA    5.3811659
+## 144                                LMC   21.7504899
+## 145                                LMY   23.9264243
+## 146                                LSO   23.3333333
+## 147                                LTE   22.1942815
+## 148                                LTU   26.9503546
+## 149                                LUX   30.0000000
+## 150                                LVA   30.0000000
+## 151                                MAC           NA
+## 152                                MAF           NA
+## 153                                MAR   20.5063291
+## 154                                MCO   33.3333333
+## 155                                MDA   24.7524752
+## 156                                MDG   17.8807947
+## 157                                MDV    4.5977011
+## 158                                MEA   18.3291139
+## 159                                MEX   48.2000000
+## 160                                MHL    6.0606061
+## 161                                MIC   24.3590909
+## 162                                MKD   39.1666667
+## 163                                MLI   27.8911565
+## 164                                MLT   13.4328358
+## 165                                MMR   16.8253968
+## 166                                MNA   18.4320766
+## 167                                MNE   22.2222222
+## 168                                MNG   17.3333333
+## 169                                MNP           NA
+## 170                                MOZ   42.4000000
+## 171                                MRT   20.2614379
+## 172                                MUS   20.0000000
+## 173                                MWI   22.9166667
+## 174                                MYS   14.8648649
+## 175                                NAC   28.1413613
+## 176                                NAM   43.2692308
+## 177                                NCL           NA
+## 178                                NER   16.9590643
+## 179                                NGA    7.2222222
+## 180                                NIC   47.2527472
+## 181                                NLD   33.3333333
+## 182                                NOR   41.4201183
+## 183                                NPL   32.7272727
+## 184                                NRU   10.5263158
+## 185                                NZL   48.3333333
+## 186                                OED   31.4990138
+## 187                                OMN    2.3255814
+## 188                                OSS   20.9429825
+## 189                                PAK   20.1754386
+## 190                                PAN   22.5352113
+## 191                                PER   26.1538461
+## 192                                PHL   27.9605263
+## 193                                PLW    6.2500000
+## 194                                PNG    0.0000000
+## 195                                POL   28.6956522
+## 196                                PRE   22.8650138
+## 197                                PRI           NA
+## 198                                PRK   17.6128093
+## 199                                PRT   40.0000000
+## 200                                PRY   16.2500000
+## 201                                PSE           NA
+## 202                                PSS    8.1081081
+## 203                                PST   32.9353555
+## 204                                PYF           NA
+## 205                                QAT    9.7560976
+## 206                                ROU   21.8844985
+## 207                                RUS   15.7777778
+## 208                                RWA   61.2500000
+## 209                                SAS   18.9214759
+## 210                                SAU   19.8675497
+## 211                                SDN           NA
+## 212                                SEN   43.0303030
+## 213                                SGP   29.4736842
+## 214                                SLB    6.3829787
+## 215                                SLE   12.3287671
+## 216                                SLV   33.3333333
+## 217                                SMR   33.3333333
+## 218                                SOM   24.3636364
+## 219                                SRB   38.8000000
+## 220                                SSA   24.8710131
+## 221                                SSD   28.4595300
+## 222                                SSF   24.8685901
+## 223                                SST   19.9166982
+## 224                                STP   23.6363636
+## 225                                SUR   29.4117647
+## 226                                SVK   22.6666667
+## 227                                SVN   27.7777778
+## 228                                SWE   46.9914040
+## 229                                SWZ    9.5890411
+## 230                                SXM           NA
+## 231                                SYC   24.2424242
+## 232                                SYR   11.2000000
+## 233                                TCA           NA
+## 234                                TCD   15.4320988
+## 235                                TEA   21.9014197
+## 236                                TEC   24.3566591
+## 237                                TGO   18.6813187
+## 238                                THA   15.7464213
+## 239                                TJK   23.8095238
+## 240                                TKM   25.0000000
+## 241                                TLA   29.5480549
+## 242                                TLS   38.4615385
+## 243                                TMN   18.4320766
+## 244                                TON    7.4074074
+## 245                                TSA   18.9214759
+## 246                                TSS   24.8685901
+## 247                                TTO   26.1904762
+## 248                                TUN   24.8847926
+## 249                                TUR   17.3174873
+## 250                                TUV    6.2500000
+## 251                                TZA   36.7187500
+## 252                                UGA   34.8583878
+## 253                                UKR   20.8037825
+## 254                                UMC   26.8368342
+## 255                                URY   21.2121212
+## 256                                USA   27.4647887
+## 257                                UZB   32.0000000
+## 258                                VCT   18.1818182
+## 259                                VEN   22.1556886
+## 260                                VGB           NA
+## 261                                VIR           NA
+## 262                                VNM   26.7206478
+## 263                                VUT    0.0000000
+## 264                                WLD   25.5804312
+## 265                                WSM   10.0000000
+## 266                                XKX           NA
+## 267                                YEM    0.3322259
+## 268                                ZAF   46.7500000
+## 269                                ZMB   16.7664671
+## 270                                ZWE   31.8518518</code></pre>
+<pre class="r"><code>Dependiente &lt;- select(Dependiente, V1, V2, V65)
+head(Dependiente,10)</code></pre>
+<pre><code>##                   V1                                 V2        V65
+## 1        Data Source Indicadores del desarrollo mundial         NA
+## 2  Last Updated Date                          20/7/2022         NA
+## 3                                                               NA
+## 4       Country Name                       Country Code 2020.00000
+## 5              Aruba                                ABW         NA
+## 6                                                   AFE   30.12845
+## 7        AfganistÃ¡n                                AFG   27.01613
+## 8                                                   AFW   16.34527
+## 9             Angola                                AGO   30.00000
+## 10           Albania                                ALB   29.50820</code></pre>
+<pre class="r"><code>Dependiente = Dependiente[-c(1:4),]</code></pre>
+<pre class="r"><code>colnames(Dependiente) = c(&quot;pais&quot;,&quot;codigo&quot;,&quot;parlamentos2020&quot;)</code></pre>
+<pre class="r"><code>sum(is.na(Dependiente$parlamentos2020))</code></pre>
+<pre><code>## [1] 28</code></pre>
+<p>#VARIABLES INDEPENDIENTES:</p>
+<p>#V.I.1: Porcentaje de la población activa mujeres</p>
+<pre class="r"><code>gitLink=&quot;https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_1/Kamila/KVI2_ActivaM.csv&quot;
+Poblacion_Act_Mujeres2015=rio::import(gitLink)</code></pre>
+<pre class="r"><code>library(dplyr)
+
+select(Poblacion_Act_Mujeres2015, V1, V2, V60)</code></pre>
+<pre><code>##                                                                     V1
+## 1                                                         Country Name
+## 2                                                                Aruba
+## 3                                                                     
+## 4                                                          AfganistÃ¡n
+## 5                                                                     
+## 6                                                               Angola
+## 7                                                              Albania
+## 8                                                              Andorra
+## 9                                                      El mundo Ã¡rabe
+## 10                                             Emiratos Ã\201rabes Unidos
+## 11                                                           Argentina
+## 12                                                             Armenia
+## 13                                                     Samoa Americana
+## 14                                                   Antigua y Barbuda
+## 15                                                           Australia
+## 16                                                             Austria
+## 17                                                         AzerbaiyÃ¡n
+## 18                                                             Burundi
+## 19                                                            BÃ©lgica
+## 20                                                               Benin
+## 21                                                        Burkina Faso
+## 22                                                          Bangladesh
+## 23                                                            Bulgaria
+## 24                                                             Bahrein
+## 25                                                             Bahamas
+## 26                                                Bosnia y Herzegovina
+## 27                                                            BelarÃºs
+## 28                                                              Belice
+## 29                                                            Bermudas
+## 30                                                             Bolivia
+## 31                                                              Brasil
+## 32                                                            Barbados
+## 33                                                   Brunei Darussalam
+## 34                                                             BhutÃ¡n
+## 35                                                            Botswana
+## 36                                           RepÃºblica Centroafricana
+## 37                                                             CanadÃ¡
+## 38                                       Europa Central y del BÃ¡ltico
+## 39                                                               Suiza
+## 40                                                     Islas del Canal
+## 41                                                               Chile
+## 42                                                               China
+## 43                                                      CÃ´te d&#39;Ivoire
+## 44                                                            CamerÃºn
+## 45                                  Congo, RepÃºblica DemocrÃ¡tica del
+## 46                                               Congo, RepÃºblica del
+## 47                                                            Colombia
+## 48                                                             Comoras
+## 49                                                          Cabo Verde
+## 50                                                          Costa Rica
+## 51                                          Estados pequeos del Caribe
+## 52                                                                Cuba
+## 53                                                             Curacao
+## 54                                                       Islas CaimÃ¡n
+## 55                                                              Chipre
+## 56                                                    RepÃºblica Checa
+## 57                                                            Alemania
+## 58                                                            Djibouti
+## 59                                                            Dominica
+## 60                                                           Dinamarca
+## 61                                               RepÃºblica Dominicana
+## 62                                                             Argelia
+## 63              Asia oriental y el PacÃ­fico (excluido altos ingresos)
+## 64                                  inicial del dividendo demogrÃ¡fico
+## 65                                        Asia oriental y el PacÃ­fico
+## 66                     Europa y Asia central (excluido altos ingresos)
+## 67                                               Europa y Asia central
+## 68                                                             Ecuador
+## 69                                        Egipto, RepÃºblica Ã\201rabe de
+## 70                                                       Zona del Euro
+## 71                                                             Eritrea
+## 72                                                             EspaÃ±a
+## 73                                                             Estonia
+## 74                                                            EtiopÃ­a
+## 75                                                      UniÃ³n Europea
+## 76                      FrÃ¡giles y situaciones de conflicto afectados
+## 77                                                           Finlandia
+## 78                                                                Fiji
+## 79                                                             Francia
+## 80                                                         Islas Feroe
+## 81                                   Micronesia (Estados Federados de)
+## 82                                                              GabÃ³n
+## 83                                                         Reino Unido
+## 84                                                             Georgia
+## 85                                                               Ghana
+## 86                                                           Gibraltar
+## 87                                                              Guinea
+## 88                                                              Gambia
+## 89                                                       Guinea-Bissau
+## 90                                                   Guinea Ecuatorial
+## 91                                                              Grecia
+## 92                                                             Granada
+## 93                                                         Groenlandia
+## 94                                                           Guatemala
+## 95                                                                Guam
+## 96                                                              Guyana
+## 97                                                        Ingreso alto
+## 98                          Hong Kong, RegiÃ³n Administrativa Especial
+## 99                                                            Honduras
+## 100                               PaÃ­ses pobres muy endeudados (PPME)
+## 101                                                            Croacia
+## 102                                                             HaitÃ­
+## 103                                                           HungrÃ­a
+## 104                                                         SÃ³lo BIRF
+## 105                                                      BIRF y la AIF
+## 106                                                    total de la AIF
+## 107                                                   mezcla de la AIF
+## 108                                                          Indonesia
+## 109                                                          SÃ³lo AIF
+## 110                                                        Isla de Man
+## 111                                                              India
+## 112                                                     No clasificado
+## 113                                                            Irlanda
+## 114                                    IrÃ¡n, RepÃºblica IslÃ¡mica del
+## 115                                                               Iraq
+## 116                                                           Islandia
+## 117                                                             Israel
+## 118                                                             Italia
+## 119                                                            Jamaica
+## 120                                                           Jordania
+## 121                                                             JapÃ³n
+## 122                                                         KazajstÃ¡n
+## 123                                                              Kenya
+## 124                                                        KirguistÃ¡n
+## 125                                                            Camboya
+## 126                                                           Kiribati
+## 127                                                Saint Kitts y Nevis
+## 128                                               Corea, RepÃºblica de
+## 129                                                             Kuwait
+## 130              AmÃ©rica Latina y el Caribe (excluido altos ingresos)
+## 131                                RepÃºblica DemocrÃ¡tica Popular Lao
+## 132                                                            LÃ­bano
+## 133                                                            Liberia
+## 134                                                              Libia
+## 135                                                       Santa LucÃ­a
+## 136                                        AmÃ©rica Latina y el Caribe
+## 137 PaÃ­ses menos desarrollados: clasificaciÃ³n de las Naciones Unidas
+## 138                                            PaÃ­ses de ingreso bajo
+## 139                                                      Liechtenstein
+## 140                                                          Sri Lanka
+## 141                                    PaÃ­ses de ingreso mediano bajo
+## 142                                             Ingreso mediano y bajo
+## 143                                                            Lesotho
+## 144                                avanzada del dividendo demogrÃ¡fico
+## 145                                                           Lituania
+## 146                                                         Luxemburgo
+## 147                                                            Letonia
+## 148                    RegiÃ³n Administrativa Especial de Macao, China
+## 149                               Isla de San MartÃ­n (parte francesa)
+## 150                                                          Marruecos
+## 151                                                            MÃ³naco
+## 152                                              RepÃºblica de Moldova
+## 153                                                         Madagascar
+## 154                                                           Maldivas
+## 155                                   Oriente Medio y Norte de Ã\201frica
+## 156                                                            MÃ©xico
+## 157                                                     Islas Marshall
+## 158                                                    Ingreso mediano
+## 159                                                Macedonia del Norte
+## 160                                                              MalÃ­
+## 161                                                              Malta
+## 162                                                            Myanmar
+## 163         Oriente Medio y Norte de Ã\201frica (excluido altos ingresos)
+## 164                                                         Montenegro
+## 165                                                           Mongolia
+## 166                                                            Mariana
+## 167                                                         Mozambique
+## 168                                                         Mauritania
+## 169                                                           Mauricio
+## 170                                                             Malawi
+## 171                                                            Malasia
+## 172                                                 AmÃ©rica del Norte
+## 173                                                            Namibia
+## 174                                                    Nueva Caledonia
+## 175                                                             NÃ­ger
+## 176                                                            Nigeria
+## 177                                                          Nicaragua
+## 178                                                      PaÃ­ses Bajos
+## 179                                                            Noruega
+## 180                                                              Nepal
+## 181                                                              Nauru
+## 182                                                     Nueva Zelandia
+## 183                                                      Miembros OCDE
+## 184                                                              OmÃ¡n
+## 185                                              Otros Estados pequeos
+## 186                                                          PakistÃ¡n
+## 187                                                            PanamÃ¡
+## 188                                                              PerÃº
+## 189                                                          Filipinas
+## 190                                                              Palau
+## 191                                                 Papua Nueva Guinea
+## 192                                                            Polonia
+## 193                                   previa al dividendo demogrÃ¡fico
+## 194                                                        Puerto Rico
+## 195                          Corea, RepÃºblica Popular DemocrÃ¡tica de
+## 196                                                           Portugal
+## 197                                                           Paraguay
+## 198                                           Ribera Occidental y Gaza
+## 199                           Estados pequeos de las Islas del Pacfico
+## 200                                posterior al dividendo demogrÃ¡fico
+## 201                                                 Polinesia Francesa
+## 202                                                              Qatar
+## 203                                                            Rumania
+## 204                                               FederaciÃ³n de Rusia
+## 205                                                             Rwanda
+## 206                                                    Asia meridional
+## 207                                                     Arabia Saudita
+## 208                                                             SudÃ¡n
+## 209                                                            Senegal
+## 210                                                           Singapur
+## 211                                                     Islas SalomÃ³n
+## 212                                                       Sierra Leona
+## 213                                                        El Salvador
+## 214                                                         San Marino
+## 215                                                            Somalia
+## 216                                                             Serbia
+## 217                Ã\201frica al sur del Sahara (excluido altos ingresos)
+## 218                                                     SudÃ¡n del Sur
+## 219                                          Ã\201frica al sur del Sahara
+## 220                                                  PequeÃ±os Estados
+## 221                                            Santo TomÃ© y PrÃ­ncipe
+## 222                                                           Suriname
+## 223                                                RepÃºblica Eslovaca
+## 224                                                          Eslovenia
+## 225                                                             Suecia
+## 226                                                           Eswatini
+## 227                                          Sint Maarten (Dutch part)
+## 228                                                         Seychelles
+## 229                                            RepÃºblica Ã\201rabe Siria
+## 230                                              Islas Turcas y Caicos
+## 231                                                               Chad
+## 232                       Asia oriental y el PacÃ­fico (BIRF y la AIF)
+## 233                              Europa y Asia central (BIRF y la AIF)
+## 234                                                               Togo
+## 235                                                          Tailandia
+## 236                                                        TayikistÃ¡n
+## 237                                                      TurkmenistÃ¡n
+## 238                        AmÃ©rica Latina y el Caribe (BIRF y la AIF)
+## 239                                                        Timor-Leste
+## 240                   Oriente Medio y Norte de Ã\201frica (BIRF y la AIF)
+## 241                                                              Tonga
+## 242                                    Asia meridional (BIRF y la AIF)
+## 243                          Ã\201frica al sur del Sahara (BIRF y la AIF)
+## 244                                                  Trinidad y Tobago
+## 245                                                             TÃºnez
+## 246                                                           TurquÃ­a
+## 247                                                             Tuvalu
+## 248                                                          TanzanÃ­a
+## 249                                                             Uganda
+## 250                                                            Ucrania
+## 251                                               Ingreso mediano alto
+## 252                                                            Uruguay
+## 253                                                     Estados Unidos
+## 254                                                        UzbekistÃ¡n
+## 255                                       San Vicente y las Granadinas
+## 256                                                          Venezuela
+## 257                                        Islas VÃ­rgenes BritÃ¡nicas
+## 258                                           Islas VÃ­rgenes (EE.UU.)
+## 259                                                           Viet Nam
+## 260                                                            Vanuatu
+## 261                                                              Mundo
+## 262                                                              Samoa
+## 263                                                             Kosovo
+## 264                                                    Yemen, Rep. del
+## 265                                                         SudÃ¡frica
+## 266                                                             Zambia
+## 267                                                           Zimbabwe
+##               V2         V60
+## 1   Country Code 2015.000000
+## 2            ABW          NA
+## 3            AFE   47.060138
+## 4            AFG   19.251339
+## 5            AFW   45.351817
+## 6            AGO   49.414206
+## 7            ALB   41.891433
+## 8            AND          NA
+## 9            ARB   21.801675
+## 10           ARE   16.133728
+## 11           ARG   41.866822
+## 12           ARM   46.834962
+## 13           ASM          NA
+## 14           ATG          NA
+## 15           AUS   45.927173
+## 16           AUT   46.895061
+## 17           AZE   49.022375
+## 18           BDI   51.728020
+## 19           BEL   46.148390
+## 20           BEN   49.456808
+## 21           BFA   44.966437
+## 22           BGD   28.553975
+## 23           BGR   46.541310
+## 24           BHR   21.641922
+## 25           BHS   50.015963
+## 26           BIH   39.153698
+## 27           BLR   49.644432
+## 28           BLZ   38.193992
+## 29           BMU          NA
+## 30           BOL   40.830181
+## 31           BRA   42.644229
+## 32           BRB   49.854489
+## 33           BRN   42.074048
+## 34           BTN   40.571733
+## 35           BWA   48.797729
+## 36           CAF   45.114175
+## 37           CAN   47.173062
+## 38           CEB   45.083540
+## 39           CHE   46.450021
+## 40           CHI   43.751577
+## 41           CHL   41.470516
+## 42           CHN   44.411275
+## 43           CIV   39.848040
+## 44           CMR   46.694063
+## 45           COD   47.852865
+## 46           COG   49.523441
+## 47           COL   43.276106
+## 48           COM   36.719328
+## 49           CPV   42.830499
+## 50           CRI   39.398539
+## 51           CSS   43.640188
+## 52           CUB   38.311031
+## 53           CUW          NA
+## 54           CYM          NA
+## 55           CYP   46.379908
+## 56           CZE   44.207742
+## 57           DEU   46.524692
+## 58           DJI   25.489672
+## 59           DMA          NA
+## 60           DNK   46.801725
+## 61           DOM   39.023180
+## 62           DZA   19.428333
+## 63           EAP   43.718229
+## 64           EAR   29.948779
+## 65           EAS   43.662329
+## 66           ECA   44.527356
+## 67           ECS   45.394276
+## 68           ECU   39.797218
+## 69           EGY   24.292819
+## 70           EMU   46.127249
+## 71           ERI   46.090620
+## 72           ESP   46.360656
+## 73           EST   48.708419
+## 74           ETH   46.369051
+## 75           EUU   45.892650
+## 76           FCS   42.342700
+## 77           FIN   48.254651
+## 78           FJI   33.765041
+## 79           FRA   48.033734
+## 80           FRO          NA
+## 81           FSM          NA
+## 82           GAB   40.271907
+## 83           GBR   46.588780
+## 84           GEO   45.675150
+## 85           GHA   46.542494
+## 86           GIB          NA
+## 87           GIN   53.656392
+## 88           GMB   43.639086
+## 89           GNB   47.382717
+## 90           GNQ   38.252029
+## 91           GRC   44.085878
+## 92           GRD          NA
+## 93           GRL          NA
+## 94           GTM   33.136297
+## 95           GUM   44.786164
+## 96           GUY   37.406582
+## 97           HIC   44.092929
+## 98           HKG   48.712975
+## 99           HND   36.914423
+## 100          HPC   45.135992
+## 101          HRV   46.682831
+## 102          HTI   48.487519
+## 103          HUN   45.951048
+## 104          IBD   37.541298
+## 105          IBT   38.166161
+## 106          IDA   40.482853
+## 107          IDB   37.362022
+## 108          IDN   38.094758
+## 109          IDX   41.881800
+## 110          IMN          NA
+## 111          IND   21.100026
+## 112          INX          NA
+## 113          IRL   45.212481
+## 114          IRN   17.132858
+## 115          IRQ   16.269396
+## 116          ISL   47.501687
+## 117          ISR   47.132012
+## 118          ITA   42.215123
+## 119          JAM   45.183836
+## 120          JOR   20.566198
+## 121          JPN   42.839106
+## 122          KAZ   48.565926
+## 123          KEN   48.832269
+## 124          KGZ   41.025377
+## 125          KHM   48.155200
+## 126          KIR          NA
+## 127          KNA          NA
+## 128          KOR   41.510717
+## 129          KWT   26.884395
+## 130          LAC   41.208288
+## 131          LAO   49.205858
+## 132          LBN   24.502531
+## 133          LBR   47.017585
+## 134          LBY   35.345721
+## 135          LCA   46.869048
+## 136          LCN   41.193252
+## 137          LDC   42.468517
+## 138          LIC   43.963706
+## 139          LIE          NA
+## 140          LKA   34.642590
+## 141          LMC   31.262258
+## 142          LMY   38.131574
+## 143          LSO   45.208731
+## 144          LTE   44.071573
+## 145          LTU   50.459996
+## 146          LUX   45.509881
+## 147          LVA   49.654222
+## 148          MAC   48.653813
+## 149          MAF          NA
+## 150          MAR   26.579877
+## 151          MCO          NA
+## 152          MDA   48.670144
+## 153          MDG   48.897456
+## 154          MDV   25.691915
+## 155          MEA   20.805760
+## 156          MEX   37.499822
+## 157          MHL          NA
+## 158          MIC   37.584889
+## 159          MKD   39.477695
+## 160          MLI   44.170201
+## 161          MLT   39.291371
+## 162          MMR   41.658392
+## 163          MNA   20.831493
+## 164          MNE   45.411068
+## 165          MNG   45.988019
+## 166          MNP          NA
+## 167          MOZ   52.309908
+## 168          MRT   30.929681
+## 169          MUS   39.024187
+## 170          MWI   48.411745
+## 171          MYS   37.983049
+## 172          NAC   46.180476
+## 173          NAM   48.817033
+## 174          NCL   45.773724
+## 175          NER   42.870751
+## 176          NGA   45.755844
+## 177          NIC   38.362222
+## 178          NLD   46.223193
+## 179          NOR   47.778392
+## 180          NPL   55.419099
+## 181          NRU          NA
+## 182          NZL   47.369838
+## 183          OED   44.062846
+## 184          OMN   13.024652
+## 185          OSS   37.791235
+## 186          PAK   22.445042
+## 187          PAN   39.380987
+## 188          PER   45.406419
+## 189          PHL   39.701740
+## 190          PLW          NA
+## 191          PNG   48.540396
+## 192          POL   44.853155
+## 193          PRE   44.656894
+## 194          PRI   43.025988
+## 195          PRK   49.048332
+## 196          PRT   48.876350
+## 197          PRY   39.599109
+## 198          PSE   19.933620
+## 199          PSS   40.716956
+## 200          PST   45.604803
+## 201          PYF   43.254559
+## 202          QAT   13.281983
+## 203          ROU   42.992416
+## 204          RUS   48.440765
+## 205          RWA   51.646711
+## 206          SAS   22.966622
+## 207          SAU   16.068800
+## 208          SDN   29.862272
+## 209          SEN   40.052413
+## 210          SGP   41.648048
+## 211          SLB   48.548637
+## 212          SLE   49.891493
+## 213          SLV   41.981179
+## 214          SMR          NA
+## 215          SOM   30.737575
+## 216          SRB   43.347434
+## 217          SSA   46.446539
+## 218          SSD   49.224624
+## 219          SSF   46.446539
+## 220          SST   39.071613
+## 221          STP   34.804603
+## 222          SUR   40.222992
+## 223          SVK   45.204403
+## 224          SVN   45.814859
+## 225          SWE   47.703008
+## 226          SWZ   48.533793
+## 227          SXM          NA
+## 228          SYC          NA
+## 229          SYR   18.001101
+## 230          TCA          NA
+## 231          TCD   41.290127
+## 232          TEA   43.639757
+## 233          TEC   44.508216
+## 234          TGO   48.330523
+## 235          THA   45.656086
+## 236          TJK   37.651846
+## 237          TKM   41.374432
+## 238          TLA   41.227975
+## 239          TLS   45.445284
+## 240          TMN   20.840829
+## 241          TON   41.219032
+## 242          TSA   22.966622
+## 243          TSS   46.446539
+## 244          TTO   41.988644
+## 245          TUN   28.345830
+## 246          TUR   31.719798
+## 247          TUV          NA
+## 248          TZA   48.242866
+## 249          UGA   49.149124
+## 250          UKR   48.960512
+## 251          UMC   43.488643
+## 252          URY   45.578375
+## 253          USA   46.057901
+## 254          UZB   40.237749
+## 255          VCT   40.729930
+## 256          VEN   39.953126
+## 257          VGB          NA
+## 258          VIR   45.127948
+## 259          VNM   47.773231
+## 260          VUT   43.628704
+## 261          WLD   39.230014
+## 262          WSM   34.874389
+## 263          XKX          NA
+## 264          YEM    8.332549
+## 265          ZAF   44.548750
+## 266          ZMB   47.901541
+## 267          ZWE   51.627807</code></pre>
+<pre class="r"><code>Poblacion_Act_Mujeres2015 &lt;- select(Poblacion_Act_Mujeres2015, V1, V2, V60)
+head(Poblacion_Act_Mujeres2015,10)</code></pre>
+<pre><code>##                         V1           V2        V60
+## 1             Country Name Country Code 2015.00000
+## 2                    Aruba          ABW         NA
+## 3                                   AFE   47.06014
+## 4              AfganistÃ¡n          AFG   19.25134
+## 5                                   AFW   45.35182
+## 6                   Angola          AGO   49.41421
+## 7                  Albania          ALB   41.89143
+## 8                  Andorra          AND         NA
+## 9          El mundo Ã¡rabe          ARB   21.80167
+## 10 Emiratos Ã\201rabes Unidos          ARE   16.13373</code></pre>
+<pre class="r"><code>Poblacion_Act_Mujeres2015 = Poblacion_Act_Mujeres2015[-c(1),]</code></pre>
+<pre class="r"><code>colnames(Poblacion_Act_Mujeres2015) = c(&quot;pais&quot;,&quot;codigo&quot;,&quot;Poblacion_Act_Mujeres2015&quot;)</code></pre>
+<pre class="r"><code>sum(is.na(Poblacion_Act_Mujeres2015$Poblacion_Act_Mujeres2015))</code></pre>
+<pre><code>## [1] 31</code></pre>
+<p>#V.I.2: Porcentaje de empleo vulnerable femenino</p>
+<pre class="r"><code>Vulnerable=&quot;https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_1/Xiomara/XVI3_Vulnerable.csv&quot;
+Por_Vulnerable_Femenino_2015=import(Vulnerable)</code></pre>
+<pre class="r"><code>select(Por_Vulnerable_Femenino_2015, V1, V2, V60)</code></pre>
+<pre><code>##                                                                     V1
+## 1                                                          Data Source
+## 2                                                    Last Updated Date
+## 3                                                                     
+## 4                                                         Country Name
+## 5                                                                Aruba
+## 6                                                                     
+## 7                                                          AfganistÃ¡n
+## 8                                                                     
+## 9                                                               Angola
+## 10                                                             Albania
+## 11                                                             Andorra
+## 12                                                     El mundo Ã¡rabe
+## 13                                             Emiratos Ã\201rabes Unidos
+## 14                                                           Argentina
+## 15                                                             Armenia
+## 16                                                     Samoa Americana
+## 17                                                   Antigua y Barbuda
+## 18                                                           Australia
+## 19                                                             Austria
+## 20                                                         AzerbaiyÃ¡n
+## 21                                                             Burundi
+## 22                                                            BÃ©lgica
+## 23                                                               Benin
+## 24                                                        Burkina Faso
+## 25                                                          Bangladesh
+## 26                                                            Bulgaria
+## 27                                                             Bahrein
+## 28                                                             Bahamas
+## 29                                                Bosnia y Herzegovina
+## 30                                                            BelarÃºs
+## 31                                                              Belice
+## 32                                                            Bermudas
+## 33                                                             Bolivia
+## 34                                                              Brasil
+## 35                                                            Barbados
+## 36                                                   Brunei Darussalam
+## 37                                                             BhutÃ¡n
+## 38                                                            Botswana
+## 39                                           RepÃºblica Centroafricana
+## 40                                                             CanadÃ¡
+## 41                                       Europa Central y del BÃ¡ltico
+## 42                                                               Suiza
+## 43                                                     Islas del Canal
+## 44                                                               Chile
+## 45                                                               China
+## 46                                                      CÃ´te d&#39;Ivoire
+## 47                                                            CamerÃºn
+## 48                                  Congo, RepÃºblica DemocrÃ¡tica del
+## 49                                               Congo, RepÃºblica del
+## 50                                                            Colombia
+## 51                                                             Comoras
+## 52                                                          Cabo Verde
+## 53                                                          Costa Rica
+## 54                                          Estados pequeos del Caribe
+## 55                                                                Cuba
+## 56                                                             Curacao
+## 57                                                       Islas CaimÃ¡n
+## 58                                                              Chipre
+## 59                                                    RepÃºblica Checa
+## 60                                                            Alemania
+## 61                                                            Djibouti
+## 62                                                            Dominica
+## 63                                                           Dinamarca
+## 64                                               RepÃºblica Dominicana
+## 65                                                             Argelia
+## 66              Asia oriental y el PacÃ­fico (excluido altos ingresos)
+## 67                                  inicial del dividendo demogrÃ¡fico
+## 68                                        Asia oriental y el PacÃ­fico
+## 69                     Europa y Asia central (excluido altos ingresos)
+## 70                                               Europa y Asia central
+## 71                                                             Ecuador
+## 72                                        Egipto, RepÃºblica Ã\201rabe de
+## 73                                                       Zona del Euro
+## 74                                                             Eritrea
+## 75                                                             EspaÃ±a
+## 76                                                             Estonia
+## 77                                                            EtiopÃ­a
+## 78                                                      UniÃ³n Europea
+## 79                      FrÃ¡giles y situaciones de conflicto afectados
+## 80                                                           Finlandia
+## 81                                                                Fiji
+## 82                                                             Francia
+## 83                                                         Islas Feroe
+## 84                                   Micronesia (Estados Federados de)
+## 85                                                              GabÃ³n
+## 86                                                         Reino Unido
+## 87                                                             Georgia
+## 88                                                               Ghana
+## 89                                                           Gibraltar
+## 90                                                              Guinea
+## 91                                                              Gambia
+## 92                                                       Guinea-Bissau
+## 93                                                   Guinea Ecuatorial
+## 94                                                              Grecia
+## 95                                                             Granada
+## 96                                                         Groenlandia
+## 97                                                           Guatemala
+## 98                                                                Guam
+## 99                                                              Guyana
+## 100                                                       Ingreso alto
+## 101                         Hong Kong, RegiÃ³n Administrativa Especial
+## 102                                                           Honduras
+## 103                               PaÃ­ses pobres muy endeudados (PPME)
+## 104                                                            Croacia
+## 105                                                             HaitÃ­
+## 106                                                           HungrÃ­a
+## 107                                                         SÃ³lo BIRF
+## 108                                                      BIRF y la AIF
+## 109                                                    total de la AIF
+## 110                                                   mezcla de la AIF
+## 111                                                          Indonesia
+## 112                                                          SÃ³lo AIF
+## 113                                                        Isla de Man
+## 114                                                              India
+## 115                                                     No clasificado
+## 116                                                            Irlanda
+## 117                                    IrÃ¡n, RepÃºblica IslÃ¡mica del
+## 118                                                               Iraq
+## 119                                                           Islandia
+## 120                                                             Israel
+## 121                                                             Italia
+## 122                                                            Jamaica
+## 123                                                           Jordania
+## 124                                                             JapÃ³n
+## 125                                                         KazajstÃ¡n
+## 126                                                              Kenya
+## 127                                                        KirguistÃ¡n
+## 128                                                            Camboya
+## 129                                                           Kiribati
+## 130                                                Saint Kitts y Nevis
+## 131                                               Corea, RepÃºblica de
+## 132                                                             Kuwait
+## 133              AmÃ©rica Latina y el Caribe (excluido altos ingresos)
+## 134                                RepÃºblica DemocrÃ¡tica Popular Lao
+## 135                                                            LÃ­bano
+## 136                                                            Liberia
+## 137                                                              Libia
+## 138                                                       Santa LucÃ­a
+## 139                                        AmÃ©rica Latina y el Caribe
+## 140 PaÃ­ses menos desarrollados: clasificaciÃ³n de las Naciones Unidas
+## 141                                            PaÃ­ses de ingreso bajo
+## 142                                                      Liechtenstein
+## 143                                                          Sri Lanka
+## 144                                    PaÃ­ses de ingreso mediano bajo
+## 145                                             Ingreso mediano y bajo
+## 146                                                            Lesotho
+## 147                                avanzada del dividendo demogrÃ¡fico
+## 148                                                           Lituania
+## 149                                                         Luxemburgo
+## 150                                                            Letonia
+## 151                    RegiÃ³n Administrativa Especial de Macao, China
+## 152                               Isla de San MartÃ­n (parte francesa)
+## 153                                                          Marruecos
+## 154                                                            MÃ³naco
+## 155                                              RepÃºblica de Moldova
+## 156                                                         Madagascar
+## 157                                                           Maldivas
+## 158                                   Oriente Medio y Norte de Ã\201frica
+## 159                                                            MÃ©xico
+## 160                                                     Islas Marshall
+## 161                                                    Ingreso mediano
+## 162                                                Macedonia del Norte
+## 163                                                              MalÃ­
+## 164                                                              Malta
+## 165                                                            Myanmar
+## 166         Oriente Medio y Norte de Ã\201frica (excluido altos ingresos)
+## 167                                                         Montenegro
+## 168                                                           Mongolia
+## 169                                                            Mariana
+## 170                                                         Mozambique
+## 171                                                         Mauritania
+## 172                                                           Mauricio
+## 173                                                             Malawi
+## 174                                                            Malasia
+## 175                                                 AmÃ©rica del Norte
+## 176                                                            Namibia
+## 177                                                    Nueva Caledonia
+## 178                                                             NÃ­ger
+## 179                                                            Nigeria
+## 180                                                          Nicaragua
+## 181                                                      PaÃ­ses Bajos
+## 182                                                            Noruega
+## 183                                                              Nepal
+## 184                                                              Nauru
+## 185                                                     Nueva Zelandia
+## 186                                                      Miembros OCDE
+## 187                                                              OmÃ¡n
+## 188                                              Otros Estados pequeos
+## 189                                                          PakistÃ¡n
+## 190                                                            PanamÃ¡
+## 191                                                              PerÃº
+## 192                                                          Filipinas
+## 193                                                              Palau
+## 194                                                 Papua Nueva Guinea
+## 195                                                            Polonia
+## 196                                   previa al dividendo demogrÃ¡fico
+## 197                                                        Puerto Rico
+## 198                          Corea, RepÃºblica Popular DemocrÃ¡tica de
+## 199                                                           Portugal
+## 200                                                           Paraguay
+## 201                                           Ribera Occidental y Gaza
+## 202                           Estados pequeos de las Islas del Pacfico
+## 203                                posterior al dividendo demogrÃ¡fico
+## 204                                                 Polinesia Francesa
+## 205                                                              Qatar
+## 206                                                            Rumania
+## 207                                               FederaciÃ³n de Rusia
+## 208                                                             Rwanda
+## 209                                                    Asia meridional
+## 210                                                     Arabia Saudita
+## 211                                                             SudÃ¡n
+## 212                                                            Senegal
+## 213                                                           Singapur
+## 214                                                     Islas SalomÃ³n
+## 215                                                       Sierra Leona
+## 216                                                        El Salvador
+## 217                                                         San Marino
+## 218                                                            Somalia
+## 219                                                             Serbia
+## 220                Ã\201frica al sur del Sahara (excluido altos ingresos)
+## 221                                                     SudÃ¡n del Sur
+## 222                                          Ã\201frica al sur del Sahara
+## 223                                                  PequeÃ±os Estados
+## 224                                            Santo TomÃ© y PrÃ­ncipe
+## 225                                                           Suriname
+## 226                                                RepÃºblica Eslovaca
+## 227                                                          Eslovenia
+## 228                                                             Suecia
+## 229                                                           Eswatini
+## 230                                          Sint Maarten (Dutch part)
+## 231                                                         Seychelles
+## 232                                            RepÃºblica Ã\201rabe Siria
+## 233                                              Islas Turcas y Caicos
+## 234                                                               Chad
+## 235                       Asia oriental y el PacÃ­fico (BIRF y la AIF)
+## 236                              Europa y Asia central (BIRF y la AIF)
+## 237                                                               Togo
+## 238                                                          Tailandia
+## 239                                                        TayikistÃ¡n
+## 240                                                      TurkmenistÃ¡n
+## 241                        AmÃ©rica Latina y el Caribe (BIRF y la AIF)
+## 242                                                        Timor-Leste
+## 243                   Oriente Medio y Norte de Ã\201frica (BIRF y la AIF)
+## 244                                                              Tonga
+## 245                                    Asia meridional (BIRF y la AIF)
+## 246                          Ã\201frica al sur del Sahara (BIRF y la AIF)
+## 247                                                  Trinidad y Tobago
+## 248                                                             TÃºnez
+## 249                                                           TurquÃ­a
+## 250                                                             Tuvalu
+## 251                                                          TanzanÃ­a
+## 252                                                             Uganda
+## 253                                                            Ucrania
+## 254                                               Ingreso mediano alto
+## 255                                                            Uruguay
+## 256                                                     Estados Unidos
+## 257                                                        UzbekistÃ¡n
+## 258                                       San Vicente y las Granadinas
+## 259                                                          Venezuela
+## 260                                        Islas VÃ­rgenes BritÃ¡nicas
+## 261                                           Islas VÃ­rgenes (EE.UU.)
+## 262                                                           Viet Nam
+## 263                                                            Vanuatu
+## 264                                                              Mundo
+## 265                                                              Samoa
+## 266                                                             Kosovo
+## 267                                                    Yemen, Rep. del
+## 268                                                         SudÃ¡frica
+## 269                                                             Zambia
+## 270                                                           Zimbabwe
+##                                     V2         V60
+## 1   Indicadores del desarrollo mundial          NA
+## 2                            20/7/2022          NA
+## 3                                               NA
+## 4                         Country Code 2015.000000
+## 5                                  ABW          NA
+## 6                                  AFE   78.455490
+## 7                                  AFG   93.400003
+## 8                                  AFW   87.677872
+## 9                                  AGO   83.740001
+## 10                                 ALB   56.340000
+## 11                                 AND          NA
+## 12                                 ARB   36.800913
+## 13                                 ARE    0.230000
+## 14                                 ARG   17.690000
+## 15                                 ARM   42.549999
+## 16                                 ASM          NA
+## 17                                 ATG          NA
+## 18                                 AUS    8.220000
+## 19                                 AUT    7.920000
+## 20                                 AZE   64.009998
+## 21                                 BDI   87.820000
+## 22                                 BEL    8.690000
+## 23                                 BEN   94.109997
+## 24                                 BFA   90.439999
+## 25                                 BGD   73.780001
+## 26                                 BGR    6.860000
+## 27                                 BHR    0.850000
+## 28                                 BHS    4.110000
+## 29                                 BIH   19.550000
+## 30                                 BLR    1.840000
+## 31                                 BLZ   27.239999
+## 32                                 BMU          NA
+## 33                                 BOL   64.130001
+## 34                                 BRA   22.169999
+## 35                                 BRB   11.480000
+## 36                                 BRN    5.290000
+## 37                                 BTN   84.470001
+## 38                                 BWA   25.620000
+## 39                                 CAF   96.520000
+## 40                                 CAN    9.220000
+## 41                                 CEB   14.036776
+## 42                                 CHE    9.750000
+## 43                                 CHI   10.310000
+## 44                                 CHL   22.810001
+## 45                                 CHN   47.189999
+## 46                                 CIV   85.700001
+## 47                                 CMR   83.570000
+## 48                                 COD   88.939999
+## 49                                 COG   90.600001
+## 50                                 COL   47.000001
+## 51                                 COM   69.070002
+## 52                                 CPV   48.000000
+## 53                                 CRI   19.160000
+## 54                                 CSS   21.430921
+## 55                                 CUB   10.080000
+## 56                                 CUW          NA
+## 57                                 CYM          NA
+## 58                                 CYP   10.600000
+## 59                                 CZE   10.920000
+## 60                                 DEU    5.240000
+## 61                                 DJI   43.940001
+## 62                                 DMA          NA
+## 63                                 DNK    3.670000
+## 64                                 DOM   30.010000
+## 65                                 DZA   23.889999
+## 66                                 EAP   50.007991
+## 67                                 EAR   62.003298
+## 68                                 EAS   46.093631
+## 69                                 ECA   17.727365
+## 70                                 ECS   12.935985
+## 71                                 ECU   51.710001
+## 72                                 EGY   46.509999
+## 73                                 EMU    8.555301
+## 74                                 ERI   85.520002
+## 75                                 ESP    9.520000
+## 76                                 EST    4.760000
+## 77                                 ETH   89.369999
+## 78                                 EUU    9.662845
+## 79                                 FCS   76.391002
+## 80                                 FIN    7.310000
+## 81                                 FJI   49.980001
+## 82                                 FRA    5.950000
+## 83                                 FRO          NA
+## 84                                 FSM          NA
+## 85                                 GAB   35.240000
+## 86                                 GBR    9.050000
+## 87                                 GEO   52.360001
+## 88                                 GHA   79.279998
+## 89                                 GIB          NA
+## 90                                 GIN   97.320000
+## 91                                 GMB   82.679999
+## 92                                 GNB   81.880001
+## 93                                 GNQ   76.060000
+## 94                                 GRC   25.199999
+## 95                                 GRD          NA
+## 96                                 GRL          NA
+## 97                                 GTM   45.849999
+## 98                                 GUM    9.150000
+## 99                                 GUY   32.720000
+## 100                                HIC    8.365966
+## 101                                HKG    3.930000
+## 102                                HND   51.820002
+## 103                                HPC   86.012954
+## 104                                HRV    9.090000
+## 105                                HTI   82.170000
+## 106                                HUN    4.900000
+## 107                                IBD   46.481416
+## 108                                IBT   54.126152
+## 109                                IDA   80.246241
+## 110                                IDB   75.728318
+## 111                                IDN   56.629999
+## 112                                IDX   82.052969
+## 113                                IMN          NA
+## 114                                IND   79.949999
+## 115                                INX          NA
+## 116                                IRL    6.160000
+## 117                                IRN   42.390001
+## 118                                IRQ   20.980000
+## 119                                ISL    6.500000
+## 120                                ISR    6.910000
+## 121                                ITA   14.240000
+## 122                                JAM   30.460001
+## 123                                JOR    1.570000
+## 124                                JPN    8.900000
+## 125                                KAZ   24.850000
+## 126                                KEN   62.039999
+## 127                                KGZ   33.959999
+## 128                                KHM   57.630000
+## 129                                KIR          NA
+## 130                                KNA          NA
+## 131                                KOR   20.020000
+## 132                                KWT    0.040000
+## 133                                LAC   32.730331
+## 134                                LAO   84.780003
+## 135                                LBN   13.090000
+## 136                                LBR   89.959997
+## 137                                LBY   33.559999
+## 138                                LCA   17.090001
+## 139                                LCN   32.259024
+## 140                                LDC   83.587747
+## 141                                LIC   87.125809
+## 142                                LIE          NA
+## 143                                LKA   44.070000
+## 144                                LMC   68.423617
+## 145                                LMY   54.985536
+## 146                                LSO   58.300000
+## 147                                LTE   42.293562
+## 148                                LTU    8.700000
+## 149                                LUX    6.370000
+## 150                                LVA    6.920000
+## 151                                MAC    2.320000
+## 152                                MAF          NA
+## 153                                MAR   63.070000
+## 154                                MCO          NA
+## 155                                MDA   30.449999
+## 156                                MDG   90.009998
+## 157                                MDV   36.910000
+## 158                                MEA   30.541241
+## 159                                MEX   30.610000
+## 160                                MHL          NA
+## 161                                MIC   51.447512
+## 162                                MKD   18.660000
+## 163                                MLI   89.550001
+## 164                                MLT    5.440000
+## 165                                MMR   63.199999
+## 166                                MNA   39.148648
+## 167                                MNE    9.460000
+## 168                                MNG   47.409999
+## 169                                MNP          NA
+## 170                                MOZ   92.980000
+## 171                                MRT   74.499998
+## 172                                MUS   14.410000
+## 173                                MWI   66.510001
+## 174                                MYS   25.360000
+## 175                                NAC    4.224408
+## 176                                NAM   35.300000
+## 177                                NCL   11.650000
+## 178                                NER   97.730000
+## 179                                NGA   87.350002
+## 180                                NIC   46.650001
+## 181                                NLD   11.240000
+## 182                                NOR    3.790000
+## 183                                NPL   88.900000
+## 184                                NRU          NA
+## 185                                NZL    9.090000
+## 186                                OED   11.941715
+## 187                                OMN    3.840000
+## 188                                OSS   38.296561
+## 189                                PAK   75.049999
+## 190                                PAN   28.749999
+## 191                                PER   57.660002
+## 192                                PHL   41.480001
+## 193                                PLW          NA
+## 194                                PNG   85.179998
+## 195                                POL   15.030000
+## 196                                PRE   84.828680
+## 197                                PRI    4.850000
+## 198                                PRK   85.829998
+## 199                                PRT   11.090000
+## 200                                PRY   41.859999
+## 201                                PSE   30.879999
+## 202                                PSS   63.291116
+## 203                                PST    7.721524
+## 204                                PYF    9.000000
+## 205                                QAT    0.060000
+## 206                                ROU   27.080000
+## 207                                RUS    5.400000
+## 208                                RWA   77.809998
+## 209                                SAS   78.649277
+## 210                                SAU    1.150000
+## 211                                SDN   64.679998
+## 212                                SEN   73.309999
+## 213                                SGP    5.530000
+## 214                                SLB   75.040004
+## 215                                SLE   93.470001
+## 216                                SLV   44.079999
+## 217                                SMR          NA
+## 218                                SOM   95.980003
+## 219                                SRB   22.400000
+## 220                                SSA   81.731365
+## 221                                SSD   95.590004
+## 222                                SSF   81.731365
+## 223                                SST   36.168318
+## 224                                STP   60.590001
+## 225                                SUR   10.070000
+## 226                                SVK    8.390000
+## 227                                SVN   11.430000
+## 228                                SWE    4.530000
+## 229                                SWZ   39.440001
+## 230                                SXM          NA
+## 231                                SYC          NA
+## 232                                SYR    9.150000
+## 233                                TCA          NA
+## 234                                TCD   98.210001
+## 235                                TEA   49.410055
+## 236                                TEC   17.819189
+## 237                                TGO   89.809997
+## 238                                THA   50.660000
+## 239                                TJK   38.640000
+## 240                                TKM   39.220002
+## 241                                TLA   32.821834
+## 242                                TLS   78.899998
+## 243                                TMN   39.216355
+## 244                                TON   51.900001
+## 245                                TSA   78.649277
+## 246                                TSS   81.731365
+## 247                                TTO   11.610000
+## 248                                TUN   13.140000
+## 249                                TUR   36.730000
+## 250                                TUV          NA
+## 251                                TZA   88.860001
+## 252                                UGA   81.920000
+## 253                                UKR   13.130000
+## 254                                UMC   40.059239
+## 255                                URY   21.420000
+## 256                                USA    3.600000
+## 257                                UZB   39.599999
+## 258                                VCT   17.800000
+## 259                                VEN   35.590000
+## 260                                VGB          NA
+## 261                                VIR    3.040000
+## 262                                VNM   63.940001
+## 263                                VUT   73.030003
+## 264                                WLD   45.424808
+## 265                                WSM   27.660001
+## 266                                XKX          NA
+## 267                                YEM   63.269999
+## 268                                ZAF    9.820000
+## 269                                ZMB   86.500000
+## 270                                ZWE   75.640002</code></pre>
+<pre class="r"><code>Por_Vulnerable_Femenino_2015 &lt;- select(Por_Vulnerable_Femenino_2015, V1, V2, V60)
+head(Por_Vulnerable_Femenino_2015,10)</code></pre>
+<pre><code>##                   V1                                 V2        V60
+## 1        Data Source Indicadores del desarrollo mundial         NA
+## 2  Last Updated Date                          20/7/2022         NA
+## 3                                                               NA
+## 4       Country Name                       Country Code 2015.00000
+## 5              Aruba                                ABW         NA
+## 6                                                   AFE   78.45549
+## 7        AfganistÃ¡n                                AFG   93.40000
+## 8                                                   AFW   87.67787
+## 9             Angola                                AGO   83.74000
+## 10           Albania                                ALB   56.34000</code></pre>
+<pre class="r"><code>Por_Vulnerable_Femenino_2015 = Por_Vulnerable_Femenino_2015[-c(1:4),]</code></pre>
+<pre class="r"><code>colnames(Por_Vulnerable_Femenino_2015) = c(&quot;pais&quot;,&quot;codigo&quot;,&quot;Por_Vulnerable_Femenino_2015&quot;)</code></pre>
+<pre class="r"><code>sum(is.na(Por_Vulnerable_Femenino_2015$Por_Vulnerable_Femenino_2015))</code></pre>
+<pre><code>## [1] 31</code></pre>
+<p>#V.I.3: Gasto público en la educación</p>
+<pre class="r"><code>Gasteduc=&quot;https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_1/Xiomara/XVI2_Gasteduc.csv&quot;
+Gasto_public_educacion_2015=import(Gasteduc)</code></pre>
+<pre class="r"><code>select(Gasto_public_educacion_2015, V1, V2, V60)</code></pre>
+<pre><code>##                                                                     V1
+## 1                                                          Data Source
+## 2                                                    Last Updated Date
+## 3                                                                     
+## 4                                                         Country Name
+## 5                                                                Aruba
+## 6                                                                     
+## 7                                                          AfganistÃ¡n
+## 8                                                                     
+## 9                                                               Angola
+## 10                                                             Albania
+## 11                                                             Andorra
+## 12                                                     El mundo Ã¡rabe
+## 13                                             Emiratos Ã\201rabes Unidos
+## 14                                                           Argentina
+## 15                                                             Armenia
+## 16                                                     Samoa Americana
+## 17                                                   Antigua y Barbuda
+## 18                                                           Australia
+## 19                                                             Austria
+## 20                                                         AzerbaiyÃ¡n
+## 21                                                             Burundi
+## 22                                                            BÃ©lgica
+## 23                                                               Benin
+## 24                                                        Burkina Faso
+## 25                                                          Bangladesh
+## 26                                                            Bulgaria
+## 27                                                             Bahrein
+## 28                                                             Bahamas
+## 29                                                Bosnia y Herzegovina
+## 30                                                            BelarÃºs
+## 31                                                              Belice
+## 32                                                            Bermudas
+## 33                                                             Bolivia
+## 34                                                              Brasil
+## 35                                                            Barbados
+## 36                                                   Brunei Darussalam
+## 37                                                             BhutÃ¡n
+## 38                                                            Botswana
+## 39                                           RepÃºblica Centroafricana
+## 40                                                             CanadÃ¡
+## 41                                       Europa Central y del BÃ¡ltico
+## 42                                                               Suiza
+## 43                                                     Islas del Canal
+## 44                                                               Chile
+## 45                                                               China
+## 46                                                      CÃ´te d&#39;Ivoire
+## 47                                                            CamerÃºn
+## 48                                  Congo, RepÃºblica DemocrÃ¡tica del
+## 49                                               Congo, RepÃºblica del
+## 50                                                            Colombia
+## 51                                                             Comoras
+## 52                                                          Cabo Verde
+## 53                                                          Costa Rica
+## 54                                          Estados pequeos del Caribe
+## 55                                                                Cuba
+## 56                                                             Curacao
+## 57                                                       Islas CaimÃ¡n
+## 58                                                              Chipre
+## 59                                                    RepÃºblica Checa
+## 60                                                            Alemania
+## 61                                                            Djibouti
+## 62                                                            Dominica
+## 63                                                           Dinamarca
+## 64                                               RepÃºblica Dominicana
+## 65                                                             Argelia
+## 66              Asia oriental y el PacÃ­fico (excluido altos ingresos)
+## 67                                  inicial del dividendo demogrÃ¡fico
+## 68                                        Asia oriental y el PacÃ­fico
+## 69                     Europa y Asia central (excluido altos ingresos)
+## 70                                               Europa y Asia central
+## 71                                                             Ecuador
+## 72                                        Egipto, RepÃºblica Ã\201rabe de
+## 73                                                       Zona del Euro
+## 74                                                             Eritrea
+## 75                                                             EspaÃ±a
+## 76                                                             Estonia
+## 77                                                            EtiopÃ­a
+## 78                                                      UniÃ³n Europea
+## 79                      FrÃ¡giles y situaciones de conflicto afectados
+## 80                                                           Finlandia
+## 81                                                                Fiji
+## 82                                                             Francia
+## 83                                                         Islas Feroe
+## 84                                   Micronesia (Estados Federados de)
+## 85                                                              GabÃ³n
+## 86                                                         Reino Unido
+## 87                                                             Georgia
+## 88                                                               Ghana
+## 89                                                           Gibraltar
+## 90                                                              Guinea
+## 91                                                              Gambia
+## 92                                                       Guinea-Bissau
+## 93                                                   Guinea Ecuatorial
+## 94                                                              Grecia
+## 95                                                             Granada
+## 96                                                         Groenlandia
+## 97                                                           Guatemala
+## 98                                                                Guam
+## 99                                                              Guyana
+## 100                                                       Ingreso alto
+## 101                         Hong Kong, RegiÃ³n Administrativa Especial
+## 102                                                           Honduras
+## 103                               PaÃ­ses pobres muy endeudados (PPME)
+## 104                                                            Croacia
+## 105                                                             HaitÃ­
+## 106                                                           HungrÃ­a
+## 107                                                         SÃ³lo BIRF
+## 108                                                      BIRF y la AIF
+## 109                                                    total de la AIF
+## 110                                                   mezcla de la AIF
+## 111                                                          Indonesia
+## 112                                                          SÃ³lo AIF
+## 113                                                        Isla de Man
+## 114                                                              India
+## 115                                                     No clasificado
+## 116                                                            Irlanda
+## 117                                    IrÃ¡n, RepÃºblica IslÃ¡mica del
+## 118                                                               Iraq
+## 119                                                           Islandia
+## 120                                                             Israel
+## 121                                                             Italia
+## 122                                                            Jamaica
+## 123                                                           Jordania
+## 124                                                             JapÃ³n
+## 125                                                         KazajstÃ¡n
+## 126                                                              Kenya
+## 127                                                        KirguistÃ¡n
+## 128                                                            Camboya
+## 129                                                           Kiribati
+## 130                                                Saint Kitts y Nevis
+## 131                                               Corea, RepÃºblica de
+## 132                                                             Kuwait
+## 133              AmÃ©rica Latina y el Caribe (excluido altos ingresos)
+## 134                                RepÃºblica DemocrÃ¡tica Popular Lao
+## 135                                                            LÃ­bano
+## 136                                                            Liberia
+## 137                                                              Libia
+## 138                                                       Santa LucÃ­a
+## 139                                        AmÃ©rica Latina y el Caribe
+## 140 PaÃ­ses menos desarrollados: clasificaciÃ³n de las Naciones Unidas
+## 141                                            PaÃ­ses de ingreso bajo
+## 142                                                      Liechtenstein
+## 143                                                          Sri Lanka
+## 144                                    PaÃ­ses de ingreso mediano bajo
+## 145                                             Ingreso mediano y bajo
+## 146                                                            Lesotho
+## 147                                avanzada del dividendo demogrÃ¡fico
+## 148                                                           Lituania
+## 149                                                         Luxemburgo
+## 150                                                            Letonia
+## 151                    RegiÃ³n Administrativa Especial de Macao, China
+## 152                               Isla de San MartÃ­n (parte francesa)
+## 153                                                          Marruecos
+## 154                                                            MÃ³naco
+## 155                                              RepÃºblica de Moldova
+## 156                                                         Madagascar
+## 157                                                           Maldivas
+## 158                                   Oriente Medio y Norte de Ã\201frica
+## 159                                                            MÃ©xico
+## 160                                                     Islas Marshall
+## 161                                                    Ingreso mediano
+## 162                                                Macedonia del Norte
+## 163                                                              MalÃ­
+## 164                                                              Malta
+## 165                                                            Myanmar
+## 166         Oriente Medio y Norte de Ã\201frica (excluido altos ingresos)
+## 167                                                         Montenegro
+## 168                                                           Mongolia
+## 169                                                            Mariana
+## 170                                                         Mozambique
+## 171                                                         Mauritania
+## 172                                                           Mauricio
+## 173                                                             Malawi
+## 174                                                            Malasia
+## 175                                                 AmÃ©rica del Norte
+## 176                                                            Namibia
+## 177                                                    Nueva Caledonia
+## 178                                                             NÃ­ger
+## 179                                                            Nigeria
+## 180                                                          Nicaragua
+## 181                                                      PaÃ­ses Bajos
+## 182                                                            Noruega
+## 183                                                              Nepal
+## 184                                                              Nauru
+## 185                                                     Nueva Zelandia
+## 186                                                      Miembros OCDE
+## 187                                                              OmÃ¡n
+## 188                                              Otros Estados pequeos
+## 189                                                          PakistÃ¡n
+## 190                                                            PanamÃ¡
+## 191                                                              PerÃº
+## 192                                                          Filipinas
+## 193                                                              Palau
+## 194                                                 Papua Nueva Guinea
+## 195                                                            Polonia
+## 196                                   previa al dividendo demogrÃ¡fico
+## 197                                                        Puerto Rico
+## 198                          Corea, RepÃºblica Popular DemocrÃ¡tica de
+## 199                                                           Portugal
+## 200                                                           Paraguay
+## 201                                           Ribera Occidental y Gaza
+## 202                           Estados pequeos de las Islas del Pacfico
+## 203                                posterior al dividendo demogrÃ¡fico
+## 204                                                 Polinesia Francesa
+## 205                                                              Qatar
+## 206                                                            Rumania
+## 207                                               FederaciÃ³n de Rusia
+## 208                                                             Rwanda
+## 209                                                    Asia meridional
+## 210                                                     Arabia Saudita
+## 211                                                             SudÃ¡n
+## 212                                                            Senegal
+## 213                                                           Singapur
+## 214                                                     Islas SalomÃ³n
+## 215                                                       Sierra Leona
+## 216                                                        El Salvador
+## 217                                                         San Marino
+## 218                                                            Somalia
+## 219                                                             Serbia
+## 220                Ã\201frica al sur del Sahara (excluido altos ingresos)
+## 221                                                     SudÃ¡n del Sur
+## 222                                          Ã\201frica al sur del Sahara
+## 223                                                  PequeÃ±os Estados
+## 224                                            Santo TomÃ© y PrÃ­ncipe
+## 225                                                           Suriname
+## 226                                                RepÃºblica Eslovaca
+## 227                                                          Eslovenia
+## 228                                                             Suecia
+## 229                                                           Eswatini
+## 230                                          Sint Maarten (Dutch part)
+## 231                                                         Seychelles
+## 232                                            RepÃºblica Ã\201rabe Siria
+## 233                                              Islas Turcas y Caicos
+## 234                                                               Chad
+## 235                       Asia oriental y el PacÃ­fico (BIRF y la AIF)
+## 236                              Europa y Asia central (BIRF y la AIF)
+## 237                                                               Togo
+## 238                                                          Tailandia
+## 239                                                        TayikistÃ¡n
+## 240                                                      TurkmenistÃ¡n
+## 241                        AmÃ©rica Latina y el Caribe (BIRF y la AIF)
+## 242                                                        Timor-Leste
+## 243                   Oriente Medio y Norte de Ã\201frica (BIRF y la AIF)
+## 244                                                              Tonga
+## 245                                    Asia meridional (BIRF y la AIF)
+## 246                          Ã\201frica al sur del Sahara (BIRF y la AIF)
+## 247                                                  Trinidad y Tobago
+## 248                                                             TÃºnez
+## 249                                                           TurquÃ­a
+## 250                                                             Tuvalu
+## 251                                                          TanzanÃ­a
+## 252                                                             Uganda
+## 253                                                            Ucrania
+## 254                                               Ingreso mediano alto
+## 255                                                            Uruguay
+## 256                                                     Estados Unidos
+## 257                                                        UzbekistÃ¡n
+## 258                                       San Vicente y las Granadinas
+## 259                                                          Venezuela
+## 260                                        Islas VÃ­rgenes BritÃ¡nicas
+## 261                                           Islas VÃ­rgenes (EE.UU.)
+## 262                                                           Viet Nam
+## 263                                                            Vanuatu
+## 264                                                              Mundo
+## 265                                                              Samoa
+## 266                                                             Kosovo
+## 267                                                    Yemen, Rep. del
+## 268                                                         SudÃ¡frica
+## 269                                                             Zambia
+## 270                                                           Zimbabwe
+##                                     V2         V60
+## 1   Indicadores del desarrollo mundial          NA
+## 2                            20/7/2022          NA
+## 3                                               NA
+## 4                         Country Code 2015.000000
+## 5                                  ABW   23.201380
+## 6                                  AFE   16.962910
+## 7                                  AFG   12.509000
+## 8                                  AFW   13.243990
+## 9                                  AGO    8.918777
+## 10                                 ALB   11.177550
+## 11                                 AND   10.442810
+## 12                                 ARB          NA
+## 13                                 ARE          NA
+## 14                                 ARG   13.963310
+## 15                                 ARM   10.656360
+## 16                                 ASM          NA
+## 17                                 ATG          NA
+## 18                                 AUS   14.085790
+## 19                                 AUT   10.693480
+## 20                                 AZE    7.631100
+## 21                                 BDI   27.497240
+## 22                                 BEL   12.009680
+## 23                                 BEN   17.479521
+## 24                                 BFA   18.027081
+## 25                                 BGD   13.700460
+## 26                                 BGR          NA
+## 27                                 BHR    7.328190
+## 28                                 BHS   11.831519
+## 29                                 BIH          NA
+## 30                                 BLR   11.461730
+## 31                                 BLZ   21.551920
+## 32                                 BMU    9.018800
+## 33                                 BOL   16.340000
+## 34                                 BRA   16.218109
+## 35                                 BRB   18.518553
+## 36                                 BRN          NA
+## 37                                 BTN   25.524481
+## 38                                 BWA   17.528259
+## 39                                 CAF    8.386742
+## 40                                 CAN          NA
+## 41                                 CEB   11.541410
+## 42                                 CHE   15.388360
+## 43                                 CHI          NA
+## 44                                 CHL   19.593710
+## 45                                 CHN   12.101926
+## 46                                 CIV   21.173220
+## 47                                 CMR   13.243990
+## 48                                 COD   11.738370
+## 49                                 COG    7.950400
+## 50                                 COL   14.292730
+## 51                                 COM   13.353650
+## 52                                 CPV   16.748230
+## 53                                 CRI   23.373430
+## 54                                 CSS   14.376225
+## 55                                 CUB          NA
+## 56                                 CUW          NA
+## 57                                 CYM          NA
+## 58                                 CYP   16.024960
+## 59                                 CZE   13.716310
+## 60                                 DEU   10.999160
+## 61                                 DJI    8.576440
+## 62                                 DMA   10.208010
+## 63                                 DNK          NA
+## 64                                 DOM   22.595850
+## 65                                 DZA          NA
+## 66                                 EAP   16.016220
+## 67                                 EAR   15.854220
+## 68                                 EAS   16.373510
+## 69                                 ECA   11.827385
+## 70                                 ECS   12.101360
+## 71                                 ECU   12.597650
+## 72                                 EGY   11.924540
+## 73                                 EMU   11.504420
+## 74                                 ERI          NA
+## 75                                 ESP    9.766460
+## 76                                 EST   13.014300
+## 77                                 ETH   27.098709
+## 78                                 EUU   11.541410
+## 79                                 FCS   13.000000
+## 80                                 FIN   12.443610
+## 81                                 FJI   17.391850
+## 82                                 FRA          NA
+## 83                                 FRO   15.880923
+## 84                                 FSM   22.312389
+## 85                                 GAB   10.913160
+## 86                                 GBR   13.490210
+## 87                                 GEO          NA
+## 88                                 GHA   23.808800
+## 89                                 GIB          NA
+## 90                                 GIN   11.598780
+## 91                                 GMB   11.032930
+## 92                                 GNB   13.000000
+## 93                                 GNQ          NA
+## 94                                 GRC    7.156530
+## 95                                 GRD          NA
+## 96                                 GRL   19.737524
+## 97                                 GTM   24.085501
+## 98                                 GUM          NA
+## 99                                 GUY   17.802679
+## 100                                HIC   12.443610
+## 101                                HKG   18.608570
+## 102                                HND   24.644560
+## 103                                HPC   16.502495
+## 104                                HRV          NA
+## 105                                HTI   14.567780
+## 106                                HUN    8.923030
+## 107                                IBD   14.357620
+## 108                                IBT   14.646040
+## 109                                IDA   16.026180
+## 110                                IDB   13.215635
+## 111                                IDN   20.503300
+## 112                                IDX   16.364480
+## 113                                IMN          NA
+## 114                                IND   15.692220
+## 115                                INX          NA
+## 116                                IRL   12.936840
+## 117                                IRN   18.568750
+## 118                                IRQ   13.000000
+## 119                                ISL   17.155140
+## 120                                ISR   15.492910
+## 121                                ITA    8.095910
+## 122                                JAM   20.051479
+## 123                                JOR   11.340000
+## 124                                JPN          NA
+## 125                                KAZ   12.193040
+## 126                                KEN   16.664659
+## 127                                KGZ   15.716760
+## 128                                KHM          NA
+## 129                                KIR   13.747750
+## 130                                KNA    8.692460
+## 131                                KOR          NA
+## 132                                KWT    9.514310
+## 133                                LAC   16.957430
+## 134                                LAO          NA
+## 135                                LBN    6.300000
+## 136                                LBR          NA
+## 137                                LBY          NA
+## 138                                LCA   16.452980
+## 139                                LCN   16.279055
+## 140                                LDC   13.850230
+## 141                                LIC   13.220080
+## 142                                LIE          NA
+## 143                                LKA   10.950260
+## 144                                LMC   15.704490
+## 145                                LMY   15.592720
+## 146                                LSO   14.000000
+## 147                                LTE   13.547110
+## 148                                LTU   12.288260
+## 149                                LUX    9.334430
+## 150                                LVA   14.127410
+## 151                                MAC   13.419700
+## 152                                MAF          NA
+## 153                                MAR          NA
+## 154                                MCO          NA
+## 155                                MDA   18.182171
+## 156                                MDG   16.962910
+## 157                                MDV   11.449250
+## 158                                MEA   12.462270
+## 159                                MEX   19.018749
+## 160                                MHL   31.850315
+## 161                                MIC   15.692220
+## 162                                MKD          NA
+## 163                                MLI   18.155491
+## 164                                MLT   13.150890
+## 165                                MMR    8.734160
+## 166                                MNA   13.000000
+## 167                                MNE          NA
+## 168                                MNG   13.547110
+## 169                                MNP          NA
+## 170                                MOZ   19.852341
+## 171                                MRT          NA
+## 172                                MUS   19.457090
+## 173                                MWI   21.797899
+## 174                                MYS   19.810730
+## 175                                NAC   13.545640
+## 176                                NAM   22.571329
+## 177                                NCL          NA
+## 178                                NER   18.512190
+## 179                                NGA    9.255510
+## 180                                NIC   22.282909
+## 181                                NLD   12.209650
+## 182                                NOR   15.607580
+## 183                                NPL   16.989660
+## 184                                NRU   12.080015
+## 185                                NZL   16.373510
+## 186                                OED   12.975570
+## 187                                OMN          NA
+## 188                                OSS   13.014300
+## 189                                PAK   13.187280
+## 190                                PAN    7.864060
+## 191                                PER   17.574860
+## 192                                PHL   16.016220
+## 193                                PLW   14.750000
+## 194                                PNG          NA
+## 195                                POL   11.541410
+## 196                                PRE   13.220080
+## 197                                PRI   17.282230
+## 198                                PRK          NA
+## 199                                PRT   10.135830
+## 200                                PRY   12.289420
+## 201                                PSE   15.493220
+## 202                                PSS          NA
+## 203                                PST   12.365935
+## 204                                PYF          NA
+## 205                                QAT          NA
+## 206                                ROU    9.094510
+## 207                                RUS   10.869470
+## 208                                RWA   12.539050
+## 209                                SAS   13.443870
+## 210                                SAU          NA
+## 211                                SDN          NA
+## 212                                SEN   23.778271
+## 213                                SGP   19.692038
+## 214                                SLB   25.208700
+## 215                                SLE          NA
+## 216                                SLV   14.422510
+## 217                                SMR          NA
+## 218                                SOM    1.421130
+## 219                                SRB    8.876360
+## 220                                SSA   16.664824
+## 221                                SSD    3.284600
+## 222                                SSF   16.664824
+## 223                                SST   13.014300
+## 224                                STP   11.297340
+## 225                                SUR   11.376600
+## 226                                SVK   10.048510
+## 227                                SVN   10.079170
+## 228                                SWE   15.382880
+## 229                                SWZ          NA
+## 230                                SXM          NA
+## 231                                SYC   12.586980
+## 232                                SYR          NA
+## 233                                TCA   14.191700
+## 234                                TCD    8.900000
+## 235                                TEA   16.016220
+## 236                                TEC   11.501570
+## 237                                TGO   16.664989
+## 238                                THA   17.141636
+## 239                                TJK   16.393360
+## 240                                TKM          NA
+## 241                                TLA   16.218109
+## 242                                TLS    8.636970
+## 243                                TMN   12.462270
+## 244                                TON          NA
+## 245                                TSA   13.443870
+## 246                                TSS   16.664824
+## 247                                TTO    8.700970
+## 248                                TUN   22.665340
+## 249                                TUR          NA
+## 250                                TUV          NA
+## 251                                TZA          NA
+## 252                                UGA   13.220080
+## 253                                UKR   13.341301
+## 254                                UMC   14.292730
+## 255                                URY   14.724300
+## 256                                USA   13.545640
+## 257                                UZB   22.365259
+## 258                                VCT          NA
+## 259                                VEN   15.679990
+## 260                                VGB   15.230570
+## 261                                VIR          NA
+## 262                                VNM   17.119520
+## 263                                VUT   13.488100
+## 264                                WLD   13.981655
+## 265                                WSM   14.000000
+## 266                                XKX          NA
+## 267                                YEM          NA
+## 268                                ZAF   18.699350
+## 269                                ZMB   16.335600
+## 270                                ZWE   29.470831</code></pre>
+<pre class="r"><code>Gasto_public_educacion_2015 &lt;- select(Gasto_public_educacion_2015, V1, V2, V60)
+head(Gasto_public_educacion_2015,10)</code></pre>
+<pre><code>##                   V1                                 V2         V60
+## 1        Data Source Indicadores del desarrollo mundial          NA
+## 2  Last Updated Date                          20/7/2022          NA
+## 3                                                                NA
+## 4       Country Name                       Country Code 2015.000000
+## 5              Aruba                                ABW   23.201380
+## 6                                                   AFE   16.962910
+## 7        AfganistÃ¡n                                AFG   12.509000
+## 8                                                   AFW   13.243990
+## 9             Angola                                AGO    8.918777
+## 10           Albania                                ALB   11.177550</code></pre>
+<pre class="r"><code>Gasto_public_educacion_2015 = Gasto_public_educacion_2015[-c(1:4),]</code></pre>
+<pre class="r"><code>colnames(Gasto_public_educacion_2015) = c(&quot;pais&quot;,&quot;codigo&quot;,&quot;Gasto_public_educacion_2015&quot;)</code></pre>
+<p>#V.I.4: PBI per capita</p>
+<pre class="r"><code>gitLink1=&quot;https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_1/Lucero/LVI1_PBI.csv&quot;
+PBI_2015=rio::import(gitLink1)</code></pre>
+<pre class="r"><code>PBI_2015 = select(PBI_2015, V2, V44)</code></pre>
+<pre class="r"><code>colnames(PBI_2015) = c(&quot;codigo&quot;,&quot;PBI_2015&quot;)</code></pre>
+<pre class="r"><code>PBI_2015= PBI_2015[-c(1:4),]
+
+unif=(&quot;https://gist.githubusercontent.com/brenes/1095110/raw/c8f208b03485ba28f97c500ab7271e8bce43b9c6/paises.csv&quot;)
+unif=import(unif)
+unif=unif[,c(2,5)]
+colnames(unif)=c(&quot;pais&quot;,&quot;codigo&quot;)
+
+PBI_2015 =merge(unif,PBI_2015,all=TRUE)
+str(PBI_2015)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    301 obs. of  3 variables:
+##  $ codigo  : chr  &quot;ABW&quot; &quot;AFE&quot; &quot;AFG&quot; &quot;AFW&quot; ...
+##  $ pais    : chr  &quot;Aruba&quot; NA &quot;Afghanistan&quot; NA ...
+##  $ PBI_2015: num  19357 676 NA 529 388 ...</code></pre>
+<pre class="r"><code>sum(is.na(PBI_2015$PBI_2015))</code></pre>
+<pre><code>## [1] 58</code></pre>
+<p>#Opción 1</p>
+<table style="width:62%;">
 <colgroup>
-<col width="77%" />
+<col width="62%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">#VARIABLES INDEPENDIENTES</th>
+<th align="left">#Unificación de variables independientes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">#Data final (grupal - independientes)</td>
+<td align="left">#Unión base de datos independientes con la
+dependiente</td>
 </tr>
 <tr class="even">
-<td align="left"><code>r Xio_data$pais=NULL</code></td>
+<td align="left"><code>r Independientes$pais=NULL</code></td>
 </tr>
 <tr class="odd">
-<td align="left"><code>r Borrador1=merge(kafinal,Xio_data,all=TRUE) str(Borrador1)</code></td>
+<td align="left"><code>r Data_limpia=merge(Dependiente,Independientes,all=TRUE) str(Data_limpia)</code></td>
 </tr>
 <tr class="even">
-<td align="left"><code>## &#39;data.frame&#39;:    266 obs. of  8 variables: ##  $ codigo          : chr  &quot;ABW&quot; &quot;AFE&quot; &quot;AFG&quot; &quot;AFW&quot; ... ##  $ pais            : chr  &quot;Aruba&quot; &quot;&quot; &quot;AfganistÃ¡n&quot; &quot;&quot; ... ##  $ %mujeresAct2015 : num  NA 47.1 19.3 45.4 49.4 ... ##  $ %inciPobreza2015: num  NA NA NA NA NA 0.1 NA NA NA NA ... ##  $ proporEduca2015 : num  NA NA 0.642 NA NA ... ##  $ %parlamentos2015: num  NA 28.1 27.7 15.1 36.8 ... ##  $ %gasteduc2015   : num  23.2 16.96 12.51 13.24 8.92 ... ##  $ %vulnerable2015 : num  NA 78.5 93.4 87.7 83.7 ...</code></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>r form$pais=NULL</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>r Borrador2=merge(Borrador1,form,all=TRUE) str(Borrador2)</code></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>## &#39;data.frame&#39;:    342 obs. of  11 variables: ##  $ codigo            : chr  &quot;ABW&quot; &quot;AFE&quot; &quot;AFG&quot; &quot;AFW&quot; ... ##  $ pais              : chr  &quot;Aruba&quot; &quot;&quot; &quot;AfganistÃ¡n&quot; &quot;&quot; ... ##  $ %mujeresAct2015   : num  NA 47.1 19.3 45.4 49.4 ... ##  $ %inciPobreza2015  : num  NA NA NA NA NA NA NA 0.1 NA NA ... ##  $ proporEduca2015   : num  NA NA 0.642 NA NA ... ##  $ %parlamentos2015  : num  NA 28.1 27.7 15.1 36.8 ... ##  $ %gasteduc2015     : num  23.2 16.96 12.51 13.24 8.92 ... ##  $ %vulnerable2015   : num  NA 78.5 93.4 87.7 83.7 ... ##  $ participacion2015 : num  NA NA 2.2 NA 56.6 NA NA 20.7 NA NA ... ##  $ inequidad2015     : chr  NA NA &quot;0.678&quot; NA ... ##  $ empoderamiento2015: num  NA NA 0.132 NA 0.245 NA NA 0.377 NA NA ...</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>r lufinal$pais=NULL</code></td>
-</tr>
-<tr class="odd">
-<td align="left"><code>r independientes=merge(Borrador2,lufinal,all=TRUE) str(independientes)</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>## &#39;data.frame&#39;:    1818 obs. of  14 variables: ##  $ codigo            : chr  &quot;ABW&quot; &quot;AFE&quot; &quot;AFG&quot; &quot;AFW&quot; ... ##  $ pais              : chr  &quot;Aruba&quot; &quot;&quot; &quot;AfganistÃ¡n&quot; &quot;&quot; ... ##  $ %mujeresAct2015   : num  NA 47.1 19.3 45.4 49.4 ... ##  $ %inciPobreza2015  : num  NA NA NA NA NA NA NA 0.1 NA NA ... ##  $ proporEduca2015   : num  NA NA 0.642 NA NA ... ##  $ %parlamentos2015  : num  NA 28.1 27.7 15.1 36.8 ... ##  $ %gasteduc2015     : num  23.2 16.96 12.51 13.24 8.92 ... ##  $ %vulnerable2015   : num  NA 78.5 93.4 87.7 83.7 ... ##  $ participacion2015 : num  NA NA 2.2 NA 56.6 NA NA 20.7 NA NA ... ##  $ inequidad2015     : chr  NA NA &quot;0.678&quot; NA ... ##  $ empoderamiento2015: num  NA NA 0.132 NA 0.245 NA NA 0.377 NA NA ... ##  $ Prop2015          : num  1.01 NA NA NA NA ... ##  $ Pbi2015           : num  19357 676 NA 529 388 ... ##  $ alfabetizacion2015: chr  &quot;99&quot; NA &quot;32&quot; NA ...</code></td>
+<td align="left"><code>## &#39;data.frame&#39;:    301 obs. of  7 variables: ##  $ codigo                      : chr  &quot;ABW&quot; &quot;AFE&quot; &quot;AFG&quot; &quot;AFW&quot; ... ##  $ pais                        : chr  &quot;Aruba&quot; &quot;&quot; &quot;AfganistÃ¡n&quot; &quot;&quot; ... ##  $ parlamentos2020             : num  NA 30.1 27 16.3 30 ... ##  $ Por_Vulnerable_Femenino_2015: num  NA 78.5 93.4 87.7 83.7 ... ##  $ Poblacion_Act_Mujeres2015   : num  NA 47.1 19.3 45.4 49.4 ... ##  $ Gasto_public_educacion_2015 : num  23.2 16.96 12.51 13.24 8.92 ... ##  $ PBI_2015                    : num  19357 676 NA 529 388 ...</code></td>
 </tr>
 </tbody>
 </table>
-<p>#Unión base de datos independientes con la dependiente</p>
-<pre class="r"><code>independientes$pais=NULL</code></pre>
-<pre class="r"><code>Data_limpia=merge(dependiente,independientes,all=TRUE)
-str(Data_limpia)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    1818 obs. of  16 variables:
-##  $ codigo            : chr  &quot;ABW&quot; &quot;AFE&quot; &quot;AFG&quot; &quot;AFW&quot; ...
-##  $ pais              : chr  &quot;Aruba&quot; &quot;Africa Eastern and Southern&quot; &quot;Afghanistan&quot; &quot;Africa Western and Central&quot; ...
-##  $ puestosdirec2019  : num  NA NA NA NA NA ...
-##  $ puestosdirec2020  : num  NA NA 5.9 NA NA ...
-##  $ %mujeresAct2015   : num  NA 47.1 19.3 45.4 49.4 ...
-##  $ %inciPobreza2015  : num  NA NA NA NA NA NA NA 0.1 NA NA ...
-##  $ proporEduca2015   : num  NA NA 0.642 NA NA ...
-##  $ %parlamentos2015  : num  NA 28.1 27.7 15.1 36.8 ...
-##  $ %gasteduc2015     : num  23.2 16.96 12.51 13.24 8.92 ...
-##  $ %vulnerable2015   : num  NA 78.5 93.4 87.7 83.7 ...
-##  $ participacion2015 : num  NA NA 2.2 NA 56.6 NA NA 20.7 NA NA ...
-##  $ inequidad2015     : chr  NA NA &quot;0.678&quot; NA ...
-##  $ empoderamiento2015: num  NA NA 0.132 NA 0.245 NA NA 0.377 NA NA ...
-##  $ Prop2015          : num  1.01 NA NA NA NA ...
-##  $ Pbi2015           : num  19357 676 NA 529 388 ...
-##  $ alfabetizacion2015: chr  &quot;99&quot; NA &quot;32&quot; NA ...</code></pre>
-<hr />
+<p>#Limpieza de NA’s</p>
+<pre class="r"><code>Data_limpia = Data_limpia[complete.cases(Data_limpia),]</code></pre>
+<p>#Exportación de la data</p>
+<pre class="r"><code>library(rio)
+export(Data_limpia, &quot;data.csv&quot;)</code></pre>
+<pre class="r"><code>save(Data_limpia,file=&quot;data.Rda&quot;)</code></pre>
 
 
 
