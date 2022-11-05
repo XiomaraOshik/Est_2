@@ -62,7 +62,6 @@ str(data)
 datatable(data, filter = "top")
 ```
 
-<<<<<<< HEAD
 =======
 # Base de datos unificada
 
@@ -77,7 +76,6 @@ rmarkdown::paged_table()
 ```
 
 
->>>>>>> 837b39ebf4abf4d7f7100a6c10b384168367940b
 
 ### 2. CORRELACIONES:
 
