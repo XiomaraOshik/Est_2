@@ -34,6 +34,13 @@ library(cluster)
 El objetivo de este reporte es analizar qué factores determinan el porcentaje de presencia femenina en cargos políticos, específicamente en los parlamentos, en diferentes países del mundo. Consideramos que es un tema importante ya que, a pesar de un notable progreso en la articipación política femenina en las últimas décadas, aún existe un gran brecha entre representantes masculinos y femeninos, lo que desencadena en la perpetuación de las condiciones desfavorables de las mujeres y su invisibilización política. 
 
 ```{r include=FALSE}
+
+gitLink="https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_2/data.csv"
+data=rio::import(gitLink)
+library(magrittr)
+data%>%
+rmarkdown::paged_table()
+
 str(data)
 ```
 
@@ -54,6 +61,8 @@ str(data)
 ```{r echo=FALSE}
 datatable(data, filter = "top")
 ```
+
+
 ### 2. CORRELACIONES:
 
 ```{r echo=FALSE}
@@ -73,6 +82,17 @@ anova(modelo1)
 summary(modelo1)
 ```
 
+```{r echo=FALSE}
+equatiomatic::extract_eq(modelo1, use_coefs = TRUE)
+```
+
+
+```{r echo=FALSE}
+model=list('parlamentos2020'=data)
+modelsummary(modelo1, title = "Regresión 1",
+             stars = TRUE,
+             output = "kableExtra")
+```
 
 Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05. También se comprueba que nuestra variable "Por_Vulnerable_Femenino 2015" tiene impacto estadísticamente significativo en la variable dependiente (dep). Esto quiere decir que mientras nuestra independiente aumenta en una unidad, la dependiente disminuirá en 0.08. Esta afirmación es válida al 6% considerando nuestro R cuadrado múltiple.
 
@@ -110,7 +130,10 @@ summary(modelo4)
 ```{r include=FALSE}
 colnames(data)[15] = "parlamentos2020"
 
+
+
 ```
+
 ```{r echo=FALSE}
 equatiomatic::extract_eq(modelo4, use_coefs = TRUE)
 ```
