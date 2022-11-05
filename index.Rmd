@@ -1,8 +1,12 @@
 ---
 title: "Proporción de escaños en el parlamento político ocupado por mujeres 2020 - Análisis de los resultados"
-author: "Xiomara_Oshik"
-date: "2022-10-07"
-output: html_document
+author: "Integrantes: Xiomara Oshikawa, Kamila Gamarra, Luciana Rojas, Maria Fernanda"
+subtitle: 'Curso: POL304 - Estadística para el análisis político 2'
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+
 ---
 
 ```{r setup, include=FALSE}
