@@ -4,8 +4,9 @@ author: "Integrantes: Xiomara Oshikawa, Kamila Gamarra, Luciana Rojas, Maria Fer
 subtitle: 'Curso: POL304 - Estadística para el análisis político 2'
 output:
   prettydoc::html_pretty:
-    theme: cayman
+    theme: hpstr
     highlight: github
+ 
 
 ---
 
