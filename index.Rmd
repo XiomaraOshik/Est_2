@@ -13,9 +13,13 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r,echo=FALSE, out.width="40%",fig.align="center"}
+knitr::include_graphics("logoPUCP.png") 
+```
+```
 
-```{r include=FALSE}
-gitLink="https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/Entregable_2/data.csv"
+```{r}
+gitLink="https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/data.csv"
 data=rio::import(gitLink)
 ```
 
