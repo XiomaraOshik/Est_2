@@ -70,8 +70,6 @@ str(data)
 datatable(data, filter = "top")
 ```
 
-=======
-# Base de datos unificada
 
 
 ```{r echo=FALSE}
