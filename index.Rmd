@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::include_graphics("logoPUCP.png") 
 ```
 
-```{r}
+```{r include=FALSE}
 gitLink="https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/data.csv"
 data=rio::import(gitLink)
 ```
