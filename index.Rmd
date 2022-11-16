@@ -1,6 +1,6 @@
 ---
-title: "Proporción de escaños en el parlamento político ocupado por mujeres 2020 - Análisis de los resultados"
-author: "Integrantes: Xiomara Oshikawa, Kamila Gamarra, Luciana Rojas, Maria Fernanda"
+title: "Proporción de escaños en el parlamento ocupado por mujeres 2020 - Análisis de los resultados"
+author: "Integrantes: Xiomara Oshikawa, Kamila Gamarra, Luciana Rojas, Maria Fernanda Carrillo"
 subtitle: 'Curso: POL304 - Estadística para el análisis político 2'
 output:
   prettydoc::html_pretty:
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::include_graphics("logoPUCP.png") 
 ```
 
-```{r include=FALSE}
+```{r echo=FALSE}
 gitLink="https://raw.githubusercontent.com/XiomaraOshik/Est_2/main/data.csv"
 data=rio::import(gitLink)
 ```
@@ -36,7 +36,7 @@ library(factoextra)
 library(cluster)
 ```
 
-El objetivo de este reporte es analizar qué factores determinan el porcentaje de presencia femenina en cargos políticos, específicamente en los parlamentos, en diferentes países del mundo. Consideramos que es un tema importante ya que, a pesar de un notable progreso en la articipación política femenina en las últimas décadas, aún existe un gran brecha entre representantes masculinos y femeninos, lo que desencadena en la perpetuación de las condiciones desfavorables de las mujeres y su invisibilización política. 
+El objetivo de este reporte es analizar qué factores determinan el porcentaje de presencia femenina en cargos políticos, específicamente en los parlamentos, en diferentes países del mundo. Consideramos que es un tema importante ya que, a pesar de un notable progreso en la participación política femenina en las últimas décadas, aún existe un gran brecha entre representantes masculinos y femeninos, lo que desencadena en la perpetuación de las condiciones desfavorables de las mujeres y su invisibilización política. 
 
 ```{r include=FALSE}
 
@@ -49,11 +49,11 @@ rmarkdown::paged_table()
 str(data)
 ```
 
-### 1. VARIABLES:
+### 1. Análisis rápido de los resultados:
 
- DEPENDIENTE: Proporción de escaños ocupados por mujeres en los parlamentos
+ Variable dependiente: Proporción de escaños ocupados por mujeres en los parlamentos
 
- INDEPENDIENTES: 
+ Variables independientes: 
 
  1. Porcentaje de mujeres en escaños de gobierno
 
@@ -69,7 +69,7 @@ datatable(data, filter = "top")
 
 
 
-### 2. CORRELACIONES:
+## 1. 2. CORRELACIONES:
 
 ```{r echo=FALSE}
 cor.test(data$parlamentos2020, data$Por_Vulnerable_Femenino_2015)
@@ -77,6 +77,49 @@ cor.test(data$parlamentos2020, data$Poblacion_Act_Mujeres2015)
 cor.test(data$parlamentos2020, data$Gasto_public_educacion_2015)
 cor.test(data$parlamentos2020, data$PBI_2015)
 ```
+
+## 1.3. Mapa
+
+```{r}
+library(sf) 
+mapWLD=sf::read_sf("world-administrative-boundaries.shp")
+head(mapWLD)
+```
+
+```{r}
+mapMUN=merge(mapWLD,data,by.x='iso3',by.y='codigo', all.x = T)
+head(mapMUN)
+```
+
+```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=8,fig.height=5}
+library(ggplot2)
+mapaleyendaL= ggplot(mapMUN)+ geom_sf() + theme_light()
+
+mapaleyL= mapaleyendaL + geom_sf(data=mapMUN,
+              aes(fill=parlamentos2020),color = NA)
+      
+mapa3= mapaleyL +
+coord_sf() + 
+scale_fill_gradient(low = "#FDFEFE",  high = "#DC7633", breaks=seq(from=0, to=61.25, by=20)) + theme_void() + 
+  
+theme(axis.title = element_blank(), axis.text = element_blank(), legend.position = c(1.1,0.55)) + labs(fill="Proporción de escaños en el parlamento ocupado por mujeres 2020") + theme(legend.text = element_text(size = 13)) +
+  
+labs(title = "", subtitle = "Escala del 0 al 100",caption = "Fuente: ") +
+  
+theme(
+plot.title = element_text(color="black", size=15, face="bold"),
+plot.caption = element_text(color = "black", size=10))
+
+mapa3
+```
+
+
+
+
+
+
+
+
 
 ### 3. MODELOS DE REGRESIÓN
 
