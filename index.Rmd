@@ -121,89 +121,22 @@ mapa3
 
 
 
-### 3. MODELOS DE REGRESIÓN
+### 3. MODELO DE REGRESIÓN
 
-#### MODELO 1: Efecto de la variable población vulnerable femenina
+#### MODELO 1: Efecto de las variables población vulnerable femenina, población activa mujeres, gasto público en educación y PBI 
 
 ```{r echo=FALSE}
-modelo1 <- lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015, data=data)
-anova(modelo1)
+modelo1 <- lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015 + Poblacion_Act_Mujeres2015 + Gasto_public_educacion_2015 + PBI_2015, data=data)
 ```
+
 
 ```{r echo=FALSE}
 equatiomatic::extract_eq(modelo1, use_coefs = TRUE)
 ```
 
-
 ```{r echo=FALSE}
-model=list('parlamentos2020'=data)
-modelsummary(modelo1, title = "Regresión 1",
-             stars = TRUE,
-             output = "kableExtra")
-```
-
-Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05. También se comprueba que nuestra variable "Por_Vulnerable_Femenino 2015" tiene impacto estadísticamente significativo en la variable dependiente (dep). Esto quiere decir que mientras nuestra independiente aumenta en una unidad, la dependiente disminuirá en 0.08. Esta afirmación es válida al 6% considerando nuestro R cuadrado múltiple.
-
-
-
-#### MODELO 2: Efecto de las variables población vulnerable femenina y Población activa mujeres
-
-```{r echo=FALSE}
-modelo2 <- lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015 + Poblacion_Act_Mujeres2015, data=data)
-```
-
-```{r echo=FALSE}
-equatiomatic::extract_eq(modelo2, use_coefs = TRUE)
-```
-
-```{r echo=FALSE}
-model2=list('parlamentos2020'=data)
-modelsummary(modelo2, title = "Regresión 2",
-             stars = TRUE,
-             output = "kableExtra")
-```
-
-
-Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05. También se aprecia que la variable agregada: Población_Act_Mujeres2015 tiene efecto estadísticamente significativo. Así, si nuestra variable independiente aumenta en una unidad, la dependiente también lo hará en 0.4. Por otro lado, nuestro modelo es confiable al 14%. Por último, observamos que la inserción de esta nueva variable independiente afecta positivamente a su predecesora (Por_Vulnerable_Femenino_2015) ya que aumenta en 0.01 respecto a su valor en la regresión anterior.
-
-
-
-#### MODELO 3: Efecto de las variables población vulnerable femenina, Población activa mujeres y gasto público en educación
-
-```{r echo=FALSE}
-modelo3 <- lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015 + Poblacion_Act_Mujeres2015 + Gasto_public_educacion_2015, data=data)
-```
-
-```{r echo=FALSE}
-equatiomatic::extract_eq(modelo3, use_coefs = TRUE)
-```
-
-```{r echo=FALSE}
-model3=list('parlamentos2020'=data)
-modelsummary(modelo3, title = "Regresión 3",
-             stars = TRUE,
-             output = "kableExtra")
-```
-
-
-Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05. También se aprecia que la variable agregada: Gasto_Public_Educacion_2015 tiene efecto estadísticamente significativo. Así, si nuestra variable independiente aumenta en una unidad, la dependiente también lo hará en 0.4. Por otro lado, nuestro modelo es confiable al 17%. Por último, observamos que la inserción de esta nueva variable independiente afecta a sus predecesoras (Por_Vulnerable_Femenino_2015 y Población_Act_Mujeres2015), aunque no supone algún cambio abrupto respecto a sus valores en la regresión anterior.
-
-
-
-#### MODELO 4: Efecto de las variables población vulnerable femenina, población activa mujeres, gasto público en educación y PBI 
-
-```{r echo=FALSE}
-modelo4 <- lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015 + Poblacion_Act_Mujeres2015 + Gasto_public_educacion_2015 + PBI_2015, data=data)
-```
-
-
-```{r echo=FALSE}
-equatiomatic::extract_eq(modelo4, use_coefs = TRUE)
-```
-
-```{r echo=FALSE}
-model4=list('parlamentos2020'=data)
-modelsummary(modelo3, title = "Regresión 4",
+model1=list('parlamentos2020'=data)
+modelsummary(modelo1, title = "Regresión OLS",
              stars = TRUE,
              output = "kableExtra")
 ```
