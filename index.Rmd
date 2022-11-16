@@ -64,6 +64,13 @@ str(data)
  4. PBI nacional del 2015
 
 ```{r echo=FALSE}
+library(stringi)
+
+names(data)=stri_trans_general(str = names(data), 
+                               id = "Latin-ASCII")
+```
+
+```{r echo=FALSE}
 datatable(data, filter = "top")
 ```
 
