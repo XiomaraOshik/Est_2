@@ -87,13 +87,13 @@ cor.test(data$parlamentos2020, data$PBI_2015)
 
 ## 1.3. Mapa
 
-```{r}
+```{r echo=FALSE}
 library(sf) 
 mapWLD=sf::read_sf("world-administrative-boundaries.shp")
 head(mapWLD)
 ```
 
-```{r}
+```{r echo=FALSE}
 mapMUN=merge(mapWLD,data,by.x='iso3',by.y='codigo', all.x = T)
 head(mapMUN)
 ```
