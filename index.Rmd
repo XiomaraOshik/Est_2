@@ -36,7 +36,16 @@ library(factoextra)
 library(cluster)
 ```
 
-El objetivo de este reporte es analizar qué factores determinan el porcentaje de presencia femenina en cargos políticos, específicamente en los parlamentos, en diferentes países del mundo. Consideramos que es un tema importante ya que, a pesar de un notable progreso en la participación política femenina en las últimas décadas, aún existe un gran brecha entre representantes masculinos y femeninos, lo que desencadena en la perpetuación de las condiciones desfavorables de las mujeres y su invisibilización política. 
+El objetivo de este reporte es analizar qué factores determinan el porcentaje de presencia femenina en cargos políticos, específicamente en los parlamentos, en diferentes países del mundo. 
+
+Consideramos que es un tema importante ya que, a pesar de un notable progreso en la participación política femenina en las últimas décadas, aún existe un gran brecha entre representantes masculinos y femeninos, lo que desencadena en la perpetuación de las condiciones desfavorables de las mujeres y su invisibilización política. 
+
+Para ello, se llevarán a cabo los siguientes análisis:
+
+- Realizar un análisis descriptivo y georreferenciado de los resultados a nivel distrital
+- Aplicar técnicas de reducción de dimensiones para agrupar a los países en función a la proporción de escaños parlamentarios ocupados por mujeres en el año 2020.
+- Implementar técnicas multivariadas para modelar el comportamiento de la presencia de mujeres en  los escaños parlamentarios.
+
 
 ```{r include=FALSE}
 
@@ -55,13 +64,13 @@ str(data)
 
  Variables independientes: 
 
- 1. Porcentaje de mujeres en escaños de gobierno
+ 1. Porcentaje de empleo vulnerable femenino
 
- 2. Porcentaje de mujeres económicamente activas
+ 2. Porcentaje de la población activa mujeres
 
  3. Gasto público en educación
 
- 4. PBI nacional del 2015
+ 4. PBI per cápita nacional del 2015
 
 ```{r echo=FALSE}
 library(stringi)
