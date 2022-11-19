@@ -97,6 +97,20 @@ En promedio, la proporción de las mujeres que ocupan un escaño en el parlament
 datatable(Dependiente, filter = "top")
 ```
 
+
+```{r echo=FALSE,message=FALSE,eval=TRUE,fig.show='hold',fig.width=9,fig.height=6}
+ggplot(data, aes(x=PBI_2015, y=parlamentos2020)) + 
+  geom_point(size=1.5, shape=23, color="blue") +
+  geom_text(label=data$codigo, vjust=-0.5, hjust = 1,color="black", size=3) +
+  
+      labs(title = "Proporción de escaños parlamentarios ocupados por mujeres y PBI a nivel mundial",
+       x = "PBI_2015",
+       y = "Proporción de escaños parlamentarios ocupados por mujeres") +
+  geom_smooth(method=lm, se=FALSE, linetype="dashed",
+             color="darkred") + theme(panel.background = element_blank())
+```
+
+
 ## 1. 2. CORRELACIONES:
 
 ```{r echo=FALSE}
