@@ -60,9 +60,9 @@ str(data)
 
 ### 1. Análisis rápido de los resultados:
 
- Variable dependiente: Proporción de escaños ocupados por mujeres en los parlamentos
+Variable dependiente: Proporción de escaños ocupados por mujeres en los parlamentos
 
- Variables independientes: 
+Variables independientes: 
 
  1. Porcentaje de empleo vulnerable femenino
 
@@ -79,11 +79,23 @@ names(data)=stri_trans_general(str = names(data),
                                id = "Latin-ASCII")
 ```
 
+
 ```{r echo=FALSE}
 datatable(data, filter = "top")
 ```
 
+```{r include=FALSE}
+Dependiente = data[,c(1,3)]
+colnames(Dependiente)[2] = "Proporción de escaños parlamentarios ocupados por mujeres"
+```
 
+
+En promedio, la proporción de las mujeres que ocupan un escaño en el parlamento de cada país oscila un 24.73. La propoción de escaños parlamentarios ocupados por mujeres se puede observar en la tabla a continuación:
+
+
+```{r echo=FALSE}
+datatable(Dependiente, filter = "top")
+```
 
 ## 1. 2. CORRELACIONES:
 
