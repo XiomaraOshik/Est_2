@@ -135,7 +135,7 @@ mapa3= mapaleyL +
 coord_sf() + 
 scale_fill_gradient(low = "#FDFEFE",  high = "#DC7633", breaks=seq(from=0, to=61.25, by=20)) + theme_void() + 
   
-theme(axis.title = element_blank(), axis.text = element_blank(), legend.position = c(1.1,0.55)) + labs(fill="Proporción de escaños en el parlamento ocupado por mujeres 2020") + theme(legend.text = element_text(size = 13)) +
+theme(axis.title = element_blank(), axis.text = element_blank(), legend.position = c(0.16,0.1)) + labs(fill="Escaños parlamentarios mujeres") + theme(legend.text = element_text(size = 10)) +
   
 labs(title = "", subtitle = "Escala del 0 al 100") +
   
@@ -146,6 +146,31 @@ plot.caption = element_text(color = "black", size=10))
 mapa3
 ```
 
+Si se exploran algunos datos descriptivos, se observa que en promedio, AP obtuvo 38% del total de votos válidos de cada distrito de la provincia. Además, en el 50% de ellos obtuvo el 35% de los votos o menos. Entre los que muestran un mayor nivel de votación se encuentran: Miraflores (69%), San Isidro (68%) y San Borja (66%).
+
+```{r echo=FALSE}
+parlamentos2020_summary%>%
+  kbl() %>%
+  kable_minimal()
+```
+
+La distribución de votos de cada organización se puede osbervar en el gráfico a continuación:
+
+```{r include=FALSE}
+ap_resh = melt(ap, id=c("DISTRITO"))
+```
+
+```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
+ggplot(data= ap_resh, aes(x=value, group=variable, fill=variable)) +
+    geom_density(adjust=1.5, alpha=.4, color = "gray", linetype = "dashed") +
+      scale_fill_manual(values=c("firebrick","dodgerblue2"), name = "")  +
+      theme(legend.position="bottom") +
+    theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank())  +
+  
+  labs(title = " ",
+       x = " ",
+       y = " ") 
+```
 
 
 
