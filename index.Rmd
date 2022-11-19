@@ -98,19 +98,6 @@ datatable(Dependiente, filter = "top")
 ```
 
 
-```{r echo=FALSE,message=FALSE,eval=TRUE,fig.show='hold',fig.width=9,fig.height=6}
-ggplot(data, aes(x=PBI_2015, y=parlamentos2020)) + 
-  geom_point(size=1.5, shape=23, color="blue") +
-  geom_text(label=data$codigo, vjust=-0.5, hjust = 1,color="black", size=3) +
-  
-      labs(title = "Proporción de escaños parlamentarios ocupados por mujeres y PBI a nivel mundial",
-       x = "PBI_2015",
-       y = "Proporción de escaños parlamentarios ocupados por mujeres") +
-  geom_smooth(method=lm, se=FALSE, linetype="dashed",
-             color="darkred") + theme(panel.background = element_blank())
-```
-
-
 ## 1. 2. CORRELACIONES:
 
 ```{r echo=FALSE}
@@ -122,13 +109,17 @@ cor.test(data$parlamentos2020, data$PBI_2015)
 
 ## 1.3. Mapa
 
-```{r echo=FALSE}
+De los 180 países del mundo, se evidencia cierta particularidad en la dinámica de proporción de escaños ocupados por mujeres en el parlamento nacional dentro de la región europea. Por un lado, Europa Norte, específicamente países como Noruega, Finlandia, Suecia lideran en la promoción de una cuota de género, en el sentido que presentan las proporciones más altas de presencia femenina en los escaños parlamentarios ocupados. Por otro lado, es preciso mencionar que, países ubicados Europa Oriental como Rusia, cuentan con los índices de proporción más bajos dentro de toda la región de Europa. 
+
+Todo ello se puede observar en el mapa a continuación:
+
+```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
 library(sf) 
 mapWLD=sf::read_sf("world-administrative-boundaries.shp")
 head(mapWLD)
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
 mapMUN=merge(mapWLD,data,by.x='iso3',by.y='codigo', all.x = T)
 head(mapMUN)
 ```
