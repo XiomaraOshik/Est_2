@@ -90,15 +90,13 @@ colnames(Dependiente)[2] = "Proporción de escaños parlamentarios ocupados por 
 ```
 
 
-En promedio, la proporción de las mujeres que ocupan un escaño en el parlamento de cada país es 24,73. La propoción de escaños parlamentarios ocupados por mujeres se puede observar en la tabla a continuación:
-
+En promedio, la proporción de las mujeres que ocupan un escaño en el parlamento de cada país es 24,73. La proporción de mujeres que ocupan un escaño en el parlamento por país se puede observar en la tabla a continuación:
 
 ```{r echo=FALSE}
 datatable(Dependiente, filter = "top")
 ```
 
-
-## 1. 2. CORRELACIONES:
+Con la finalidad 
 
 ```{r echo=FALSE}
 cor.test(data$parlamentos2020, data$Por_Vulnerable_Femenino_2015)
