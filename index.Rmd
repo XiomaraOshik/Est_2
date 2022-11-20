@@ -96,13 +96,9 @@ En promedio, la proporción de las mujeres que ocupan un escaño en el parlament
 datatable(Dependiente, filter = "top")
 ```
 
-
-
-## 1.3. Mapa
-
 De los 180 países del mundo, se evidencia cierta particularidad en la dinámica de proporción de escaños ocupados por mujeres en el parlamento nacional dentro de la región europea. Por un lado, Europa Norte, específicamente países como Noruega, Finlandia, Suecia lideran en la promoción de una cuota de género, en el sentido que presentan las proporciones más altas de presencia femenina en los escaños parlamentarios ocupados. Por otro lado, es preciso mencionar que, países ubicados Europa Oriental como Rusia, cuentan con los índices de proporción más bajos dentro de toda la región de Europa. 
 
-Todo ello se puede observar en el mapa a continuación:
+Todo ello se puede observar en el siguiente mapa:
 
 ```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
 library(sf) 
@@ -110,18 +106,22 @@ mapWLD=sf::read_sf("world-administrative-boundaries.shp")
 head(mapWLD)
 ```
 
-```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
+```{r include=FALSE}
+
 mapMUN=merge(mapWLD,data,by.x='iso3',by.y='codigo', all.x = T)
 head(mapMUN)
 ```
 
-```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=8,fig.height=5}
+```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=9.5,fig.height=5.55}
 library(ggplot2)
 mapaleyendaL= ggplot(mapMUN)+ geom_sf() + theme_light()
 
 mapaleyL= mapaleyendaL + geom_sf(data=mapMUN,
               aes(fill=parlamentos2020),color = NA)
       
+```
+
+```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=9.5,fig.height=5.55}
 mapa3= mapaleyL +
 coord_sf() + 
 scale_fill_gradient(low = "#FDFEFE",  high = "#DC7633", breaks=seq(from=0, to=61.25, by=20)) + theme_void() + 
@@ -137,22 +137,29 @@ plot.caption = element_text(color = "black", size=10))
 mapa3
 ```
 
-Si se exploran algunos datos descriptivos, se observa que en promedio, AP obtuvo 38% del total de votos válidos de cada distrito de la provincia. Además, en el 50% de ellos obtuvo el 35% de los votos o menos. Entre los que muestran un mayor nivel de votación se encuentran: Miraflores (69%), San Isidro (68%) y San Borja (66%).
+
+```{r include=FALSE}
+parlamentomuj = data[,c(1,3)]
+parlamentomuj_summary = as.data.frame(apply(parlamentomuj[-1],2,summary))
+```
+
+Si se exploran algunos datos descriptivos, se observa que en promedio, proporción de los escaños parlamentarios ocupados por mujeres bordean un 24,73 en cada país estudiado en la presente investigación. Además, en el 50% de los países estudiados presenta que en una proporción de 23,77 sus escaños parlamentarios son ocupados por el género femenino. Entre los que muestran una mayor proporción de escaños ocupados por mujeres en el parlamento se encuentran: Rwanda (61,25), Nueva Zelandia (48, 33) y México (48,20).
+
+La distribución de la proporción de escaños ocupados por mujeres se puede observar en el gráfico a continuación:
 
 ```{r echo=FALSE}
-parlamentos2020_summary%>%
+parlamentomuj_summary%>%
   kbl() %>%
   kable_minimal()
 ```
-
-La distribución de votos de cada organización se puede osbervar en el gráfico a continuación:
+La distribución de escaños ocupados por mujeres en el parlamento se puede observar en el gráfico a continuación:
 
 ```{r include=FALSE}
-ap_resh = melt(ap, id=c("DISTRITO"))
+parlamentomuj = melt(parlamentomuj, id=c("codigo"))
 ```
 
 ```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
-ggplot(data= ap_resh, aes(x=value, group=variable, fill=variable)) +
+ggplot(data= parlamentomuj, aes(x=value, group=variable, fill=variable)) +
     geom_density(adjust=1.5, alpha=.4, color = "gray", linetype = "dashed") +
       scale_fill_manual(values=c("firebrick","dodgerblue2"), name = "")  +
       theme(legend.position="bottom") +
@@ -163,14 +170,7 @@ ggplot(data= ap_resh, aes(x=value, group=variable, fill=variable)) +
        y = " ") 
 ```
 
-
-
-
-
-
-
-
-### 3. MODELO DE REGRESIÓN
+### 2. Técnicas de reducción de dimensiones
 
 
 Con la finalidad de evidenciar la relación y efecto de cada variable independiente en la dependiente, proporción de escaños ocupados por mujeres en el parlamento, a continuación como paso preliminar a la presentación de regresiones, se realizarán correlaciones de cada variable independiente con la dependiente para visualizar la relevancia de cada una en nuestro análisis. 
