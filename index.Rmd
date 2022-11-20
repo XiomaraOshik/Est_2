@@ -172,39 +172,155 @@ ggplot(data= parlamentomuj, aes(x=value, group=variable, fill=variable)) +
 
 ### 2. Técnicas de reducción de dimensiones
 
+Vamos a agrupar a los distintos países en función a sus características sociodemográficas, siguiendo técnicas de reducción de dimensiones. Tenemos tres estrategias: PAM, jerárquica y basada en densidad.
 
-Con la finalidad de evidenciar la relación y efecto de cada variable independiente en la dependiente, proporción de escaños ocupados por mujeres en el parlamento, a continuación como paso preliminar a la presentación de regresiones, se realizarán correlaciones de cada variable independiente con la dependiente para visualizar la relevancia de cada una en nuestro análisis. 
-
-```{r echo=FALSE}
-cor.test(data$parlamentos2020, data$Por_Vulnerable_Femenino_2015)
-cor.test(data$parlamentos2020, data$Poblacion_Act_Mujeres2015)
-cor.test(data$parlamentos2020, data$Gasto_public_educacion_2015)
-cor.test(data$parlamentos2020, data$PBI_2015)
+```{r include=FALSE}
+inputData = data[,c(1,3:7)]
+row.names(inputData) = inputData$codigo
+inputData = inputData[,-c(1)]
 ```
 
-#### MODELO 1: Efecto de las variables población vulnerable femenina, población activa mujeres, gasto público en educación y PBI 
+```{r include=FALSE}
+set.seed(2015)
+analisis = daisy(inputData, metric="gower")
+```
+
+Hemos solicitado el número óptimo de clusters y son 3.
+
+```{r include=FALSE}
+fviz_nbclust(inputData, pam,diss=analisis,method = "gap_stat",k.max = 10,verbose = F) #Recomendación de num para PAM. Sale 2
+fviz_nbclust(inputData, hcut,diss=analisis,method = "gap_stat",k.max = 10,verbose = F) #Sale 2 para jerarquico.
+```
+
+Ambas opciones nos recomiendan la misma cantidad de agrupamiento de casos. En tal sentido, por preferencia de investigación, se ha optado por la estrategia de aglomeración jerarquica, bajo el algoritmo AGNES. Esto se debe a que, esta estrategia demuestra un buen desempeño en el agrupamiento de casos.
+
+```{r include=FALSE}
+#Hacemos los clusters:
+res.pam = pam(analisis,2,cluster.only = F)
+res.agnes = hcut(analisis, k = 2,hc_func='agnes',hc_method = "ward.D")
+res.diana = hcut(analisis, k = 2,hc_func='diana')
+```
+
+```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
+#Evaluación gráfica
+fviz_silhouette(res.pam) #PAM
+```
+
+```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
+fviz_silhouette(res.agnes) #AGNES
+```
+
+```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
+fviz_silhouette(res.diana) #Diana
+```
+
+```{r include=FALSE}
+#Agregamos conglomerados:
+inputData$clust = factor(res.agnes$cluster)
+```
+
+```{r include=FALSE}
+#Lo pasamos a la data original:
+inputData$codigo = row.names(inputData)
+row.names(inputData) = NULL
+inputData_1 = inputData[,c(6)]
+```
+
+```{r include=FALSE}
+data = merge(data, inputData, by = "codigo")
+```
+
+```{r include=FALSE}
+data$clust = factor(data$clust, levels = c(1:2), labels = c("Presencia alta de mujeres","Presencia baja de mujeres"))
+```
+
+Características de cada conglomerado:
+
+```{r include=FALSE}
+summ_clust = data %>% 
+  group_by(clust) %>%
+  summarise(Vulnerable_Femenino = mean(Por_Vulnerable_Femenino_2015.y, na.rm=T),
+            Población_Activa_Mujeres = mean(Poblacion_Act_Mujeres2015.y, na.rm = T),
+            Gasto_educación = mean(Gasto_public_educacion_2015.y, na.rm = T),
+            PBI = mean(PBI_2015.y, na.rm =T))
+```
 
 ```{r echo=FALSE}
-modelo1 <- lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015 + Poblacion_Act_Mujeres2015 + Gasto_public_educacion_2015 + PBI_2015, data=data)
+summ_clust%>%
+  kbl() %>%
+  kable_minimal()
+```
+
+Número de países por cada conglomerado:
+
+```{r include=FALSE}
+bar1 = data %>%
+  group_by(clust) %>%
+  summarise(Cluster = n())
+```
+
+```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
+ggplot(bar1, aes(x=clust, y=Cluster)) + 
+  geom_bar(stat = "identity") +
+  
+  labs(title = " ",
+       x = " ",
+       y = " ") +
+    geom_text(aes(label=Cluster), size=4, vjust=1.5, hjust = 0.5, color="white") + 
+  
+    theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank())
+```
+
+Análisis geoespacial de clusters:
+
+```{r include=FALSE}
+#Juntamos información con el shape:
+map1=merge(mapWLD,data,by.x='iso3',by.y='codigo', all.x = T) #siempre primero el shape
 ```
 
 
-```{r echo=FALSE}
-equatiomatic::extract_eq(modelo1, use_coefs = TRUE)
+```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=9.5,fig.height=5.55, fig.align="center"}
+mapaleyendaL= ggplot(map1)+ geom_sf() + theme_light()
+mapaleyL= mapaleyendaL + geom_sf(data=map1,
+              aes(fill=clust),color = "gray")
+      
+mapa1= mapaleyL +
+coord_sf() + 
+scale_fill_manual(values=c("tomato","yellow","lightgoldenrod1")) + theme_void() +
+  
+  
+theme(axis.title = element_blank(), axis.text = element_blank(), legend.position = "right") + labs(fill=" ") + theme(legend.text = element_text(size = 8)) +
+  
+labs(title = "Países según conglomerado de escaños parlamentarios ocupados por mujeres") +
+  
+theme(
+plot.title = element_text(color="black", size=11, face="bold"))
+mapa1
+```
+
+### 3. Modelando el comportamiento de la presencia de mujeres en  los escaños parlamentarios
+
+Efecto de las variables población vulnerable femenina, población activa mujeres, gasto público en educación y PBI 
+ 
+
+```{r include=FALSE}
+modelo = lm(parlamentos2020.x ~ Por_Vulnerable_Femenino_2015.x + Poblacion_Act_Mujeres2015.x + Gasto_public_educacion_2015.x + PBI_2015.x, data = data)
 ```
 
 ```{r echo=FALSE}
-model1=list('parlamentos2020'=data)
-modelsummary(modelo1, title = "Regresión OLS",
+equatiomatic::extract_eq(modelo, use_coefs = TRUE)
+```
+
+```{r echo=FALSE}
+modelsummary(modelo, title = "OLS",
              stars = TRUE,
              output = "kableExtra")
 ```
 
-
 Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05. También se aprecia que la variable agregada: PBI_2015 tiene efecto estadísticamente significativo. Así, si nuestra variable independiente aumenta en una unidad, la dependiente también lo hará en 0.0002. Esto es una cantidad poco representativa tomando en cuenta a los valores obtenidos en regresiones anteriores. Por otro lado, nuestro modelo es confiable al 20%. Por último, observamos que la inserción de esta nueva variable independiente afecta a sus predecesoras (Por_Vulnerable_Femenino_2015, Población_Act_Mujeres2015 y Gasto_Public_Educacion_2015), aunque no supone algún cambio abrupto respecto a sus valores en la regresión anterior.
 
 
-En resumen, el último modelo, que incluye las 4 variables independientes, es el mejor modelo con un 20% de confiabilidad. En este sentido, las 4 variables son significativas para poder analizar las variaciones que existen en cada país acerca del porcentaje de las mujeres en los escaños de los parlamentos. 
+En resumen, el presente modelo, que incluye las 4 variables independientes, cuenta con un 20% de confiabilidad. En este sentido, las 4 variables son significativas para poder analizar las variaciones que existen en cada país acerca del porcentaje de las mujeres en los escaños de los parlamentos. 
 
 
 
