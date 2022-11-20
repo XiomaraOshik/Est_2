@@ -96,17 +96,7 @@ En promedio, la proporción de las mujeres que ocupan un escaño en el parlament
 datatable(Dependiente, filter = "top")
 ```
 
-Con la finalidad 
 
-
-La correlación es una técnica estadística que podemos utilizar para mostrar la fuerza y la dirección de una relación lineal, así como la proporcionalidad entre dos variables
-
-```{r echo=FALSE}
-cor.test(data$parlamentos2020, data$Por_Vulnerable_Femenino_2015)
-cor.test(data$parlamentos2020, data$Poblacion_Act_Mujeres2015)
-cor.test(data$parlamentos2020, data$Gasto_public_educacion_2015)
-cor.test(data$parlamentos2020, data$PBI_2015)
-```
 
 ## 1.3. Mapa
 
@@ -181,6 +171,16 @@ ggplot(data= ap_resh, aes(x=value, group=variable, fill=variable)) +
 
 
 ### 3. MODELO DE REGRESIÓN
+
+
+Con la finalidad de evidenciar la relación y efecto de cada variable independiente en la dependiente, proporción de escaños ocupados por mujeres en el parlamento, a continuación como paso preliminar a la presentación de regresiones, se realizarán correlaciones de cada variable independiente con la dependiente para visualizar la relevancia de cada una en nuestro análisis. 
+
+```{r echo=FALSE}
+cor.test(data$parlamentos2020, data$Por_Vulnerable_Femenino_2015)
+cor.test(data$parlamentos2020, data$Poblacion_Act_Mujeres2015)
+cor.test(data$parlamentos2020, data$Gasto_public_educacion_2015)
+cor.test(data$parlamentos2020, data$PBI_2015)
+```
 
 #### MODELO 1: Efecto de las variables población vulnerable femenina, población activa mujeres, gasto público en educación y PBI 
 
