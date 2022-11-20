@@ -286,7 +286,7 @@ mapaleyL= mapaleyendaL + geom_sf(data=map1,
       
 mapa1= mapaleyL +
 coord_sf() + 
-scale_fill_manual(values=c("tomato","yellow","lightgoldenrod1")) + theme_void() +
+scale_fill_manual(values=c("purple","turquoise","lightgoldenrod1")) + theme_void() +
   
   
 theme(axis.title = element_blank(), axis.text = element_blank(), legend.position = "right") + labs(fill=" ") + theme(legend.text = element_text(size = 8)) +
