@@ -220,49 +220,53 @@ inputData = inputData[,-c(1)]
 ```
 
 ```{r include=FALSE}
-set.seed(2015)
-analisis = daisy(inputData, metric="gower")
+Data_clusters = daisy(inputData, metric="gower")
 ```
 
-Hemos solicitado el número óptimo de clusters y son 2.
-
-*Se debe mostrar la recomendación de clusters?
+Las tres opciones nos recomiendan la misma cantidad de agrupamiento de casos. En tal sentido, por preferencia de investigación, se ha optado por la estrategia de aglomeración jerarquica, bajo el algoritmo DIANA. Esto se debe a que, esta estrategia demuestra un buen desempeño en el agrupamiento de casos y no presenta ningún caso de dato mal clusterizado.
 
 ```{r include=FALSE}
-fviz_nbclust(inputData, pam,diss=analisis,method = "gap_stat",k.max = 10,verbose = F) #Recomendación de num para PAM. Sale 2
-fviz_nbclust(inputData, hcut,diss=analisis,method = "gap_stat",k.max = 10,verbose = F) #Sale 2 para jerarquico.
+fviz_nbclust(inputData, pam,diss=Data_clusters,method = "gap_stat",k.max = 10,verbose = F) #Nos recomienda 2
 ```
 
 ```{r include=FALSE}
-fviz_nbclust(inputData, hcut,diss=g.dist,method = "gap_stat",k.max = 10,verbose = F,hc_func = "diana")
+set.seed(123)
+res.pam=pam(Data_clusters,2,cluster.only = F)
+
+#nueva columna
+inputData$pam=res.pam$cluster
+```
+
+
+### Clusterización vía  PAM
+
+```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
+fviz_silhouette(res.pam,print.summary = F)
 ```
 
 ```{r include=FALSE}
-fviz_nbclust(inputData, hcut,diss=g.dist,method = "gap_stat",k.max = 10,verbose = F,hc_func = "agnes")
+res.agnes<- hcut(Data_clusters, k = 2,hc_func='agnes',hc_method = "ward.D")
+
+inputData$agnes=res.agnes$cluster
+
 ```
 
-
-Ambas opciones nos recomiendan la misma cantidad de agrupamiento de casos. En tal sentido, por preferencia de investigación, se ha optado por la estrategia de aglomeración jerarquica, bajo el algoritmo AGNES. Esto se debe a que, esta estrategia demuestra un buen desempeño en el agrupamiento de casos.
-
-```{r}
-#Hacemos los clusters:
-res.pam = pam(analisis,2,cluster.only = F)
-res.agnes = hcut(analisis, k = 2,hc_func='agnes',hc_method = "ward.D")
-res.diana = hcut(analisis, k = 2,hc_func='diana')
-```
-
+### Clusterización vía AGNES
 
 ```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
-#Evaluación gráfica
-fviz_silhouette(res.pam) #PAM
+fviz_silhouette(res.agnes,print.summary = F)
 ```
 
-```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
-fviz_silhouette(res.agnes) #AGNES
+### Clusterización vía DIANA
+
+```{r include=FALSE}
+set.seed(123)
+res.diana <- hcut(Data_clusters, k = 2,hc_func='diana')
+inputData$diana=res.diana$cluster
 ```
 
 ```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
-fviz_silhouette(res.diana) #Diana
+fviz_silhouette(res.diana,print.summary = F)
 ```
 
 *Interpretar el 3ero - Diana
@@ -271,14 +275,14 @@ fviz_silhouette(res.diana) #Diana
 
 ```{r include=FALSE}
 #Agregamos conglomerados:
-inputData$clust = factor(res.agnes$cluster)
+inputData$clust = factor(res.diana$cluster)
 ```
 
 ```{r include=FALSE}
 #Lo pasamos a la data original:
 inputData$codigo = row.names(inputData)
 row.names(inputData) = NULL
-inputData_1 = inputData[,c(6)]
+inputData = inputData[,c(6)]
 ```
 
 ```{r include=FALSE}
@@ -294,10 +298,10 @@ Características de cada conglomerado:
 ```{r include=FALSE}
 summ_clust = data %>% 
   group_by(clust) %>%
-  summarise(Vulnerable_Femenino = mean(Por_Vulnerable_Femenino_2015.y, na.rm=T),
-            Población_Activa_Mujeres = mean(Poblacion_Act_Mujeres2015.y, na.rm = T),
-            Gasto_educación = mean(Gasto_public_educacion_2015.y, na.rm = T),
-            PBI = mean(PBI_2015.y, na.rm =T))
+  summarise(Vulnerable_Femenino = mean(Por_Vulnerable_Femenino_2015, na.rm=T),
+            Población_Activa_Mujeres = mean(Poblacion_Act_Mujeres2015, na.rm = T),
+            Gasto_educación = mean(Gasto_public_educacion_2015, na.rm = T),
+            PBI = mean(PBI_2015, na.rm =T))
 ```
 
 ```{r echo=FALSE}
