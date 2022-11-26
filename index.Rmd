@@ -287,11 +287,11 @@ poorDIANA=silDIANA[silDIANA$sil_width<0,'country']%>%sort()
 poorDIANA
 ```
 
-```{r}
+```{r include=FALSE}
 inputData$diana = factor(inputData$diana, levels = c(1:2), labels = c("Baja presencia de mujeres en el parlamento","Alta presencia de mujeres en el parlamento"))
 ```
 
-```{r}
+```{r include=FALSE}
 data$dianaCpoor=data$codigo%in%poorDIANA
 data$diana=as.ordered(inputData$diana)
 inputData$diana=NULL
