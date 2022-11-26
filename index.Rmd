@@ -40,11 +40,26 @@ El objetivo de este reporte es analizar qué factores determinan el porcentaje d
 
 Consideramos que es un tema importante ya que, a pesar de un notable progreso en la participación política femenina en las últimas décadas, aún existe un gran brecha entre representantes masculinos y femeninos, lo que desencadena en la perpetuación de las condiciones desfavorables de las mujeres y su invisibilización política. 
 
-Para ello, se llevarán a cabo los siguientes análisis:
+Para la comprensión de la presente investigación, se consideran las siguientes variable: 
 
-- Realizar un análisis descriptivo y georreferenciado de los resultados a nivel distrital
+Variable dependiente: Proporción de escaños ocupados por mujeres en los parlamentos
+
+Variables independientes: 
+
+ 1. Porcentaje de empleo vulnerable femenino
+
+ 2. Porcentaje de la población activa mujeres
+
+ 3. Gasto público en educación
+
+ 4. PBI per cápita nacional del 2015
+
+
+Se llevarán a cabo los siguientes análisis:
+
+- Realizar un análisis descriptivo y georreferenciado de los escaños en los parlamentos ocupados por mujeres a nivel de cada país. 
+- Implementar técnicas multivariadas para analizar el efecto de cada variable independiente en la presencia de mujeres en  los escaños parlamentarios.
 - Aplicar técnicas de reducción de dimensiones para agrupar a los países en función a la proporción de escaños parlamentarios ocupados por mujeres en el año 2020.
-- Implementar técnicas multivariadas para modelar el comportamiento de la presencia de mujeres en  los escaños parlamentarios.
 
 
 ```{r include=FALSE}
@@ -59,18 +74,6 @@ str(data)
 ```
 
 ### 1. Análisis rápido de los resultados:
-
-Variable dependiente: Proporción de escaños ocupados por mujeres en los parlamentos
-
-Variables independientes: 
-
- 1. Porcentaje de empleo vulnerable femenino
-
- 2. Porcentaje de la población activa mujeres
-
- 3. Gasto público en educación
-
- 4. PBI per cápita nacional del 2015
 
 ```{r echo=FALSE}
 library(stringi)
@@ -89,25 +92,21 @@ Dependiente = data[,c(1,3)]
 colnames(Dependiente)[2] = "Proporción de escaños parlamentarios ocupados por mujeres"
 ```
 
-
 En promedio, la proporción de las mujeres que ocupan un escaño en el parlamento de cada país es 24,73. La proporción de mujeres que ocupan un escaño en el parlamento por país se puede observar en la tabla a continuación:
 
 ```{r echo=FALSE}
 datatable(Dependiente, filter = "top")
 ```
 
-De los 180 países del mundo, se evidencia cierta particularidad en la dinámica de proporción de escaños ocupados por mujeres en el parlamento nacional dentro de la región europea. Por un lado, Europa Norte, específicamente países como Noruega, Finlandia, Suecia lideran en la promoción de una cuota de género, en el sentido que presentan las proporciones más altas de presencia femenina en los escaños parlamentarios ocupados. Por otro lado, es preciso mencionar que, países ubicados Europa Oriental como Rusia, cuentan con los índices de proporción más bajos dentro de toda la región de Europa. 
+### Distribución de la proporción de escaños parlamentarios ocupados por mujeres en cada país
 
-Todo ello se puede observar en el siguiente mapa:
-
-```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
+```{r include=FALSE}
 library(sf) 
 mapWLD=sf::read_sf("world-administrative-boundaries.shp")
 head(mapWLD)
 ```
 
 ```{r include=FALSE}
-
 mapMUN=merge(mapWLD,data,by.x='iso3',by.y='codigo', all.x = T)
 head(mapMUN)
 ```
@@ -124,11 +123,11 @@ mapaleyL= mapaleyendaL + geom_sf(data=mapMUN,
 ```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=9.5,fig.height=5.55}
 mapa3= mapaleyL +
 coord_sf() + 
-scale_fill_gradient(low = "#FDFEFE",  high = "#DC7633", breaks=seq(from=0, to=61.25, by=20)) + theme_void() + 
+scale_fill_gradient(low = "#FDFEFE",  high = "red", breaks=seq(from=0, to=61.25, by=20)) + theme_void() + 
   
 theme(axis.title = element_blank(), axis.text = element_blank(), legend.position = c(0.16,0.1)) + labs(fill="Escaños parlamentarios mujeres") + theme(legend.text = element_text(size = 10)) +
   
-labs(title = "", subtitle = "Escala del 0 al 100") +
+labs(title = "Distribución de la proporción de escaños parlamentarios ocupados por mujeres en cada país", subtitle = "Escala del 0 al 100") +
   
 theme(
 plot.title = element_text(color="black", size=15, face="bold"),
@@ -137,13 +136,14 @@ plot.caption = element_text(color = "black", size=10))
 mapa3
 ```
 
+#Interpretación Lu
 
 ```{r include=FALSE}
 parlamentomuj = data[,c(1,3)]
 parlamentomuj_summary = as.data.frame(apply(parlamentomuj[-1],2,summary))
 ```
 
-Si se exploran algunos datos descriptivos, se observa que en promedio, proporción de los escaños parlamentarios ocupados por mujeres bordean un 24,73 en cada país estudiado en la presente investigación. Además, en el 50% de los países estudiados presenta que en una proporción de 23,77 sus escaños parlamentarios son ocupados por el género femenino. Entre los que muestran una mayor proporción de escaños ocupados por mujeres en el parlamento se encuentran: Rwanda (61,25), Nueva Zelandia (48, 33) y México (48,20).
+Si se exploran algunos datos descriptivos, se observa que en promedio, la proporción (en una escala de 0-100) de los escaños parlamentarios ocupados por mujeres bordea un 24,73 en cada país estudiado de la presente investigación. Además,  el 50% de los países estudiados presentan una proporción de hasta 23,77 de presencia femenina sus escaños parlamentarios. Entre los que muestran una mayor proporción de escaños ocupados por mujeres en el parlamento se encuentran: Rwanda (61,25), Nueva Zelandia (48,33) y México (48,20). En contraste, los países con menor porcentaje de presencia femenina son Vanuatu (0.0), Maldivas (4.6) y Líbano (4.69)
 
 La distribución de la proporción de escaños ocupados por mujeres se puede observar en el gráfico a continuación:
 
@@ -160,17 +160,59 @@ parlamentomuj = melt(parlamentomuj, id=c("codigo"))
 
 ```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
 ggplot(data= parlamentomuj, aes(x=value, group=variable, fill=variable)) +
-    geom_density(adjust=1.5, alpha=.4, color = "gray", linetype = "dashed") +
+    geom_density(adjust=1.5, alpha=.4, color = "black", linetype = "dashed") +
       scale_fill_manual(values=c("firebrick","dodgerblue2"), name = "")  +
       theme(legend.position="bottom") +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank())  +
   
-  labs(title = " ",
+  labs(title = "Concentración de países acorde a la presencia femenina en los escaños parlamentarios",
        x = " ",
        y = " ") 
+
 ```
 
-### 2. Técnicas de reducción de dimensiones
+---Hasta acá se corrio código
+
+### 2. Modelando el comportamiento de la presencia de mujeres en  los escaños parlamentarios
+
+Efecto de las variables población vulnerable femenina, población activa mujeres, gasto público en educación y PBI 
+ 
+
+```{r include=FALSE}
+modelo = lm(parlamentos2020.x ~ Por_Vulnerable_Femenino_2015.x + Poblacion_Act_Mujeres2015.x + Gasto_public_educacion_2015.x + PBI_2015.x, data = data)
+```
+
+```{r echo=FALSE}
+equatiomatic::extract_eq(modelo, use_coefs = TRUE)
+```
+
+```{r echo=FALSE}
+modelsummary(modelo, title = "OLS",
+             stars = TRUE,
+             output = "kableExtra")
+```
+
+Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05. También se aprecia que la variable agregada: PBI_2015 tiene efecto estadísticamente significativo. Así, si nuestra variable independiente aumenta en una unidad, la dependiente también lo hará en 0.0002. Esto es una cantidad poco representativa tomando en cuenta a los valores obtenidos en regresiones anteriores. Por otro lado, nuestro modelo es confiable al 20%. Por último, observamos que la inserción de esta nueva variable independiente afecta a sus predecesoras (Por_Vulnerable_Femenino_2015, Población_Act_Mujeres2015 y Gasto_Public_Educacion_2015), aunque no supone algún cambio abrupto respecto a sus valores en la regresión anterior.
+
+
+En resumen, el presente modelo, que incluye las 4 variables independientes, cuenta con un 20% de confiabilidad. En este sentido, las 4 variables son significativas para poder analizar las variaciones que existen en cada país acerca del porcentaje de las mujeres en los escaños de los parlamentos. 
+
+```{r}
+library(stargazer)
+library(jtools)
+```
+```{r}
+plot_summs(modelo,scale = TRUE)
+```
+
+
+--------
+
+
+
+
+
+### 3. Técnicas de reducción de dimensiones
 
 Vamos a agrupar a los distintos países en función a sus características sociodemográficas, siguiendo técnicas de reducción de dimensiones. Tenemos tres estrategias: PAM, jerárquica y basada en densidad.
 
@@ -194,14 +236,33 @@ fviz_nbclust(inputData, pam,diss=analisis,method = "gap_stat",k.max = 10,verbose
 fviz_nbclust(inputData, hcut,diss=analisis,method = "gap_stat",k.max = 10,verbose = F) #Sale 2 para jerarquico.
 ```
 
-Ambas opciones nos recomiendan la misma cantidad de agrupamiento de casos. En tal sentido, por preferencia de investigación, se ha optado por la estrategia de aglomeración jerarquica, bajo el algoritmo AGNES. Esto se debe a que, esta estrategia demuestra un buen desempeño en el agrupamiento de casos.
+```{r include=FALSE}
+fviz_nbclust(inputData, hcut,diss=g.dist,method = "gap_stat",k.max = 10,verbose = F,hc_func = "diana")
+```
 
 ```{r include=FALSE}
+fviz_nbclust(inputData, hcut,diss=g.dist,method = "gap_stat",k.max = 10,verbose = F,hc_func = "agnes")
+```
+
+
+Ambas opciones nos recomiendan la misma cantidad de agrupamiento de casos. En tal sentido, por preferencia de investigación, se ha optado por la estrategia de aglomeración jerarquica, bajo el algoritmo AGNES. Esto se debe a que, esta estrategia demuestra un buen desempeño en el agrupamiento de casos.
+
+```{r}
 #Hacemos los clusters:
 res.pam = pam(analisis,2,cluster.only = F)
 res.agnes = hcut(analisis, k = 2,hc_func='agnes',hc_method = "ward.D")
 res.diana = hcut(analisis, k = 2,hc_func='diana')
 ```
+
+```{r}
+#Hacemos los clusters:
+res.pam = pam(analisis,3,cluster.only = F)
+res.agnes = hcut(analisis, k = 3,hc_func='agnes',hc_method = "ward.D")
+res.diana = hcut(analisis, k = 3,hc_func='diana')
+```
+
+
+
 
 ```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
 #Evaluación gráfica
@@ -303,32 +364,6 @@ theme(
 plot.title = element_text(color="black", size=11, face="bold"))
 mapa1
 ```
-
-### 3. Modelando el comportamiento de la presencia de mujeres en  los escaños parlamentarios
-
-Efecto de las variables población vulnerable femenina, población activa mujeres, gasto público en educación y PBI 
- 
-
-```{r include=FALSE}
-modelo = lm(parlamentos2020.x ~ Por_Vulnerable_Femenino_2015.x + Poblacion_Act_Mujeres2015.x + Gasto_public_educacion_2015.x + PBI_2015.x, data = data)
-```
-
-```{r echo=FALSE}
-equatiomatic::extract_eq(modelo, use_coefs = TRUE)
-```
-
-```{r echo=FALSE}
-modelsummary(modelo, title = "OLS",
-             stars = TRUE,
-             output = "kableExtra")
-```
-
-Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05. También se aprecia que la variable agregada: PBI_2015 tiene efecto estadísticamente significativo. Así, si nuestra variable independiente aumenta en una unidad, la dependiente también lo hará en 0.0002. Esto es una cantidad poco representativa tomando en cuenta a los valores obtenidos en regresiones anteriores. Por otro lado, nuestro modelo es confiable al 20%. Por último, observamos que la inserción de esta nueva variable independiente afecta a sus predecesoras (Por_Vulnerable_Femenino_2015, Población_Act_Mujeres2015 y Gasto_Public_Educacion_2015), aunque no supone algún cambio abrupto respecto a sus valores en la regresión anterior.
-
-
-En resumen, el presente modelo, que incluye las 4 variables independientes, cuenta con un 20% de confiabilidad. En este sentido, las 4 variables son significativas para poder analizar las variaciones que existen en cada país acerca del porcentaje de las mujeres en los escaños de los parlamentos. 
-
-
 
 
 
