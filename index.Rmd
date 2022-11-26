@@ -219,10 +219,12 @@ Vamos a agrupar a los distintos países en función a sus características socio
 inputData = data[,c(1,3:7)]
 row.names(inputData) = inputData$codigo
 inputData = inputData[,-c(1)]
+
 ```
 
 ```{r include=FALSE}
-Data_clusters = daisy(inputData, metric="gower")
+set.seed(2015)
+g.data = daisy(inputData, metric="gower")
 ```
 
 Las tres opciones nos recomiendan la misma cantidad de agrupamiento de casos. En tal sentido, por preferencia de investigación, se ha optado por la estrategia de aglomeración jerarquica, bajo el algoritmo DIANA. Esto se debe a que, esta estrategia demuestra un buen desempeño en el agrupamiento de casos y no presenta ningún caso de dato mal clusterizado.
@@ -233,7 +235,7 @@ fviz_nbclust(inputData, pam,diss=Data_clusters,method = "gap_stat",k.max = 10,ve
 
 ```{r include=FALSE}
 set.seed(123)
-res.pam=pam(Data_clusters,2,cluster.only = F)
+res.pam=pam(g.data,2,cluster.only = F)
 
 #nueva columna
 inputData$pam=res.pam$cluster
@@ -247,7 +249,7 @@ fviz_silhouette(res.pam,print.summary = F)
 ```
 
 ```{r include=FALSE}
-res.agnes<- hcut(Data_clusters, k = 2,hc_func='agnes',hc_method = "ward.D")
+res.agnes<- hcut(g.data, k = 2,hc_func='agnes',hc_method = "ward.D")
 
 inputData$agnes=res.agnes$cluster
 
@@ -263,7 +265,7 @@ fviz_silhouette(res.agnes,print.summary = F)
 
 ```{r include=FALSE}
 set.seed(123)
-res.diana <- hcut(Data_clusters, k = 2,hc_func='diana')
+res.diana <- hcut(g.data, k = 2,hc_func='diana')
 inputData$diana=res.diana$cluster
 ```
 
@@ -271,9 +273,7 @@ inputData$diana=res.diana$cluster
 fviz_silhouette(res.diana,print.summary = F)
 ```
 
-*Interpretar el 3ero - Diana
-  Como parte de la interpretación mostrar los casos mal clusterizados
-
+Las tres técnicas sugieren 2 clusters. Tanto la técnica de PAM como la de DIANA nos da un promedio de 0.35, mientras que la de AGNES, de 0.33. Así mismo, en la técnica de PAM y AGNES se encuentran 4 y 11 casos mal clusterizados respectivamente, mientras que, por DIANA, no se tiene ninguno. Frente a estos resultados, se decide optar por la técnica jerárquica divisiva (DIANA) al ser la más adecuada para nuestros datos
 
 ```{r include=FALSE}
 #Agregamos conglomerados:
@@ -281,18 +281,23 @@ inputData$clust = factor(res.diana$cluster)
 ```
 
 ```{r include=FALSE}
-#Lo pasamos a la data original:
-inputData$codigo = row.names(inputData)
-row.names(inputData) = NULL
-inputData = inputData[,c(8)]
+silDIANA=data.frame(res.diana$silinfo$widths)
+silDIANA$country=row.names(silDIANA)
+poorDIANA=silDIANA[silDIANA$sil_width<0,'country']%>%sort()
+poorDIANA
+```
+
+```{r}
+aggregate(.~ diana, data=inputData,mean)
+```
+
+```{r}
+idhdemo$dianaIDHpoor=idhdemo$Pais%in%poorDIANA
+idhdemo$dianaIDH=as.ordered(dataClus$diana)
+dataClus$diana=NULL
 ```
 
 
-*Error 
-
-```{r include=FALSE}
-data = merge(data, inputData, by = "codigo")
-```
 
 
 
