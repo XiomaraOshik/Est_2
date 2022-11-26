@@ -173,8 +173,6 @@ ggplot(data= parlamentomuj, aes(x=value, group=variable, fill=variable)) +
 
 ```
 
----Hasta acá se corrio código
-
 ### 2. Modelando el comportamiento de la presencia de mujeres en  los escaños parlamentarios
 
 Efecto de las variables población vulnerable femenina, población activa mujeres, gasto público en educación y PBI 
@@ -199,16 +197,18 @@ Podemos afirmar que el modelo es válido porque nuestro p-valor es menor a 0.05.
 
 En resumen, el presente modelo, que incluye las 4 variables independientes, cuenta con un 20% de confiabilidad. En este sentido, las 4 variables son significativas para poder analizar las variaciones que existen en cada país acerca del porcentaje de las mujeres en los escaños de los parlamentos. 
 
-```{r}
+```{r include=FALSE}
 library(stargazer)
 library(jtools)
 ```
+
+
 ```{r}
 plot_summs(modelo,scale = TRUE)
 ```
 
 
---------
+
 
 
 
@@ -255,15 +255,6 @@ res.pam = pam(analisis,2,cluster.only = F)
 res.agnes = hcut(analisis, k = 2,hc_func='agnes',hc_method = "ward.D")
 res.diana = hcut(analisis, k = 2,hc_func='diana')
 ```
-
-```{r}
-#Hacemos los clusters:
-res.pam = pam(analisis,3,cluster.only = F)
-res.agnes = hcut(analisis, k = 3,hc_func='agnes',hc_method = "ward.D")
-res.diana = hcut(analisis, k = 3,hc_func='diana')
-```
-
-
 
 
 ```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
