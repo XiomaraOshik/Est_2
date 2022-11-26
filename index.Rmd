@@ -288,28 +288,22 @@ poorDIANA
 ```
 
 ```{r}
-aggregate(.~ diana, data=inputData,mean)
+inputData$diana = factor(inputData$diana, levels = c(1:2), labels = c("Baja presencia de mujeres en el parlamento","Alta presencia de mujeres en el parlamento"))
 ```
 
 ```{r}
-idhdemo$dianaIDHpoor=idhdemo$Pais%in%poorDIANA
-idhdemo$dianaIDH=as.ordered(dataClus$diana)
-dataClus$diana=NULL
+data$dianaCpoor=data$codigo%in%poorDIANA
+data$diana=as.ordered(inputData$diana)
+inputData$diana=NULL
+data$dianaCpoor=NULL
 ```
 
-
-
-
-
-```{r include=FALSE}
-data$diana = factor(data$diana, levels = c(1:2), labels = c("Presencia alta de mujeres","Presencia baja de mujeres"))
-```
 
 Características de cada conglomerado:
 
 ```{r include=FALSE}
 summ_clust = data %>% 
-  group_by(clust) %>%
+  group_by(diana) %>%
   summarise(Vulnerable_Femenino = mean(Por_Vulnerable_Femenino_2015, na.rm=T),
             Población_Activa_Mujeres = mean(Poblacion_Act_Mujeres2015, na.rm = T),
             Gasto_educación = mean(Gasto_public_educacion_2015, na.rm = T),
@@ -326,12 +320,12 @@ Número de países por cada conglomerado:
 
 ```{r include=FALSE}
 bar1 = data %>%
-  group_by(clust) %>%
+  group_by(diana) %>%
   summarise(Cluster = n())
 ```
 
 ```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
-ggplot(bar1, aes(x=clust, y=Cluster)) + 
+ggplot(bar1, aes(x=diana, y=Cluster)) + 
   geom_bar(stat = "identity") +
   
   labs(title = " ",
@@ -353,7 +347,7 @@ map1=merge(mapWLD,data,by.x='iso3',by.y='codigo', all.x = T) #siempre primero el
 ```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=9.5,fig.height=5.55, fig.align="center"}
 mapaleyendaL= ggplot(map1)+ geom_sf() + theme_light()
 mapaleyL= mapaleyendaL + geom_sf(data=map1,
-              aes(fill=clust),color = "gray")
+              aes(fill=diana),color = "gray")
       
 mapa1= mapaleyL +
 coord_sf() + 
