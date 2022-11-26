@@ -179,7 +179,7 @@ Efecto de las variables población vulnerable femenina, población activa mujere
  
 
 ```{r include=FALSE}
-modelo = lm(parlamentos2020.x ~ Por_Vulnerable_Femenino_2015.x + Poblacion_Act_Mujeres2015.x + Gasto_public_educacion_2015.x + PBI_2015.x, data = data)
+modelo = lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015 + Poblacion_Act_Mujeres2015 + Gasto_public_educacion_2015 + PBI_2015, data = data)
 ```
 
 ```{r echo=FALSE}
@@ -207,12 +207,7 @@ library(jtools)
 plot_summs(modelo,scale = TRUE)
 ```
 
-
-
-
-
-
-
+## Interpretación Kami
 
 ### 3. Técnicas de reducción de dimensiones
 
