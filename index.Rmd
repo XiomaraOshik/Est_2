@@ -278,19 +278,24 @@ fviz_silhouette(res.diana,print.summary = F)
 inputData$clust = factor(res.diana$cluster)
 ```
 
-```{r include=FALSE}
+```{r include=FALSE}}
 #Lo pasamos a la data original:
 inputData$codigo = row.names(inputData)
 row.names(inputData) = NULL
-inputData = inputData[,c(6)]
+inputData = inputData[,c(8)]
 ```
+
+
+*Error 
 
 ```{r include=FALSE}
 data = merge(data, inputData, by = "codigo")
 ```
 
+
+
 ```{r include=FALSE}
-data$clust = factor(data$clust, levels = c(1:2), labels = c("Presencia alta de mujeres","Presencia baja de mujeres"))
+data$diana = factor(data$diana, levels = c(1:2), labels = c("Presencia alta de mujeres","Presencia baja de mujeres"))
 ```
 
 Características de cada conglomerado:
