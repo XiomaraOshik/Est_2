@@ -185,7 +185,9 @@ set.seed(2015)
 analisis = daisy(inputData, metric="gower")
 ```
 
-Hemos solicitado el número óptimo de clusters y son 3.
+Hemos solicitado el número óptimo de clusters y son 2.
+
+*Se debe mostrar la recomendación de clusters?
 
 ```{r include=FALSE}
 fviz_nbclust(inputData, pam,diss=analisis,method = "gap_stat",k.max = 10,verbose = F) #Recomendación de num para PAM. Sale 2
@@ -213,6 +215,10 @@ fviz_silhouette(res.agnes) #AGNES
 ```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
 fviz_silhouette(res.diana) #Diana
 ```
+
+*Interpretar el 3ero - Diana
+  Como parte de la interpretación mostrar los casos mal clusterizados
+
 
 ```{r include=FALSE}
 #Agregamos conglomerados:
