@@ -1,11 +1,15 @@
-# Integrantes
+# Proporción de escaños en el parlamento ocupado por mujeres (2020)
+ 
+ ## Integrantes
   - Luciana Belén Rojas Morote (20203134) 
   - María Fernanda Carrillo Vidalón (20201596)
   - Xiomara Del Rosario Oshikawa Huamán (2020027)
   - Yarim Kamila Gamarra Dávila (20195573)
 
+## Bases de datos utilizadas para el análisis:
+
 # Trabajo
-- Tema: Participación femenina en cargos de poder
+- Tema: 
 - Variable dependiente: Proporción de mujeres en puestos directivos - ONU Mujeres 2019 (UNWOMEN_19) (Prop_mujeres_puestos_directivos_VD.csv)
     - Justificación:
     Las investigadoras consideran importante analizar la presencia de mujeres en puestos directivos en función de una amplia gama de variables y desde una perspectiva mundial. En las últimas décadas, se ha producido una progresiva reivindicación de los derechos de las mujeres. Entre ellos, su independencia al velar por sus actividades de sustento económico al margen de alguna restricción justificada por su género. En virtud del protagonismo que han adquirido los estudios de género, nos interesa conocer el estado de la participación femenina en puestos directivos con el objetivo de subrayar qué factores influyen en la preservación de las brechas de género. Así, abarcamos variables desde el tipo económico de su país de origen hasta indicadores que miden la libertad presente en las sociedades.
