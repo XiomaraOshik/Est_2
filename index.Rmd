@@ -300,8 +300,7 @@ inputData$diana=NULL
 data$dianaCpoor=NULL
 ```
 
-
-## Características de cada conglomerado obstenido:
+### Características de cada conglomerado obstenido:
 
 ```{r include=FALSE}
 summ_clust = data %>% 
@@ -318,7 +317,7 @@ summ_clust%>%
   kable_minimal()
 ```
 
-## Número de países por cada conglomerado:
+### Número de países por cada conglomerado:
 
 ```{r include=FALSE}
 bar1 = data %>%
@@ -338,7 +337,7 @@ ggplot(bar1, aes(x=diana, y=Cluster)) +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank())
 ```
 
-## Análisis geoespacial de clusters:
+### Análisis geoespacial de clusters:
 
 ```{r include=FALSE}
 #Juntamos información con el shape:
