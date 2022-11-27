@@ -17,16 +17,16 @@ Banco Mundial: $Indicadores$  (https://datos.bancomundial.org/indicador)
 
 ## Contenido del repositorio
 
- - Shapes
-    world-administrative-boundaries.dbf
-    world-administrative-boundaries.prj
-    world-administrative-boundaries.shp
-    world-administrative-boundaries.dbfshx
+ - Shapes:
+    - world-administrative-boundaries.dbf
+    - world-administrative-boundaries.prj
+    - world-administrative-boundaries.shp
+    - world-administrative-boundaries.dbfshx
 - Regresiones.Rmd : Distintas regresiones de la variable dependiente con las independientes
 - Limpieza de datos.Rmd: Rmd con el proceso de limpieza
 - Data limpia: 
-   data.csv
-   data.Rda
+   - data.csv
+   - data.Rda
 - logoPUCP.png: Logo de la PUCP utlizado para la página web
 
 ## Ver Github pages por aquí: https://xiomaraoshik.github.io/Est_2/
