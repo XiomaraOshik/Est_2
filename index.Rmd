@@ -301,7 +301,7 @@ data$dianaCpoor=NULL
 ```
 
 
-## Características de cada conglomerado:
+## Características de cada conglomerado obstenido:
 
 ```{r include=FALSE}
 summ_clust = data %>% 
