@@ -100,7 +100,9 @@ datatable(Dependiente, filter = "top")
 
 ### Distribución de la proporción de escaños parlamentarios ocupados por mujeres en cada país
 
-El presente trabajo analiza la dinámica de la participación política femenina en un total de 180 países. A continuación, presentamos un mapa mundial que referencia geográficamente la estudiada actividad a partir de la intensidad del color. La representación esbozada amplía la profundidad del análisis. De ese modo, se entiende al fenómeno a partir de rasgos sociológicos, como la etnia mayoritaria, o políticos como la estabilidad. Así, observamos diferencias en la dinámica según cada región global.  En esa línea, Escandinavia (norte de Europa), comprendida por Suecia, Dinamarca, Noruega, Finlandia e Islandia, presenta el mayor índice de participación femenina del mundo. Esto debido a la histórica implementación de políticas de corte feminista. En contraste, el África subsahariana carece casi en su totalidad de presencia femenina en el parlamento. Esto ocurre en un marco de inestabilidad política y conflictos étnicos constantes. Del mismo modo, el Sudeste Asiático, Asia Central y Eurasia (Rusia) poseen indicadores desalentadores debido al paternalismo que impera en sus sociedades. Por último, se aprecia la ambivalencia de Latinoamérica. Así, Estados gobernados por la izquierda presentan mayor participación femenina. Se observa un patrón positivo en el Norte Global: Norteamérica, Oceanía y Europa. Asimismo, se comprende la ausencia de data en zonas de conflicto bélico permanente, hermetismo o inestabilidad política como el Magreb (norte de África), Oriente Próximo, Afganistán y Corea del Norte.
+El presente trabajo analiza la dinámica de la participación política femenina en un total de 180 países. A continuación, presentamos un mapa mundial que referencia geográficamente la estudiada actividad a partir de la intensidad del color. La representación esbozada amplía la profundidad del análisis. De ese modo, se entiende al fenómeno a partir de rasgos sociológicos, como la etnia mayoritaria, o políticos como la estabilidad. Así, observamos diferencias en la dinámica según cada región global.  En esa línea, Escandinavia (norte de Europa), comprendida por Suecia, Dinamarca, Noruega, Finlandia e Islandia, presenta el mayor índice de participación femenina del mundo. Esto debido a la histórica implementación de políticas de corte feminista. 
+
+En contraste, el África subsahariana carece casi en su totalidad de presencia femenina en el parlamento. Esto ocurre en un marco de inestabilidad política y conflictos étnicos constantes. Del mismo modo, el Sudeste Asiático, Asia Central y Eurasia (Rusia) poseen indicadores desalentadores debido al paternalismo que impera en sus sociedades. Por último, se aprecia la ambivalencia de Latinoamérica. Así, Estados gobernados por la izquierda presentan mayor participación femenina. Se observa un patrón positivo en el Norte Global: Norteamérica, Oceanía y Europa. Asimismo, se comprende la ausencia de data en zonas de conflicto bélico permanente, hermetismo o inestabilidad política como el Magreb (norte de África), Oriente Próximo, Afganistán y Corea del Norte.
 
 ```{r include=FALSE}
 library(sf) 
@@ -203,7 +205,7 @@ library(jtools)
 ```
 
 
-```{r}
+```{r echo=FALSE,message=FALSE,warning=FALSE,eval=TRUE,fig.show='hold',fig.width=7,fig.height=5, fig.align="center"}
 plot_summs(modelo,scale = TRUE)
 ```
 
@@ -299,7 +301,7 @@ data$dianaCpoor=NULL
 ```
 
 
-Características de cada conglomerado:
+## Características de cada conglomerado:
 
 ```{r include=FALSE}
 summ_clust = data %>% 
@@ -316,7 +318,7 @@ summ_clust%>%
   kable_minimal()
 ```
 
-Número de países por cada conglomerado:
+## Número de países por cada conglomerado:
 
 ```{r include=FALSE}
 bar1 = data %>%
@@ -336,7 +338,7 @@ ggplot(bar1, aes(x=diana, y=Cluster)) +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank())
 ```
 
-Análisis geoespacial de clusters:
+## Análisis geoespacial de clusters:
 
 ```{r include=FALSE}
 #Juntamos información con el shape:
