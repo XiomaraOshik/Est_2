@@ -29,4 +29,4 @@ Banco Mundial: $Indicadores$  (https://datos.bancomundial.org/indicador)
    - data.Rda
 - logoPUCP.png: Logo de la PUCP utlizado para la página web
 
-## Ver Github pages por aquí: https://xiomaraoshik.github.io/Est_2/
+Ver Github pages por aquí: https://xiomaraoshik.github.io/Est_2/
