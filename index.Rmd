@@ -175,6 +175,11 @@ ggplot(data= parlamentomuj, aes(x=value, group=variable, fill=variable)) +
 
 ```
 
+Este esquema cuenta con una distribución asimétrica positiva, en tanto la mediana se encuentra más a la izquierda que la media y el gráfico mismo muestra la campana formada no al centro exacto de la ilustración, sino que esta se encuentra más a la izquierda. Es así, que mediante este gráfico presentado que podemos dar cuenta de que, en efecto, la mayoría de países tiene una distribución de mujeres en escaños parlamentarios de cerca de 24,73, es decir que las mujeres, en una considerable cantidad de países, cuentan con un aproximado de 25% de participación dentro de sus respectivos parlamentos nacionales. 
+
+Así podemos observar que en efecto la mayoría de estas naciones se concentran entre los valores de 18,22 y 30,07 de participación femenina; ya que es entre estos números que podemos dar cuenta de que tienen un aumento notorio que llega con un máximo de hasta aproximadamente un 0.04 de concentración. Y no es de menos, pues el segundo cuartil del total de países se concentra entre estas cifras nada más, siendo que revela que la participación de las mujeres en el parlamento oscila por lo general entre estos números. Y, como bien la tabla superior establece es que el máximo de participación con el que se cuenta es de 61.25, siendo el valor máximo y representado como una línea que llega a rozar el 0.00 de concentración en tan solo 1 país (Ruanda) llega a ese valor; pues los países que le siguen en participación cuentan con valores más cercanos al 48% y por ello se ve un descenso rápido luego de esta cifra.
+
+
 ### 2. Modelando el comportamiento de la presencia de mujeres en  los escaños parlamentarios
 
 Efecto de las variables población vulnerable femenina, población activa mujeres, gasto público en educación y PBI 
