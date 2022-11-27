@@ -290,7 +290,7 @@ poorDIANA
 ```
 
 ```{r include=FALSE}
-inputData$diana = factor(inputData$diana, levels = c(1:2), labels = c("Baja presencia de mujeres en el parlamento","Alta presencia de mujeres en el parlamento"))
+inputData$diana = factor(inputData$diana, levels = c(1:2), labels = c("Alta presencia de mujeres en el parlamento","Baja presencia de mujeres en el parlamento"))
 ```
 
 ```{r include=FALSE}
