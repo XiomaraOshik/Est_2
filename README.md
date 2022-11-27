@@ -7,7 +7,7 @@
   - Yarim Kamila Gamarra Dávila (20195573)
 
 ## Bases de datos utilizadas para el análisis:
-Banco Mundial: $ Indicadores $  (https://datos.bancomundial.org/indicador)
+Banco Mundial: $Indicadores$  (https://datos.bancomundial.org/indicador)
 
 
 
