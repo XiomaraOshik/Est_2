@@ -229,7 +229,6 @@ set.seed(2015)
 g.data = daisy(inputData, metric="gower")
 ```
 
-Las tres opciones nos recomiendan la misma cantidad de agrupamiento de casos. En tal sentido, por preferencia de investigación, se ha optado por la estrategia de aglomeración jerarquica, bajo el algoritmo DIANA. Esto se debe a que, esta estrategia demuestra un buen desempeño en el agrupamiento de casos y no presenta ningún caso de dato mal clusterizado.
 
 ```{r include=FALSE}
 fviz_nbclust(inputData, pam,diss=Data_clusters,method = "gap_stat",k.max = 10,verbose = F) #Nos recomienda 2
