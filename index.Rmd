@@ -364,7 +364,7 @@ plot.title = element_text(color="black", size=11, face="bold"))
 mapa1
 ```
 
-
+El gráfico adjunto mide la intensidad de la presencia de mujeres en escaños parlamentarios a nivel global. La leyenda ubicada a la derecha ilustra este punto. Así, el color turquesa sugiere una alta presencia femenina, el morado una baja y el gris la ausencia de data. Por un lado, apreciamos que la región de Europa oriental, Eurasia, Oceanía, el sur de África, Estados Unidos, Argentina y Brasil tiene baja presencia de mujeres. Por otro lado, el resto de Estados latinoamericanos, la región del África subsahariana y el sudeste asiático presentan altos índices.  Por último, resalta la ausencia de data acerca de la región del Magreb, Canadá, Turquía y ciertos Estados del sudeste asiático.
 
 
 
