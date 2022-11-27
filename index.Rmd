@@ -215,7 +215,7 @@ Esto quiere decir que si el porcentaje de población activa femenina, la inversi
 
 ### 3. Técnicas de reducción de dimensiones
 
-Vamos a agrupar a los distintos países en función a sus características sociodemográficas, siguiendo técnicas de reducción de dimensiones. Tenemos tres estrategias: PAM, jerárquica y basada en densidad.
+Vamos a agrupar a los distintos países en función a sus características sociodemográficas, siguiendo técnicas de reducción de dimensiones. Tenemos tres estrategias: Partición (PAM), Jerárquica Aglomerativa (AGNES) y Jerárquica Divisiva (DIANA).
 
 ```{r include=FALSE}
 inputData = data[,c(1,3:7)]
