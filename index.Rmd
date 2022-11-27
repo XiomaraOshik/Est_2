@@ -73,7 +73,7 @@ rmarkdown::paged_table()
 str(data)
 ```
 
-### 1. Análisis rápido de los resultados:
+## 1. Análisis rápido de los resultados:
 
 ```{r echo=FALSE}
 library(stringi)
@@ -92,7 +92,7 @@ Dependiente = data[,c(1,3)]
 colnames(Dependiente)[2] = "Proporción de escaños parlamentarios ocupados por mujeres"
 ```
 
-En promedio, la proporción de las mujeres que ocupan un escaño en el parlamento de cada país es 24,73. La proporción de mujeres que ocupan un escaño en el parlamento por país se puede observar en la tabla a continuación:
+En promedio, la proporción de las mujeres que ocupan un escaño en el parlamento de cada país es 24,73. La proporción de mujeres que ocupan un escaño en el parlamento por país se puedeN observar en la tabla a continuación:
 
 ```{r echo=FALSE}
 datatable(Dependiente, filter = "top")
@@ -100,7 +100,7 @@ datatable(Dependiente, filter = "top")
 
 ### Distribución de la proporción de escaños parlamentarios ocupados por mujeres en cada país
 
-El presente trabajo analiza la dinámica de la participación política femenina en un total de 180 países. A continuación, presentamos un mapa mundial que referencia geográficamente la estudiada actividad a partir de la intensidad del color. La representación esbozada amplía la profundidad del análisis. De ese modo, se entiende al fenómeno a partir de rasgos sociológicos, como la etnia mayoritaria, o políticos como la estabilidad. Así, observamos diferencias en la dinámica según cada región global.  En esa línea, Escandinavia (norte de Europa), comprendida por Suecia, Dinamarca, Noruega, Finlandia e Islandia, presenta el mayor índice de participación femenina del mundo. Esto debido a la histórica implementación de políticas de corte feminista. 
+El presente trabajo analiza la dinámica de la participación política femenina en un total de 180 países. A continuación, presentamos un mapa mundial que referencia geográficamente la actividad estudiadad a partir de la intensidad del color (en tal sentido hemos empleado un mapa de calor). La representación esbozada amplía la profundidad del análisis. De ese modo, se entiende al fenómeno a partir de rasgos sociológicos, como la etnia mayoritaria, o políticos como la estabilidad. Así, observamos diferencias en la dinámica según cada región global.  En esa línea, Escandinavia (norte de Europa), comprendida por Suecia, Dinamarca, Noruega, Finlandia e Islandia, presenta el mayor índice de participación femenina del mundo. Esto debido a la histórica implementación de políticas de corte feminista. 
 
 En contraste, el África subsahariana carece casi en su totalidad de presencia femenina en el parlamento. Esto ocurre en un marco de inestabilidad política y conflictos étnicos constantes. Del mismo modo, el Sudeste Asiático, Asia Central y Eurasia (Rusia) poseen indicadores desalentadores debido al paternalismo que impera en sus sociedades. Por último, se aprecia la ambivalencia de Latinoamérica. Así, Estados gobernados por la izquierda presentan mayor participación femenina. Se observa un patrón positivo en el Norte Global: Norteamérica, Oceanía y Europa. Asimismo, se comprende la ausencia de data en zonas de conflicto bélico permanente, hermetismo o inestabilidad política como el Magreb (norte de África), Oriente Próximo, Afganistán y Corea del Norte.
 
@@ -141,13 +141,12 @@ mapa3
 ```
 
 
-
 ```{r include=FALSE}
 parlamentomuj = data[,c(1,3)]
 parlamentomuj_summary = as.data.frame(apply(parlamentomuj[-1],2,summary))
 ```
 
-Si se exploran algunos datos descriptivos, se observa que en promedio, la proporción (en una escala de 0-100) de los escaños parlamentarios ocupados por mujeres bordea un 24,73 en cada país estudiado de la presente investigación. Además,  el 50% de los países estudiados presentan una proporción de hasta 23,77 de presencia femenina sus escaños parlamentarios. Entre los que muestran una mayor proporción de escaños ocupados por mujeres en el parlamento se encuentran: Rwanda (61,25), Nueva Zelandia (48,33) y México (48,20). En contraste, los países con menor porcentaje de presencia femenina son Vanuatu (0.0), Maldivas (4.6) y Líbano (4.69)
+Si se exploran algunos datos descriptivos, se observa que en promedio, la proporción (en una escala de 0-100) de los escaños parlamentarios ocupados por mujeres bordea un 24,73 en cada país estudiado de la presente investigación. Además,  el 50% de los países estudiados presentan una proporción de hasta 23,77 de presencia femenina en sus escaños parlamentarios. Entre los que muestran una mayor proporción de escaños ocupados por mujeres en el parlamento se encuentran: Rwanda (61,25), Nueva Zelandia (48,33) y México (48,20). En contraste, los países con menor porcentaje de presencia femenina son Vanuatu (0.0), Maldivas (4.6) y Líbano (4.69)
 
 La distribución de la proporción de escaños ocupados por mujeres se puede observar en el gráfico a continuación:
 
@@ -175,16 +174,14 @@ ggplot(data= parlamentomuj, aes(x=value, group=variable, fill=variable)) +
 
 ```
 
-Este esquema cuenta con una distribución asimétrica positiva, en tanto la mediana se encuentra más a la izquierda que la media y el gráfico mismo muestra la campana formada no al centro exacto de la ilustración, sino que esta se encuentra más a la izquierda. Es así, que mediante este gráfico presentado que podemos dar cuenta de que, en efecto, la mayoría de países tiene una distribución de mujeres en escaños parlamentarios de cerca de 24,73, es decir que las mujeres, en una considerable cantidad de países, cuentan con un aproximado de 25% de participación dentro de sus respectivos parlamentos nacionales. 
+Este esquema cuenta con una distribución asimétrica positiva, en tanto la mediana se encuentra más a la izquierda que la media y el gráfico mismo muestra la campana formada no al centro exacto de la ilustración, sino que esta se encuentra más a la izquierda. Es así, que mediante este gráfico presentado podemos dar cuenta de que, en efecto, la mayoría de países tiene una distribución de mujeres en escaños parlamentarios de cerca de 24,73, es decir que las mujeres, en una considerable cantidad de países, cuentan con un aproximado de 25% de participación dentro de sus respectivos parlamentos nacionales. 
 
-Así podemos observar que en efecto la mayoría de estas naciones se concentran entre los valores de 18,22 y 30,07 de participación femenina; ya que es entre estos números que podemos dar cuenta de que tienen un aumento notorio que llega con un máximo de hasta aproximadamente un 0.04 de concentración. Y no es de menos, pues el segundo cuartil del total de países se concentra entre estas cifras nada más, siendo que revela que la participación de las mujeres en el parlamento oscila por lo general entre estos números. Y, como bien la tabla superior establece es que el máximo de participación con el que se cuenta es de 61.25, siendo el valor máximo y representado como una línea que llega a rozar el 0.00 de concentración en tan solo 1 país (Ruanda) llega a ese valor; pues los países que le siguen en participación cuentan con valores más cercanos al 48% y por ello se ve un descenso rápido luego de esta cifra.
+Así podemos observar que en efecto la mayoría de estas naciones se concentran entre los valores de 18,22 y 30,07 de participación femenina; siendo esta concentración de países un 0.04. Debemos considerar que el máximo de participación femenina con el que se cuenta es de 61.25. Este es el valor máximo y es representado como una línea que llega a rozar el 0.00 de concentración, ya que solo 1 país (Ruanda) llega a ese valor. Los países que le siguen en proporción de participación política femenina cuentan con valores más cercanos al 48%.  
 
-
-### 2. Técnicas multivariadas para analizar el efecto de cada variable independiente en la presencia de mujeres en  los escaños parlamentarios
+## 2. Técnicas multivariadas para analizar el efecto de cada variable independiente en la presencia de mujeres en  los escaños parlamentarios
 
 Efecto de las variables población vulnerable femenina, población activa mujeres, gasto público en educación y PBI 
  
-
 ```{r include=FALSE}
 modelo = lm(parlamentos2020 ~ Por_Vulnerable_Femenino_2015 + Poblacion_Act_Mujeres2015 + Gasto_public_educacion_2015 + PBI_2015, data = data)
 ```
@@ -213,7 +210,7 @@ En primer lugar, vemos que el p-value, al ser menor a 0.05, determinamos que nue
 
 Esto quiere decir que si el porcentaje de población activa femenina, la inversión en educación y el PBI aumentan en una unidad, la presencia femenina en los escaños parlamentarios aumentará en 0.329, 0.515 y 0.0002 respectivamente. Finalmente, La variable más significativa, es decir la que tiene menor probabilidad de ser 0, es porcentaje de población activa mujeres (0.001), seguida del gasto público en educación (0.01) y finalmente el porcentaje de empleo vulnerable femenino y PBI (0.05). Frente a estos resultados podemos decir que los países que tengan mayor PBI, mayor inversión en educación, mayor porcentaje de mujeres activas y menor porcentaje de empleo vulnerable serán los que tengan mayor presencia de mujeres en los escaños parlamentarios.
 
-### 3. Técnicas de reducción de dimensiones
+## 3. Técnicas de reducción de dimensiones
 
 Vamos a agrupar a los distintos países en función a sus características sociodemográficas, siguiendo técnicas de reducción de dimensiones. Tenemos tres estrategias: Partición (PAM), Jerárquica Aglomerativa (AGNES) y Jerárquica Divisiva (DIANA).
 
@@ -289,7 +286,7 @@ poorDIANA
 ```
 
 ```{r include=FALSE}
-inputData$diana = factor(inputData$diana, levels = c(1:2), labels = c("Alta presencia de mujeres en el parlamento","Baja presencia de mujeres en el parlamento"))
+inputData$diana = factor(inputData$diana, levels = c(1:2), labels = c("Baja presencia de mujeres en el parlamento","Alta presencia de mujeres en el parlamento"))
 ```
 
 ```{r include=FALSE}
@@ -336,7 +333,9 @@ ggplot(bar1, aes(x=diana, y=Cluster)) +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank())
 ```
 
-Así es que, mediante la categorización de los países en dos grupos, número óptimo según las tres técnicas anteriormente ejecutadas, es que podemos observar en este gráfico que la categoría que corresponde a una “alta presencia de mujeres en el parlamento” cuenta con 112 países. Países los cuales cuentan con un elevado número de vulnerabilidad en cuanto a empleo refiere en mujeres, ya que representa un 61.95%. El cual es en sumo alto si se compara al grupo de países que constituyen una “baja presencia de mujeres en el parlamento” ya que los 68 países (casi una proporción de 1 a 2 del total de países) que la conforman cuentan con un porcentaje de vulnerabilidad de tan solo 11.57%. Y este parece ser un indicador sustancialmente diferenciador, ya que en los otros factores como la población activa tienen una diferencia no tan grande, como la de 2.28548% en referencia al porcentaje de población activa de mujeres, siendo que el grupo de la alta presencia cuenta con 43.33276%. Por otro lado, es que se ve una diferencia similar de 2 puntos (o en este caso de porcentaje destinado del total del PBI), sorprendentemente a favor de los países con alta presencia quieres cuentan con un promedio de 15.86 a diferencia de los 13.04 que gastan los países con baja presencia. Y finalmente el PBI de cada país es que muestra otra desigualdad monumental, ya que el PBI de los países con alta presencia cuentan con 1204.844, mientras los de baja presencia con 13765,952; una disparidad de más de 12500 dólares por persona.
+Así es que, mediante la categorización de los países en dos grupos, número óptimo según las tres técnicas anteriormente ejecutadas, es que podemos observar en este gráfico que la categoría que corresponde a una “baja presencia de mujeres en el parlamento” cuenta con 112 países. Estos países cuentan con un elevado número de vulnerabilidad en empleo femenino, ya que representa un 61.95%. Este porcentaje es alto si se compara al grupo de países que constituyen una “alta presencia de mujeres en el parlamento” ya que los 68 países (casi una proporción de 1 a 2 del total de países) que la conforman cuentan con un porcentaje de vulnerabilidad de empleo femenino de tan solo un 11.57%. 
+
+Este parece ser un indicador sustancialmente diferenciador, ya que en el factor de la población activa se tiene una diferencia menor (2.28548%) entre el grupo de la alta presencia (43.33276%) y el de baja (41.04728).Así mismo, se ve una diferencia de 2 puntos en la variable de gasto público en educación, sorprendentemente a favor de los países con baja presencia,quienes cuentan con un promedio de 15.86 a diferencia de los de alta presencia que cuentan con 13.04. Finalmente, la varaible del PBI per cápita de cada país muestra otra desigualdad monumental, debido a que el PBI de los países con baja presencia cuentan con 1204.844 dólares, mientras los de alta presencia con 13765.952 dólares; una disparidad de más de 12500 dólares.
 
 ### Análisis geoespacial de clusters:
 
@@ -365,10 +364,15 @@ plot.title = element_text(color="black", size=11, face="bold"))
 mapa1
 ```
 
-El gráfico adjunto mide la intensidad de la presencia de mujeres en escaños parlamentarios a nivel global. La leyenda ubicada a la derecha ilustra este punto. Así, el color turquesa sugiere una alta presencia femenina, el morado una baja y el gris la ausencia de data. Por un lado, apreciamos que la región de Europa oriental, Eurasia, Oceanía, el sur de África, Estados Unidos, Argentina y Brasil tiene baja presencia de mujeres. Por otro lado, el resto de Estados latinoamericanos, la región del África subsahariana y el sudeste asiático presentan altos índices.  Por último, resalta la ausencia de data acerca de la región del Magreb, Canadá, Turquía y ciertos Estados del sudeste asiático.
+El gráfico adjunto mide la intensidad de la presencia de mujeres en escaños parlamentarios a nivel global. La leyenda ubicada a la derecha ilustra este punto. Así, el color turquesa sugiere una alta presencia femenina, el morado una baja y el gris los datos perdidos de la data producida. Por un lado, apreciamos que la región de Europa oriental, Eurasia, Oceanía, el sur de África, Estados Unidos, Argentina y Brasil tiene alta presencia de mujeres. Por otro lado, el resto de Estados latinoamericanos, la región del África subsahariana y el sudeste asiático presentan bajos índices de presencia de actividad femenina en los escaños parlamentarios.  Por último, resalta la ausencia de data acerca de la región del Magreb, Canadá, Turquía y ciertos Estados del sudeste asiático.
 
+## Conclusiones
 
+En conclusión, las variables observadas y analizadas en este trabajo en definitiva impactan la proporción de escaños parlamentarios ocupados por mujeres. En primer lugar, de los 180 países estudiados se observa cómo zonas, como el norte de Europa tienen una gran proporción, mientras que otras como África, cuenta con una baja. Ello se debe en parte a las diferencias culturales, ideológicas, políticas e históricas. No obstante, se pudo observar que, lamentablemente, la mayoría de países cuenta con una proporción de apenas un 25% de mujeres en sus parlamentos, es decir, como máximo representan ¼ de todo el parlamento. 
 
+Es así que, mediante el estudio de las 4 variables independientes (porcentaje de empleo vulnerable femenino, porcentaje de la población activa de mujeres, gasto público en educación y PBI per cápita nacional) concluimos que todas estas son significativas, aunque su grado de relevancia varia. Por ejemplo, la cantidad de población activa femenina es sumamente influyente, mientras el PBI tiene un menor grado de influencia. Aunque, cabe recalcar que el modelo construido en base a las cuatro variables cuenta con un 20% de confiabilidad, apto para poder analizar variaciones del porcentaje de escaños en parlamentos a nivel global. 
+
+En segundo lugar, mediante el análisis de ‘clusters’ (o conglomerados) y el empleo de las técnicas de agrupación, se dividió a los países en dos grupos: alta participación política femenina (68 países) o baja participación de mujeres en los escaños parlamentarios (112 países). Ambos grupos cuentan con importantes diferencias, especialmente entre las variables de población vulnerable femenina y PBI per cápita. Enfocándonos en un análisis geoespacial, podemos comprobar que, zonas como Europa norte cuenta con una alta participación, mientras casi la totalidad de África y Oriente registran una participación baja. En el caso de Latinoamérica, esta se identifica con una dinámica variada puesto que presenta países con alta y baja participación al mismo tiempo. 
 
 
 
