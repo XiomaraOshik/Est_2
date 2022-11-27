@@ -337,6 +337,7 @@ Así es que, mediante la categorización de los países en dos grupos, número �
 
 Este parece ser un indicador sustancialmente diferenciador, ya que en el factor de la población activa se tiene una diferencia menor (2.28548%) entre el grupo de la alta presencia (43.33276%) y el de baja (41.04728).Así mismo, se ve una diferencia de 2 puntos en la variable de gasto público en educación, sorprendentemente a favor de los países con baja presencia,quienes cuentan con un promedio de 15.86 a diferencia de los de alta presencia que cuentan con 13.04. Finalmente, la varaible del PBI per cápita de cada país muestra otra desigualdad monumental, debido a que el PBI de los países con baja presencia cuentan con 1204.844 dólares, mientras los de alta presencia con 13765.952 dólares; una disparidad de más de 12500 dólares.
 
+
 ### Análisis geoespacial de clusters:
 
 ```{r include=FALSE}
@@ -366,6 +367,8 @@ mapa1
 
 El gráfico adjunto mide la intensidad de la presencia de mujeres en escaños parlamentarios a nivel global. La leyenda ubicada a la derecha ilustra este punto. Así, el color turquesa sugiere una alta presencia femenina, el morado una baja y el gris los datos perdidos de la data producida. Por un lado, apreciamos que la región de Europa oriental, Eurasia, Oceanía, el sur de África, Estados Unidos, Argentina y Brasil tiene alta presencia de mujeres. Por otro lado, el resto de Estados latinoamericanos, la región del África subsahariana y el sudeste asiático presentan bajos índices de presencia de actividad femenina en los escaños parlamentarios.  Por último, resalta la ausencia de data acerca de la región del Magreb, Canadá, Turquía y ciertos Estados del sudeste asiático.
 
+Frente a estos resultados, se puede determinar que los clusters son de ayuda para una mejor organización de datos, sin embargo, no siempre pueden identificar un caso atípico. Esto debido a que Brasil, por ejemplo, está ubicado dentro de los países con alta presencia femenina en los escaños parlamentarios debido a que cumple con las variables independientes como un alto PBI, alta inversión en educación, alto porcentaje de mujeres activas y bajo porcentaje de vulnerabilidad. Sin embargo, Brasil solo cuenta con un 14.62% de presencia femenina en los escaños parlamentarios, por lo que en realidad debería ser catalogado como de baja presencia de mujeres.
+
 ## Conclusiones
 
 En conclusión, las variables observadas y analizadas en este trabajo en definitiva impactan la proporción de escaños parlamentarios ocupados por mujeres. En primer lugar, de los 180 países estudiados se observa cómo zonas, como el norte de Europa tienen una gran proporción, mientras que otras como África, cuenta con una baja. Ello se debe en parte a las diferencias culturales, ideológicas, políticas e históricas. No obstante, se pudo observar que, lamentablemente, la mayoría de países cuenta con una proporción de apenas un 25% de mujeres en sus parlamentos, es decir, como máximo representan ¼ de todo el parlamento. 
@@ -374,6 +377,7 @@ Es así que, mediante el estudio de las 4 variables independientes (porcentaje d
 
 En segundo lugar, mediante el análisis de ‘clusters’ (o conglomerados) y el empleo de las técnicas de agrupación, se dividió a los países en dos grupos: alta participación política femenina (68 países) o baja participación de mujeres en los escaños parlamentarios (112 países). Ambos grupos cuentan con importantes diferencias, especialmente entre las variables de población vulnerable femenina y PBI per cápita. Enfocándonos en un análisis geoespacial, podemos comprobar que, zonas como Europa norte cuenta con una alta participación, mientras casi la totalidad de África y Oriente registran una participación baja. En el caso de Latinoamérica, esta se identifica con una dinámica variada puesto que presenta países con alta y baja participación al mismo tiempo. 
 
+Finalmente, como puntos a mejorar en este trabajo se tiene las limitaciones que muestran las clusterizaciones para identificar casos atípicos. En este sentido, para futuros trabajos de investigación sería interesante poder identificar esos casos atípicos y realizar un análisis más exhaustivo de ellos.
 
 
 
