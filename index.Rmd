@@ -342,6 +342,8 @@ ggplot(bar1, aes(x=diana, y=Cluster)) +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank())
 ```
 
+Así es que, mediante la categorización de los países en dos grupos, número óptimo según las tres técnicas anteriormente ejecutadas, es que podemos observar en este gráfico que la categoría que corresponde a una “baja presencia de mujeres en el parlamento” cuenta con 112 países. Países los cuales cuentan con un elevado número de vulnerabilidad en cuanto a empleo refiere en mujeres, ya que representa un 61.95%. El cual es en sumo alto si se compara al grupo de países que constituyen una “alta presencia de mujeres en el parlamento” ya que los 68 países (casi una proporción de 1 a 2 del total de países) que la conforman cuentan con un porcentaje de vulnerabilidad de tan solo 11.57%. Y este parece ser un indicador sustancialmente diferenciador, ya que en los otros factores como la población activa tienen una diferencia no tan grande, como la de 2.28548% en referencia al porcentaje de población activa de mujeres, siendo que el grupo de la alta presencia cuenta con 43.33276%. Por otro lado, es que se ve una diferencia similar de 2 puntos (o en este caso de porcentaje destinado del total del PBI), sorprendentemente a favor de los países con baja presencia quieres cuentan con un promedio de 15.86 a diferencia de los 13.04 que gastan los países con alta presencia. Y finalmente el PBI de cada país es que muestra otra desigualdad monumental, ya que el PBI de los países con baja presencia cuentan con 1204.844, mientras los de alta presencia con 13765,952; una disparidad de más de 12500 dólares por persona.
+
 ### Análisis geoespacial de clusters:
 
 ```{r include=FALSE}
